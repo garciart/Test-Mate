@@ -4,13 +4,13 @@
              xmlns:local="clr-namespace:TestMate"
              x:Class="TestMate.MainPage">
 
-    <StackLayout VerticalOptions="CenterAndExpand">
+    <StackLayout VerticalOptions="CenterAndExpand" Margin="25">
         <!-- Place new controls here -->
         <Label Text="Welcome to Test Mate!" HorizontalOptions="Center" />
-        <Button Text="Start a New Test..." HorizontalOptions="FillAndExpand" />
-        <Button Text="Change Settings..." HorizontalOptions="FillAndExpand" />
-        <Button Text="About Test Mate..." HorizontalOptions="FillAndExpand" />
-        <Button Text="Exit Test Mate..." HorizontalOptions="FillAndExpand" />
+        <Button Text="Start a New Test..." HorizontalOptions="FillAndExpand" Clicked="StartNewTestBtn_Clicked" />
+        <Button Text="Change Settings..." HorizontalOptions="FillAndExpand" Clicked="ChangeSettingsBtn_Clicked" />
+        <Button Text="About Test Mate..." HorizontalOptions="FillAndExpand" Clicked="AboutTestMateBtn_Clicked" />
+        <Button Text="Exit Test Mate..." HorizontalOptions="FillAndExpand" Clicked="ExitTestMateBtn_Clicked" />
     </StackLayout>
 
 </ContentPage>

@@ -33,5 +33,21 @@ namespace TestMate {
         public MainPage() {
             InitializeComponent();
         }
+
+        private void StartNewTestBtn_Clicked(object sender, EventArgs e) {
+            DisplayAlert("Test Mate", "You clicked Start a New Test!", "OK");
+        }
+
+        private void ChangeSettingsBtn_Clicked(object sender, EventArgs e) {
+            DisplayAlert("Test Mate", "You clicked Change Settings!", "OK");
+        }
+
+        private async void AboutTestMateBtn_Clicked(object sender, EventArgs e) {
+            DisplayAlert("Test Mate", "You clicked About Test Mate!", "OK");
+        }
+
+        private void ExitTestMateBtn_Clicked(object sender, EventArgs e) {
+            DisplayAlert("Test Mate", "You clicked Exit Test Mate!", "OK");
+        }
     }
 }
