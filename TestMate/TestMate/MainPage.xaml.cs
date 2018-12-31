@@ -32,22 +32,26 @@ namespace TestMate {
     public partial class MainPage : ContentPage {
         public MainPage() {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
         }
 
-        private void StartNewTestBtn_Clicked(object sender, EventArgs e) {
-            DisplayAlert("Test Mate", "You clicked Start a New Test!", "OK");
+        private async void StartNewTestBtn_Clicked(object sender, EventArgs e) {
+            await this.DisplayAlert("Test Mate", "You clicked Start a New Test!", "OK");
         }
 
-        private void ChangeSettingsBtn_Clicked(object sender, EventArgs e) {
-            DisplayAlert("Test Mate", "You clicked Change Settings!", "OK");
+        private async void ChangeSettingsBtn_Clicked(object sender, EventArgs e) {
+            await this.DisplayAlert("Test Mate", "You clicked Change Settings!", "OK");
         }
 
         private async void AboutTestMateBtn_Clicked(object sender, EventArgs e) {
-            DisplayAlert("Test Mate", "You clicked About Test Mate!", "OK");
+            await Navigation.PushModalAsync(new AboutPage());
+            // await this.DisplayAlert("Test Mate", "You clicked About Test Mate!", "OK");
         }
 
-        private void ExitTestMateBtn_Clicked(object sender, EventArgs e) {
-            DisplayAlert("Test Mate", "You clicked Exit Test Mate!", "OK");
+        private async void ExitTestMateBtn_Clicked(object sender, EventArgs e) {
+            if(await this.DisplayAlert("Test Mate", "Are you sure you want to quit?", "Yes", "No")) {
+                await this.DisplayAlert("Test Mate", "You clicked Exit Test Mate!", "OK");
+            }
         }
     }
 }
