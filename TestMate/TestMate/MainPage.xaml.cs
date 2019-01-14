@@ -30,8 +30,12 @@ using Xamarin.Forms;
 
 namespace TestMate {
     public partial class MainPage : ContentPage {
+        private double width;
+        private double height;
+
         public MainPage() {
             InitializeComponent();
+            headerImage.Source = ImageSource.FromResource("TestMate.Assets.tmbanner360.png");
             NavigationPage.SetHasNavigationBar(this, false);
         }
 
@@ -51,6 +55,32 @@ namespace TestMate {
         private async void ExitTestMateBtn_Clicked(object sender, EventArgs e) {
             if(await this.DisplayAlert("Test Mate", "Are you sure you want to quit?", "Yes", "No")) {
                 await this.DisplayAlert("Test Mate", "You clicked Exit Test Mate!", "OK");
+            }
+        }
+
+        protected override void OnSizeAllocated(double width, double height) {
+            base.OnSizeAllocated(width, height);
+            if (width != this.width || height != this.height) {
+                this.width = width;
+                this.height = height;
+                if (width > height) {
+                    Grid.SetColumnSpan(headerImage, 2);
+                    Grid.SetColumn(startButton, 0);
+                    Grid.SetColumn(settingsButton, 0);
+                    Grid.SetColumn(aboutButton, 1);
+                    Grid.SetRow(aboutButton, 1);
+                    Grid.SetColumn(exitButton, 1);
+                    Grid.SetRow(exitButton, 2);
+                }
+                else {
+                    Grid.SetColumnSpan(headerImage, 1);
+                    Grid.SetColumn(startButton, 0);
+                    Grid.SetColumn(settingsButton, 0);
+                    Grid.SetColumn(aboutButton, 0);
+                    Grid.SetRow(aboutButton, 3);
+                    Grid.SetColumn(exitButton, 0);
+                    Grid.SetRow(exitButton, 4);
+                }
             }
         }
     }

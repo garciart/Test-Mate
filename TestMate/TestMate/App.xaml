@@ -3,6 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TestMate.App">
     <Application.Resources>
-
+        <StyleSheet Source="/Assets/Styles.css" />
     </Application.Resources>
 </Application>

@@ -3,9 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TestMate.AboutPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Test Mate!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
-            <Label Text="Copyright" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout Padding="10">
+                <Label Text="TEST MATE&#xae; VERSION 4.0" StyleClass="h1" />
+                <Label x:Name="copyrightLabel" />
+                <BoxView StyleClass="hr" />
+                <Label Text="Test Mate&#xae; is a mobile self-study system, designed to assist you in achieving your educational and professional goals by allowing you to study what you want, when and where you want. Why study alone?" />
+                <BoxView StyleClass="hr" />
+                <Label Text="Warning: This computer program is protected by copyright law and international treaties. Unauthorized reproduction or distribution of this program, or any portion of it, may result in severe civil or criminal penalties, and will be prosecuted under the maximum extent possible under law." />
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

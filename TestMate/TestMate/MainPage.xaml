@@ -3,14 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:TestMate"
              x:Class="TestMate.MainPage">
-
-    <StackLayout VerticalOptions="CenterAndExpand" Margin="25">
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Test Mate!" HorizontalOptions="Center" />
-        <Button Text="Start a New Test..." HorizontalOptions="FillAndExpand" Clicked="StartNewTestBtn_Clicked" />
-        <Button Text="Change Settings..." HorizontalOptions="FillAndExpand" Clicked="ChangeSettingsBtn_Clicked" />
-        <Button Text="About Test Mate..." HorizontalOptions="FillAndExpand" Clicked="AboutTestMateBtn_Clicked" />
-        <Button Text="Exit Test Mate..." HorizontalOptions="FillAndExpand" Clicked="ExitTestMateBtn_Clicked" />
-    </StackLayout>
-
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0" />
+    </ContentPage.Padding>
+    <Grid x:Name="outerGrid" Padding="10">
+        <Image x:Name="headerImage" Aspect="AspectFit" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" />
+        <Button x:Name="startButton" Text="Start a New Test..." Grid.Row="1" Grid.Column="0" HorizontalOptions="Fill"  StyleClass="button" Clicked="StartNewTestBtn_Clicked" />
+        <Button x:Name="settingsButton" Text="Change Settings..." Grid.Row="2" Grid.Column="0" HorizontalOptions="Fill" StyleClass="button" Clicked="ChangeSettingsBtn_Clicked" />
+        <Button x:Name="aboutButton" Text="About Test Mate..." Grid.Row="3" Grid.Column="0" HorizontalOptions="Fill" StyleClass="button" Clicked="AboutTestMateBtn_Clicked" />
+        <Button x:Name="exitButton" Text="Exit Test Mate..." Grid.Row="4" Grid.Column="0" HorizontalOptions="Fill" StyleClass="button" Clicked="ExitTestMateBtn_Clicked" />
+    </Grid>
 </ContentPage>
