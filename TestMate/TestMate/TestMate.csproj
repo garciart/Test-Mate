@@ -11,24 +11,43 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\headerImage.png" />
+    <None Remove="Assets\headerImage2.png" />
     <None Remove="Assets\TM.ico" />
+    <None Remove="Assets\TMBanner.png" />
     <None Remove="Assets\tmbanner360.png" />
     <None Remove="Assets\tmicon48.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Assets\headerImage.png" />
+    <EmbeddedResource Include="Assets\headerImage2.png" />
     <EmbeddedResource Include="Assets\TM.ico" />
+    <EmbeddedResource Include="Assets\TMBanner.png" />
     <EmbeddedResource Include="Assets\tmbanner360.png" />
     <EmbeddedResource Include="Assets\tmicon48.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="3.3.0.967583" />
+    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1009999" />
+    <PackageReference Include="Xamarin.Plugin.FilePicker" Version="2.0.135" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\AppResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Update="AboutPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\AppResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 </Project>

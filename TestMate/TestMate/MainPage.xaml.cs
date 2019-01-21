@@ -23,41 +23,45 @@
  */
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Plugin.FilePicker;
+using Plugin.FilePicker.Abstractions;
+using TestMate.Resources;
 using Xamarin.Forms;
 
 namespace TestMate {
     public partial class MainPage : ContentPage {
-        private double width;
-        private double height;
-
         public MainPage() {
             InitializeComponent();
-            headerImage.Source = ImageSource.FromResource("TestMate.Assets.tmbanner360.png");
-            NavigationPage.SetHasNavigationBar(this, false);
+            // For uniformity, make sure image is 160 pixels per inch
+            headerImage.Source = ImageSource.FromResource("TestMate.Assets.headerImage2.png");
         }
 
-        private async void StartNewTestBtn_Clicked(object sender, EventArgs e) {
-            await this.DisplayAlert("Test Mate", "You clicked Start a New Test!", "OK");
+        private async void StartNewTestButton_Clicked(object sender, EventArgs e) {
+            FileData fileName = await CrossFilePicker.Current.PickFile();
+            await this.DisplayAlert("Test Mate", (fileName == null ? AppResources.openFileError : (String.Format(AppResources.clickTestText, fileName))), "OK");
         }
 
-        private async void ChangeSettingsBtn_Clicked(object sender, EventArgs e) {
-            await this.DisplayAlert("Test Mate", "You clicked Change Settings!", "OK");
+        private async void ChangeSettingsButton_Clicked(object sender, EventArgs e) {
+            String cultureName = CultureInfo.CurrentCulture.Name;
+            CultureInfo.CurrentCulture = new CultureInfo((cultureName == "en-US" ? "es-ES" : "en-US"));
+            CultureInfo.CurrentUICulture = new CultureInfo((cultureName == "en-US" ? "es-ES" : "en-US"));
+            cultureName = CultureInfo.CurrentCulture.Name;
+            await this.DisplayAlert("Test Mate", String.Format("The current culture's name is {0}!", cultureName), "OK");
+            // await this.DisplayAlert("Test Mate", String.Format(AppResources.clickTestText, "Change Settings!"), "OK");
         }
 
-        private async void AboutTestMateBtn_Clicked(object sender, EventArgs e) {
+        private async void AboutTestMateButton_Clicked(object sender, EventArgs e) {
             await Navigation.PushModalAsync(new AboutPage());
             // await this.DisplayAlert("Test Mate", "You clicked About Test Mate!", "OK");
         }
 
-        private async void ExitTestMateBtn_Clicked(object sender, EventArgs e) {
-            if(await this.DisplayAlert("Test Mate", "Are you sure you want to quit?", "Yes", "No")) {
-                await this.DisplayAlert("Test Mate", "You clicked Exit Test Mate!", "OK");
-            }
-        }
-
+        /*
+        private double width;
+        private double height;
         protected override void OnSizeAllocated(double width, double height) {
             base.OnSizeAllocated(width, height);
             if (width != this.width || height != this.height) {
@@ -83,5 +87,6 @@ namespace TestMate {
                 }
             }
         }
+        */
     }
 }

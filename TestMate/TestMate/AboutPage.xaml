@@ -1,16 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TestMate.AboutPage">
+             x:Class="TestMate.AboutPage"
+             xmlns:local="clr-namespace:TestMate"
+             Title="Test Mate!">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Padding="10">
-                <Label Text="TEST MATE&#xae; VERSION 4.0" StyleClass="h1" />
+                <Label Text="{x:Static local:Resources.AppResources.aboutTitleLabelText}" StyleClass="h1" />
                 <Label x:Name="copyrightLabel" />
                 <BoxView StyleClass="hr" />
-                <Label Text="Test Mate&#xae; is a mobile self-study system, designed to assist you in achieving your educational and professional goals by allowing you to study what you want, when and where you want. Why study alone?" />
+                <Label Text="{x:Static local:Resources.AppResources.aboutInfoLabelText}" />
                 <BoxView StyleClass="hr" />
-                <Label Text="Warning: This computer program is protected by copyright law and international treaties. Unauthorized reproduction or distribution of this program, or any portion of it, may result in severe civil or criminal penalties, and will be prosecuted under the maximum extent possible under law." />
+                <Label Text="{x:Static local:Resources.AppResources.aboutWarningText}" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

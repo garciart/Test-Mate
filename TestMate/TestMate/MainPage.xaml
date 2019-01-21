@@ -2,15 +2,19 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:TestMate"
-             x:Class="TestMate.MainPage">
+             x:Class="TestMate.MainPage"
+             Title="Test Mate!">
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0" />
     </ContentPage.Padding>
-    <Grid x:Name="outerGrid" Padding="10">
-        <Image x:Name="headerImage" Aspect="AspectFit" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" />
-        <Button x:Name="startButton" Text="Start a New Test..." Grid.Row="1" Grid.Column="0" HorizontalOptions="Fill"  StyleClass="button" Clicked="StartNewTestBtn_Clicked" />
-        <Button x:Name="settingsButton" Text="Change Settings..." Grid.Row="2" Grid.Column="0" HorizontalOptions="Fill" StyleClass="button" Clicked="ChangeSettingsBtn_Clicked" />
-        <Button x:Name="aboutButton" Text="About Test Mate..." Grid.Row="3" Grid.Column="0" HorizontalOptions="Fill" StyleClass="button" Clicked="AboutTestMateBtn_Clicked" />
-        <Button x:Name="exitButton" Text="Exit Test Mate..." Grid.Row="4" Grid.Column="0" HorizontalOptions="Fill" StyleClass="button" Clicked="ExitTestMateBtn_Clicked" />
-    </Grid>
+    <ScrollView>
+        <StackLayout Padding="10" VerticalOptions="Center">
+            <Label Text="{x:Static local:Resources.AppResources.Title}" StyleClass="h1" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
+            <Image x:Name="headerImage" Aspect="AspectFit" HeightRequest="100" />
+            <Label Text="{x:Static local:Resources.AppResources.Subtitle}" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
+            <Button x:Name="startButton" Text="{x:Static local:Resources.AppResources.startButtonText}" StyleClass="button" Clicked="StartNewTestButton_Clicked" />
+            <Button x:Name="settingsButton" Text="{x:Static local:Resources.AppResources.settingsButtonText}" StyleClass="button" Clicked="ChangeSettingsButton_Clicked" />
+            <Button x:Name="aboutButton" Text="{x:Static local:Resources.AppResources.aboutButtonText}" StyleClass="button" Clicked="AboutTestMateButton_Clicked" />
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

@@ -24,9 +24,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
-
+using TestMate.Resources;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -38,7 +39,8 @@ namespace TestMate
 		public AboutPage ()
 		{
 			InitializeComponent();
-            copyrightLabel.Text = String.Format("Copyright \u00A9 1993-{0} Rob Garcia. All rights reserved.", DateTime.Now.Year.ToString());
-		}
+            // copyrightLabel.Text = String.Format("Copyright \u00A9 1993-{0} Rob Garcia. All rights reserved.", DateTime.Now.Year.ToString());
+            copyrightLabel.Text = String.Format(AppResources.copyrightLabelText, DateTime.Now.Year.ToString());
+        }
 	}
 }
