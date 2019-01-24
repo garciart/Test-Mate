@@ -35,6 +35,10 @@ using Xamarin.Forms;
 namespace TestMate {
     public partial class MainPage : ContentPage {
         public MainPage() {
+            LoadPage();
+        }
+
+        public void LoadPage() {
             InitializeComponent();
             // For uniformity, make sure image is 160 pixels per inch
             headerImage.Source = ImageSource.FromResource("TestMate.Assets.headerImage2.png");
@@ -46,11 +50,14 @@ namespace TestMate {
         }
 
         private async void ChangeSettingsButton_Clicked(object sender, EventArgs e) {
+            await Navigation.PushModalAsync(new SettingsPage());
+            /*
             String cultureName = CultureInfo.CurrentCulture.Name;
             CultureInfo.CurrentCulture = new CultureInfo((cultureName == "en-US" ? "es-ES" : "en-US"));
             CultureInfo.CurrentUICulture = new CultureInfo((cultureName == "en-US" ? "es-ES" : "en-US"));
             cultureName = CultureInfo.CurrentCulture.Name;
             await this.DisplayAlert("Test Mate", String.Format("The current culture's name is {0}!", cultureName), "OK");
+            */
             // await this.DisplayAlert("Test Mate", String.Format(AppResources.clickTestText, "Change Settings!"), "OK");
         }
 

@@ -133,6 +133,15 @@ namespace TestMate.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string settingsTitleLabelText {
+            get {
+                return ResourceManager.GetString("settingsTitleLabelText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Start a New Test....
         /// </summary>
         public static string startButtonText {
@@ -147,6 +156,15 @@ namespace TestMate.Resources {
         public static string Subtitle {
             get {
                 return ResourceManager.GetString("Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Switch language to Spanish.
+        /// </summary>
+        public static string swtichLanguageButtonText {
+            get {
+                return ResourceManager.GetString("swtichLanguageButtonText", resourceCulture);
             }
         }
         

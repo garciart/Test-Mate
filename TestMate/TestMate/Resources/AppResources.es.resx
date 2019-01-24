@@ -161,4 +161,12 @@
     <value>¡BIENVENIDO A TEST MATE!</value>
     <comment>WELCOME TO TEST MATE!</comment>
   </data>
+  <data name="settingsTitleLabelText" xml:space="preserve">
+    <value>Configuraciones</value>
+    <comment>Settings</comment>
+  </data>
+  <data name="swtichLanguageButtonText" xml:space="preserve">
+    <value>Cambia el idioma a inglés</value>
+    <comment>Switch language to Spanish</comment>
+  </data>
 </root>
