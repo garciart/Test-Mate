@@ -22,6 +22,7 @@
  * THE SOFTWARE.
  */
 using System;
+using System.Globalization;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -30,6 +31,7 @@ namespace TestMate {
     public partial class App : Application {
         public App() {
             InitializeComponent();
+            TestMate.Resources.AppResources.Culture = new System.Globalization.CultureInfo("en-US");
             MainPage = new MainPage();
         }
 
