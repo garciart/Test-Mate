@@ -138,7 +138,7 @@
     <comment>You clicked {0}!</comment>
   </data>
   <data name="copyrightLabelText" xml:space="preserve">
-    <value>Derechos de autor© 1993-{0} Rob Garcia. Todos los derechos reservados.</value>
+    <value>Derechos de autor © 1993-{0} Rob Garcia. Todos los derechos reservados.</value>
     <comment>Copyright © 1993-{0} Rob Garcia. All rights reserved.</comment>
   </data>
   <data name="openFileError" xml:space="preserve">

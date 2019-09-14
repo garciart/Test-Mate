@@ -133,7 +133,7 @@
     <value>You clicked {0}!</value>
   </data>
   <data name="copyrightLabelText" xml:space="preserve">
-    <value>Copyright© 1993-{0} Rob Garcia. All rights reserved.</value>
+    <value>Copyright © 1993-{0} Rob Garcia. All rights reserved.</value>
   </data>
   <data name="openFileError" xml:space="preserve">
     <value>Cannot open that file!</value>
