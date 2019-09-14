@@ -23,20 +23,35 @@
  */
 using System;
 using System.Globalization;
+using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace TestMate {
+    /**
+     * Application controller page
+     *
+     * @author Rob Garcia at rgarcia@rgprogramming.com
+     */
     public partial class App : Application {
+
+        private string _configFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "TestMate.ini");
+        public static string configContents = "Hey!";
         public App() {
             InitializeComponent();
-            TestMate.Resources.AppResources.Culture = new System.Globalization.CultureInfo("en-US");
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart() {
             // Handle when your app starts
+            if (File.Exists(_configFile)) {
+                Application.Current.MainPage.DisplayAlert("Alert", "Found the configuration file!", "OK");
+            }
+            else {
+                Application.Current.MainPage.DisplayAlert("Alert", "No configuration file found!\nInitializing file...", "OK");
+            }
+            // TestMate.Resources.AppResources.Culture = new System.Globalization.CultureInfo("en-US");
         }
 
         protected override void OnSleep() {

@@ -106,7 +106,7 @@ namespace TestMate.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Copyright© 1993-{0} Rob Garcia. All rights reserved..
+        ///   Looks up a localized string similar to Copyright © 1993-{0} Rob Garcia. All rights reserved..
         /// </summary>
         public static string copyrightLabelText {
             get {

@@ -36,13 +36,18 @@ using Xamarin.Forms;
 namespace TestMate {
     public partial class MainPage : ContentPage {
         public MainPage() {
-
-        }
-
-        public void PopulateControls() {
             InitializeComponent();
             // For uniformity, make sure image is 160 pixels per inch
             headerImage.Source = ImageSource.FromResource("TestMate.Assets.headerImage2.png");
+        }
+
+        protected override void OnAppearing() {
+            // Application.Current.MainPage.DisplayAlert("Alert", App.configContents, "OK");
+            base.OnAppearing();
+        }
+
+        public void PopulateControls() {
+
         }
 
         private async void StartNewTestButton_Clicked(object sender, EventArgs e) {
@@ -51,22 +56,17 @@ namespace TestMate {
         }
 
         private async void ChangeSettingsButton_Clicked(object sender, EventArgs e) {
-            await Navigation.PushModalAsync(new SettingsPage());            
+            await Navigation.PushAsync(new SettingsPage());            
         }
 
         private async void AboutTestMateButton_Clicked(object sender, EventArgs e) {
-            await Navigation.PushModalAsync(new AboutPage());
+            await Navigation.PushAsync(new AboutPage());
             // await this.DisplayAlert("Test Mate", "You clicked About Test Mate!", "OK");
         }
 
         private async void DownloadTestButton_Clicked(object sender, EventArgs e) {
             // await Navigation.PushModalAsync(new DownloadPage());
             await this.DisplayAlert("Test Mate", "You clicked Download Test!", "OK");
-        }
-
-        protected override void OnAppearing() {
-            base.OnAppearing();
-            PopulateControls();
         }
 
         /*
