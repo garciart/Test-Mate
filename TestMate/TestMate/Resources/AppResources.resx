@@ -156,4 +156,7 @@
   <data name="swtichLanguageButtonText" xml:space="preserve">
     <value>Switch language to Spanish</value>
   </data>
+  <data name="downloadButtonText" xml:space="preserve">
+    <value>Download a Test...</value>
+  </data>
 </root>

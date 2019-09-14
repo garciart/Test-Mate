@@ -59,6 +59,11 @@ namespace TestMate {
             // await this.DisplayAlert("Test Mate", "You clicked About Test Mate!", "OK");
         }
 
+        private async void DownloadTestButton_Clicked(object sender, EventArgs e) {
+            // await Navigation.PushModalAsync(new DownloadPage());
+            await this.DisplayAlert("Test Mate", "You clicked Download Test!", "OK");
+        }
+
         protected override void OnAppearing() {
             base.OnAppearing();
             PopulateControls();

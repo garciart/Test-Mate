@@ -19,7 +19,7 @@ namespace TestMate.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class AppResources {
@@ -111,6 +111,15 @@ namespace TestMate.Resources {
         public static string copyrightLabelText {
             get {
                 return ResourceManager.GetString("copyrightLabelText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download a Test....
+        /// </summary>
+        public static string downloadButtonText {
+            get {
+                return ResourceManager.GetString("downloadButtonText", resourceCulture);
             }
         }
         

@@ -169,4 +169,8 @@
     <value>Cambia el idioma a inglés</value>
     <comment>Switch language to Spanish</comment>
   </data>
+  <data name="downloadButtonText" xml:space="preserve">
+    <value>Descargar un nuevo examen...</value>
+    <comment>Download a Test...</comment>
+  </data>
 </root>
