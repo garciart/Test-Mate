@@ -4,11 +4,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TestMate.SettingsPage"
              xmlns:local="clr-namespace:TestMate"
-             Title="{x:Static local:Resources.AppResources.settingsTitleLabelText}">
+             Title="{x:Static local:Resources.AppResources.settingsTitle}">
     <ContentPage.Content>
         <StackLayout Padding="10" VerticalOptions="Center">
-            <Label Text="{x:Static local:Resources.AppResources.settingsTitleLabelText}" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
-            <Button x:Name="switchLanguageButton" Text="{x:Static local:Resources.AppResources.swtichLanguageButtonText}" StyleClass="button" Clicked="SwitchLanguageButton_Clicked" />
+            <Label Text="{x:Static local:Resources.AppResources.settingsTitle}" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
+            <Button x:Name="switchLanguageButton" Text="{x:Static local:Resources.AppResources.swtichLanguageButton}" StyleClass="button" Clicked="SwitchLanguageButton_Clicked" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

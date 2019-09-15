@@ -4,16 +4,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TestMate.AboutPage"
              xmlns:local="clr-namespace:TestMate"
-             Title="{x:Static local:Resources.AppResources.aboutButtonText}">
+             Title="{x:Static local:Resources.AppResources.aboutTitle}">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Padding="10">
-                <Label Text="{x:Static local:Resources.AppResources.aboutTitleLabelText}" StyleClass="h1" />
+                <Label Text="{x:Static local:Resources.AppResources.aboutLabel1}" StyleClass="h1" />
                 <Label x:Name="copyrightLabel" />
                 <BoxView StyleClass="hr" />
-                <Label Text="{x:Static local:Resources.AppResources.aboutInfoLabelText}" />
+                <Label Text="{x:Static local:Resources.AppResources.aboutLabel2}" />
                 <BoxView StyleClass="hr" />
-                <Label Text="{x:Static local:Resources.AppResources.aboutWarningText}" />
+                <Label Text="{x:Static local:Resources.AppResources.aboutLabel3}" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

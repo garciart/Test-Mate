@@ -9,13 +9,13 @@
     </ContentPage.Padding>
     <ScrollView x:Name="mainScrollView">
         <StackLayout Padding="10" VerticalOptions="Center">
-            <Label Text="{x:Static local:Resources.AppResources.Title}" StyleClass="h1" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
+            <Label Text="{x:Static local:Resources.AppResources.mainTitle}" StyleClass="h1" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
             <Image x:Name="headerImage" Aspect="AspectFit" HeightRequest="100" />
-            <Label Text="{x:Static local:Resources.AppResources.Subtitle}" StyleClass="h1" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
-            <Button x:Name="startButton" Text="{x:Static local:Resources.AppResources.startButtonText}" StyleClass="button" Clicked="StartNewTestButton_Clicked" />
-            <Button x:Name="settingsButton" Text="{x:Static local:Resources.AppResources.settingsButtonText}" StyleClass="button" Clicked="ChangeSettingsButton_Clicked" />
-            <Button x:Name="aboutButton" Text="{x:Static local:Resources.AppResources.aboutButtonText}" StyleClass="button" Clicked="AboutTestMateButton_Clicked" />
-            <Button x:Name="downloadButton" Text="{x:Static local:Resources.AppResources.downloadButtonText}" StyleClass="button" Clicked="DownloadTestButton_Clicked" />
+            <Label Text="{x:Static local:Resources.AppResources.mainSubtitle}" StyleClass="h1" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
+            <Button x:Name="startButton" Text="{x:Static local:Resources.AppResources.startTitle}" StyleClass="button" Clicked="StartNewTestButton_Clicked" />
+            <Button x:Name="settingsButton" Text="{x:Static local:Resources.AppResources.settingsTitle}" StyleClass="button" Clicked="ChangeSettingsButton_Clicked" />
+            <Button x:Name="aboutButton" Text="{x:Static local:Resources.AppResources.aboutTitle}" StyleClass="button" Clicked="AboutTestMateButton_Clicked" />
+            <Button x:Name="downloadButton" Text="{x:Static local:Resources.AppResources.downloadButton}" StyleClass="button" Clicked="DownloadTestButton_Clicked" />
         </StackLayout>
     </ScrollView>
 </ContentPage>

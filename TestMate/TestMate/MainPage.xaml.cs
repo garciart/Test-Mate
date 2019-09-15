@@ -52,7 +52,7 @@ namespace TestMate {
 
         private async void StartNewTestButton_Clicked(object sender, EventArgs e) {
             FileData fileName = await CrossFilePicker.Current.PickFile();
-            await this.DisplayAlert("Test Mate", (fileName == null ? AppResources.openFileError : (String.Format(AppResources.clickTestText, fileName))), "OK");
+            await this.DisplayAlert("Test Mate", (fileName == null ? AppResources.openFileErrorMessage : (String.Format(AppResources.clickTestMessage, fileName))), "OK");
         }
 
         private async void ChangeSettingsButton_Clicked(object sender, EventArgs e) {
