@@ -1,0 +1,14 @@
+For picker...
+Test Mate can present your test questions in the order that it read them from the test file (default) or in a random order.
+Your current setting is shown below; click on the setting to change its value.
+If the test file contans a list of key terms, Test Mate can display the term as your question and a set of possible definitions as your choices (default); display the definition as your question and a set of possible key terms as your choices; or randomly display terms or definitions as your questions.
+Your current setting is shown below; click on the setting to change its value.
+Test Mate can provide immediate feedback after you choose an answer (default) or provide you feedback after you have completed the test.
+Your current setting is shown below; click on the setting to change its value.
+
+Test Mate puede presentar sus preguntas de prueba en el orden en que las lee del archivo de prueba (predeterminado) o en un orden aleatorio.
+Su configuración actual se muestra a continuación; presione la configuración para cambiar su valor.
+Si el archivo de prueba contiene una lista de términos clave, Test Mate puede mostrar el término como su pregunta y un conjunto de posibles definiciones como sus opciones (predeterminado); muestre la definición como su pregunta y un conjunto de posibles términos clave como sus elecciones; o muestre al azar términos o definiciones como sus preguntas.
+Su configuración actual se muestra a continuación; presione la configuración para cambiar su valor.
+Test Mate puede proporcionar comentarios inmediatos después de elegir una respuesta (predeterminado) o proporcionar comentarios después de haber completado la prueba.
+Su configuración actual se muestra a continuación; presione la configuración para cambiar su valor.
