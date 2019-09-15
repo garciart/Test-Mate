@@ -22,10 +22,13 @@ namespace TestMate
             InitializeComponent();
         }
 
-        private async void SwitchLanguageButton_Clicked(object sender, EventArgs e) {
+        /*
+         * <Button x:Name="switchLanguageButton" Text="{x:Static local:Resources.AppResources.swtichLanguageButton}" StyleClass="button" Clicked="SwitchLanguageButton_Clicked" />
+         * private async void SwitchLanguageButton_Clicked(object sender, EventArgs e) {
             String cultureName = TestMate.Resources.AppResources.Culture.Name;
             TestMate.Resources.AppResources.Culture = new System.Globalization.CultureInfo((cultureName == "en-US" ? "es-ES" : "en-US"));
             await Navigation.PopModalAsync();
         }
+        */
     }
 }
