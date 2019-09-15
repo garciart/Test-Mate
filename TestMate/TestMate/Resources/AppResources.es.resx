@@ -117,60 +117,56 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="aboutButtonText" xml:space="preserve">
-    <value>Sobre Test Mate...</value>
-    <comment>About Test Mate...</comment>
-  </data>
-  <data name="aboutInfoLabelText" xml:space="preserve">
-    <value>Test Mate® es un sistema móvil de autoaprendizaje, diseñado para ayudarlo a alcanzar sus objetivos educativos y profesionales permitiéndole estudiar lo que quiera, cuándo y dónde quiera. ¿Por qué estudiar solo?</value>
-    <comment>Test Mate® is a mobile self-study system, designed to assist you in achieving your educational and professional goals by allowing you to study what you want, when and where you want. Why study alone?</comment>
-  </data>
-  <data name="aboutTitleLabelText" xml:space="preserve">
+  <data name="aboutLabel1" xml:space="preserve">
     <value>TEST MATE® VERSIÓN 4.0</value>
     <comment>TEST MATE® VERSION 4.0</comment>
   </data>
-  <data name="aboutWarningText" xml:space="preserve">
+  <data name="aboutLabel2" xml:space="preserve">
+    <value>Test Mate® es un sistema móvil de autoaprendizaje, diseñado para ayudarlo a alcanzar sus objetivos educativos y profesionales permitiéndole estudiar lo que quiera, cuándo y dónde quiera. ¿Por qué estudiar solo?</value>
+    <comment>Test Mate® is a mobile self-study system, designed to assist you in achieving your educational and professional goals by allowing you to study what you want, when and where you want. Why study alone?</comment>
+  </data>
+  <data name="aboutLabel3" xml:space="preserve">
     <value>Advertencia: este programa de computadora está protegido por las leyes de derechos de autor y los tratados internacionales. La reproducción o distribución no autorizada de este programa, o cualquier parte de él, puede resultar en severas sanciones civiles o penales, y será procesada en la mayor medida posible bajo la ley.</value>
     <comment>Warning: This computer program is protected by copyright law and international treaties. Unauthorized reproduction or distribution of this program, or any portion of it, may result in severe civil or criminal penalties, and will be prosecuted under the maximum extent possible under law.</comment>
   </data>
-  <data name="clickTestText" xml:space="preserve">
+  <data name="aboutTitle" xml:space="preserve">
+    <value>Sobre Test Mate...</value>
+    <comment>About Test Mate...</comment>
+  </data>
+  <data name="clickTestMessage" xml:space="preserve">
     <value>Hiciste clic en {0}!</value>
     <comment>You clicked {0}!</comment>
   </data>
-  <data name="copyrightLabelText" xml:space="preserve">
+  <data name="copyrightLabel" xml:space="preserve">
     <value>Derechos de autor © 1993-{0} Rob Garcia. Todos los derechos reservados.</value>
     <comment>Copyright © 1993-{0} Rob Garcia. All rights reserved.</comment>
   </data>
-  <data name="openFileError" xml:space="preserve">
-    <value>No se puede abrir ese archivo!</value>
-    <comment>Cannot open that file!</comment>
+  <data name="downloadButton" xml:space="preserve">
+    <value>Descargar un nuevo examen...</value>
+    <comment>Download a Test...</comment>
   </data>
-  <data name="settingsButtonText" xml:space="preserve">
-    <value>Cambiar la configuración...</value>
-    <comment>Change Settings...</comment>
-  </data>
-  <data name="startButtonText" xml:space="preserve">
-    <value>Iniciar un nuevo examen...</value>
-    <comment>Start a New Test...</comment>
-  </data>
-  <data name="Subtitle" xml:space="preserve">
+  <data name="mainSubtitle" xml:space="preserve">
     <value>¿Por qué estudiar solo?</value>
     <comment>Why Study Alone?</comment>
   </data>
-  <data name="Title" xml:space="preserve">
+  <data name="mainTitle" xml:space="preserve">
     <value>¡BIENVENIDO A TEST MATE!</value>
     <comment>WELCOME TO TEST MATE!</comment>
   </data>
-  <data name="settingsTitleLabelText" xml:space="preserve">
-    <value>Configuraciones</value>
-    <comment>Settings</comment>
+  <data name="openFileErrorMessage" xml:space="preserve">
+    <value>No se puede abrir ese archivo!</value>
+    <comment>Cannot open that file!</comment>
   </data>
-  <data name="swtichLanguageButtonText" xml:space="preserve">
+  <data name="settingsTitle" xml:space="preserve">
+    <value>Cambiar la configuración...</value>
+    <comment>Change Settings...</comment>
+  </data>
+  <data name="startTitle" xml:space="preserve">
+    <value>Iniciar un nuevo examen...</value>
+    <comment>Start a New Test...</comment>
+  </data>
+  <data name="swtichLanguageButton" xml:space="preserve">
     <value>Cambia el idioma a inglés</value>
     <comment>Switch language to Spanish</comment>
-  </data>
-  <data name="downloadButtonText" xml:space="preserve">
-    <value>Descargar un nuevo examen...</value>
-    <comment>Download a Test...</comment>
   </data>
 </root>

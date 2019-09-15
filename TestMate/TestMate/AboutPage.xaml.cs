@@ -40,7 +40,7 @@ namespace TestMate
 		{
 			InitializeComponent();
             // copyrightLabel.Text = String.Format("Copyright \u00A9 1993-{0} Rob Garcia. All rights reserved.", DateTime.Now.Year.ToString());
-            copyrightLabel.Text = String.Format(AppResources.copyrightLabelText, DateTime.Now.Year.ToString());
+            copyrightLabel.Text = String.Format(AppResources.copyrightLabel, DateTime.Now.Year.ToString());
         }
 	}
 }

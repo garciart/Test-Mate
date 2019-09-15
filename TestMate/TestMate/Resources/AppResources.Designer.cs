@@ -61,128 +61,119 @@ namespace TestMate.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to About Test Mate....
+        ///   Looks up a localized string similar to TEST MATE® VERSION 4.0.
         /// </summary>
-        public static string aboutButtonText {
+        public static string aboutLabel1 {
             get {
-                return ResourceManager.GetString("aboutButtonText", resourceCulture);
+                return ResourceManager.GetString("aboutLabel1", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Test Mate® is a mobile self-study system, designed to assist you in achieving your educational and professional goals by allowing you to study what you want, when and where you want. Why study alone?.
         /// </summary>
-        public static string aboutInfoLabelText {
+        public static string aboutLabel2 {
             get {
-                return ResourceManager.GetString("aboutInfoLabelText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to TEST MATE® VERSION 4.0.
-        /// </summary>
-        public static string aboutTitleLabelText {
-            get {
-                return ResourceManager.GetString("aboutTitleLabelText", resourceCulture);
+                return ResourceManager.GetString("aboutLabel2", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Warning: This computer program is protected by copyright law and international treaties. Unauthorized reproduction or distribution of this program, or any portion of it, may result in severe civil or criminal penalties, and will be prosecuted under the maximum extent possible under law..
         /// </summary>
-        public static string aboutWarningText {
+        public static string aboutLabel3 {
             get {
-                return ResourceManager.GetString("aboutWarningText", resourceCulture);
+                return ResourceManager.GetString("aboutLabel3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to About Test Mate....
+        /// </summary>
+        public static string aboutTitle {
+            get {
+                return ResourceManager.GetString("aboutTitle", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to You clicked {0}!.
         /// </summary>
-        public static string clickTestText {
+        public static string clickTestMessage {
             get {
-                return ResourceManager.GetString("clickTestText", resourceCulture);
+                return ResourceManager.GetString("clickTestMessage", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Copyright © 1993-{0} Rob Garcia. All rights reserved..
         /// </summary>
-        public static string copyrightLabelText {
+        public static string copyrightLabel {
             get {
-                return ResourceManager.GetString("copyrightLabelText", resourceCulture);
+                return ResourceManager.GetString("copyrightLabel", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Download a Test....
         /// </summary>
-        public static string downloadButtonText {
+        public static string downloadButton {
             get {
-                return ResourceManager.GetString("downloadButtonText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Cannot open that file!.
-        /// </summary>
-        public static string openFileError {
-            get {
-                return ResourceManager.GetString("openFileError", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Change Settings....
-        /// </summary>
-        public static string settingsButtonText {
-            get {
-                return ResourceManager.GetString("settingsButtonText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Settings.
-        /// </summary>
-        public static string settingsTitleLabelText {
-            get {
-                return ResourceManager.GetString("settingsTitleLabelText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Start a New Test....
-        /// </summary>
-        public static string startButtonText {
-            get {
-                return ResourceManager.GetString("startButtonText", resourceCulture);
+                return ResourceManager.GetString("downloadButton", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Why Study Alone?.
         /// </summary>
-        public static string Subtitle {
+        public static string mainSubtitle {
             get {
-                return ResourceManager.GetString("Subtitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Switch language to Spanish.
-        /// </summary>
-        public static string swtichLanguageButtonText {
-            get {
-                return ResourceManager.GetString("swtichLanguageButtonText", resourceCulture);
+                return ResourceManager.GetString("mainSubtitle", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to WELCOME TO TEST MATE!.
         /// </summary>
-        public static string Title {
+        public static string mainTitle {
             get {
-                return ResourceManager.GetString("Title", resourceCulture);
+                return ResourceManager.GetString("mainTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot open that file!.
+        /// </summary>
+        public static string openFileErrorMessage {
+            get {
+                return ResourceManager.GetString("openFileErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change Settings....
+        /// </summary>
+        public static string settingsTitle {
+            get {
+                return ResourceManager.GetString("settingsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start a New Test....
+        /// </summary>
+        public static string startTitle {
+            get {
+                return ResourceManager.GetString("startTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Switch language to Spanish.
+        /// </summary>
+        public static string swtichLanguageButton {
+            get {
+                return ResourceManager.GetString("swtichLanguageButton", resourceCulture);
             }
         }
     }
