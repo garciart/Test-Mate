@@ -5,31 +5,50 @@
              x:Class="TestMate.SettingsPage"
              xmlns:local="clr-namespace:TestMate"
              Title="{x:Static local:Resources.AppResources.settingsTitle}">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0" />
+    </ContentPage.Padding>
     <ContentPage.Content>
-        <StackLayout Padding="10" VerticalOptions="Center">
-            <Label Text="{x:Static local:Resources.AppResources.settingsTitle}" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
-            <Label Text="By default, Test Mate displays questions in the order they are read from the test file. Toggle the following switch to use a random order that simulates a real test." />
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
-                <Label Text="Random Question Order:" VerticalOptions="Center" />
-                <Switch VerticalOptions="Center" />
+        <ScrollView>
+            <StackLayout Padding="10" VerticalOptions="Center">
+                <Label Text="{x:Static local:Resources.AppResources.settingsTitle}" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
+                <Label Text="{x:Static local:Resources.AppResources.settingsQuestionOrder}" />
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                    <Picker x:Name="picker1" Title="Question Order:">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Baboon</x:String>
+                                <x:String>Capuchin Monkey</x:String>
+                                <x:String>Blue Monkey</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </StackLayout>
+                <Label Text="{x:Static local:Resources.AppResources.settingsKeyTermsDisplay}" />
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                    <Picker x:Name="picker2" Title="Displaying Key Terms:">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Baboon</x:String>
+                                <x:String>Capuchin Monkey</x:String>
+                                <x:String>Blue Monkey</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </StackLayout>
+                <Label Text="{x:Static local:Resources.AppResources.settingsProvideFeedback}" />
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                    <Picker x:Name="picker3" Title="Provide Feedback:">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Baboon</x:String>
+                                <x:String>Capuchin Monkey</x:String>
+                                <x:String>Blue Monkey</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                    </Picker>
+                </StackLayout>
             </StackLayout>
-            <Label Text="If the test file contains key terms, by default, Test Mate displays the term and asks for the correct definition. Toggle the following switch to display the definition and ask for the correct key term or mix up the displays" />
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
-                <Picker x:Name="picker" Title="Displaying Key Terms:">
-                    <Picker.ItemsSource>
-                        <x:Array Type="{x:Type x:String}">
-                            <x:String>Baboon</x:String>
-                            <x:String>Capuchin Monkey</x:String>
-                            <x:String>Blue Monkey</x:String>
-                        </x:Array>
-                    </Picker.ItemsSource>
-                </Picker>
-            </StackLayout>
-            <Label Text="By default, Test Mate provides immediate feedback after you make a selection. Toggle the following switch to simulate a real test and to only provide feedback after you have completed the test." />
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
-                <Label Text="Immediate Feedback:" VerticalOptions="Center" />
-                <Switch VerticalOptions="Center" />
-            </StackLayout>
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
