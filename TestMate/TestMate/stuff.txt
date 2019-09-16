@@ -6,9 +6,6 @@ Your current setting is shown below; click on the setting to change its value.
 Test Mate can provide immediate feedback after you choose an answer (default) or provide you feedback after you have completed the test.
 Your current setting is shown below; click on the setting to change its value.
 
-Test Mate puede presentar sus preguntas de prueba en el orden en que las lee del archivo de prueba (predeterminado) o en un orden aleatorio.
-Su configuración actual se muestra a continuación; presione la configuración para cambiar su valor.
-Si el archivo de prueba contiene una lista de términos clave, Test Mate puede mostrar el término como su pregunta y un conjunto de posibles definiciones como sus opciones (predeterminado); muestre la definición como su pregunta y un conjunto de posibles términos clave como sus elecciones; o muestre al azar términos o definiciones como sus preguntas.
-Su configuración actual se muestra a continuación; presione la configuración para cambiar su valor.
-Test Mate puede proporcionar comentarios inmediatos después de elegir una respuesta (predeterminado) o proporcionar comentarios después de haber completado la prueba.
-Su configuración actual se muestra a continuación; presione la configuración para cambiar su valor.
+Test Mate puede presentar sus preguntas de prueba en el orden en que las lee del archivo de prueba (predeterminado) o en un orden aleatorio.\nSu configuración actual se muestra a continuación; presione la configuración para cambiar su valor.
+Si el archivo de prueba contiene una lista de términos clave, Test Mate puede mostrar el término como su pregunta y un conjunto de posibles definiciones como sus opciones (predeterminado); muestre la definición como su pregunta y un conjunto de posibles términos clave como sus elecciones; o muestre al azar términos o definiciones como sus preguntas.\nSu configuración actual se muestra a continuación; presione la configuración para cambiar su valor.
+Test Mate puede proporcionar comentarios inmediatos después de elegir una respuesta (predeterminado) o proporcionar comentarios después de haber completado la prueba.\nSu configuración actual se muestra a continuación; presione la configuración para cambiar su valor.

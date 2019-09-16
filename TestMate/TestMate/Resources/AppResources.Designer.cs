@@ -151,6 +151,33 @@ namespace TestMate.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to If the test file contans a list of key terms, Test Mate can display the term as your question and a set of possible definitions as your choices (default); display the definition as your question and a set of possible key terms as your choices; or randomly display terms or definitions as your questions.\nYour current setting is shown below; click on the setting to change its value..
+        /// </summary>
+        public static string settingsKeyTermsDisplay {
+            get {
+                return ResourceManager.GetString("settingsKeyTermsDisplay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Test Mate can provide immediate feedback after you choose an answer (default) or provide you feedback after you have completed the test.\nYour current setting is shown below; click on the setting to change its value..
+        /// </summary>
+        public static string settingsProvideFeedback {
+            get {
+                return ResourceManager.GetString("settingsProvideFeedback", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Test Mate can present your test questions in the order that it read them from the test file (default) or in a random order.\nYour current setting is shown below; click on the setting to change its value..
+        /// </summary>
+        public static string settingsQuestionOrder {
+            get {
+                return ResourceManager.GetString("settingsQuestionOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Change Settings....
         /// </summary>
         public static string settingsTitle {

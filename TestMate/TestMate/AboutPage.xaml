@@ -5,6 +5,9 @@
              x:Class="TestMate.AboutPage"
              xmlns:local="clr-namespace:TestMate"
              Title="{x:Static local:Resources.AppResources.aboutTitle}">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0" />
+    </ContentPage.Padding>
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Padding="10">
