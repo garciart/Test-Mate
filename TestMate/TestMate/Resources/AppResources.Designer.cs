@@ -124,6 +124,33 @@ namespace TestMate.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Use the key term for the question and a set of possible definitions for the choices..
+        /// </summary>
+        public static string keyTermDisplayOption1 {
+            get {
+                return ResourceManager.GetString("keyTermDisplayOption1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use the definition for the question and a set of possible key terms for the choices..
+        /// </summary>
+        public static string keyTermDisplayOption2 {
+            get {
+                return ResourceManager.GetString("keyTermDisplayOption2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Randomly use key terms or definitions for the questions..
+        /// </summary>
+        public static string keyTermDisplayOption3 {
+            get {
+                return ResourceManager.GetString("keyTermDisplayOption3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Why Study Alone?.
         /// </summary>
         public static string mainSubtitle {
@@ -151,7 +178,71 @@ namespace TestMate.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to If the test file contans a list of key terms, Test Mate can display the term as your question and a set of possible definitions as your choices (default); display the definition as your question and a set of possible key terms as your choices; or randomly display terms or definitions as your questions.\nYour current setting is shown below; click on the setting to change its value..
+        ///   Looks up a localized string similar to Provide feedback immediately..
+        /// </summary>
+        public static string provideFeedbackOption1 {
+            get {
+                return ResourceManager.GetString("provideFeedbackOption1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provide feedback after the test is complete..
+        /// </summary>
+        public static string provideFeedbackOption2 {
+            get {
+                return ResourceManager.GetString("provideFeedbackOption2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use the default question order..
+        /// </summary>
+        public static string questionOrderOption1 {
+            get {
+                return ResourceManager.GetString("questionOrderOption1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Randomize the order of the questions..
+        /// </summary>
+        public static string questionOrderOption2 {
+            get {
+                return ResourceManager.GetString("questionOrderOption2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save Settings..
+        /// </summary>
+        public static string saveSettingsButton {
+            get {
+                return ResourceManager.GetString("saveSettingsButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error! Settings were not saved. Please contact Test Mate for assistance..
+        /// </summary>
+        public static string saveSettingsFail {
+            get {
+                return ResourceManager.GetString("saveSettingsFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings saved..
+        /// </summary>
+        public static string saveSettingsPass {
+            get {
+                return ResourceManager.GetString("saveSettingsPass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If the test file contans a list of key terms, Test Mate can display the term as your question and a set of possible definitions as your choices (default); display the definition as your question and a set of possible key terms as your choices; or randomly display terms or definitions as your questions.
+        ///Your current setting is shown below; click on the setting to change its value..
         /// </summary>
         public static string settingsKeyTermsDisplay {
             get {
@@ -160,7 +251,8 @@ namespace TestMate.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Test Mate can provide immediate feedback after you choose an answer (default) or provide you feedback after you have completed the test.\nYour current setting is shown below; click on the setting to change its value..
+        ///   Looks up a localized string similar to Test Mate can provide immediate feedback after you choose an answer (default) or provide you feedback after you have completed the test.
+        ///Your current setting is shown below; click on the setting to change its value..
         /// </summary>
         public static string settingsProvideFeedback {
             get {
@@ -169,7 +261,8 @@ namespace TestMate.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Test Mate can present your test questions in the order that it read them from the test file (default) or in a random order.\nYour current setting is shown below; click on the setting to change its value..
+        ///   Looks up a localized string similar to Test Mate can present your test questions in the order that it read them from the test file (default) or in a random order.
+        ///Your current setting is shown below; click on the setting to change its value..
         /// </summary>
         public static string settingsQuestionOrder {
             get {

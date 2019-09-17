@@ -145,6 +145,18 @@
     <value>Descargar un nuevo examen...</value>
     <comment>Download a Test...</comment>
   </data>
+  <data name="keyTermDisplayOption1" xml:space="preserve">
+    <value>Use el término clave para la pregunta y un conjunto de posibles definiciones para las opciones.</value>
+    <comment>Use the key term for the question and a set of possible definitions for the choices.</comment>
+  </data>
+  <data name="keyTermDisplayOption2" xml:space="preserve">
+    <value>Use la definición de la pregunta y un conjunto de posibles términos clave para las opciones.</value>
+    <comment>Use the definition for the question and a set of possible key terms for the choices.</comment>
+  </data>
+  <data name="keyTermDisplayOption3" xml:space="preserve">
+    <value>Use al azar términos o definiciones clave para las preguntas.</value>
+    <comment>Randomly use key terms or definitions for the questions.</comment>
+  </data>
   <data name="mainSubtitle" xml:space="preserve">
     <value>¿Por qué estudiar solo?</value>
     <comment>Why Study Alone?</comment>
@@ -156,6 +168,34 @@
   <data name="openFileErrorMessage" xml:space="preserve">
     <value>No se puede abrir ese archivo!</value>
     <comment>Cannot open that file!</comment>
+  </data>
+  <data name="provideFeedbackOption1" xml:space="preserve">
+    <value>Proporcione comentarios de inmediato.</value>
+    <comment>Provide feedback immediately.</comment>
+  </data>
+  <data name="provideFeedbackOption2" xml:space="preserve">
+    <value>Proporcione comentarios una vez que se complete la prueba.</value>
+    <comment>Provide feedback after the test is complete.</comment>
+  </data>
+  <data name="questionOrderOption1" xml:space="preserve">
+    <value>Use el orden de preguntas predeterminado.</value>
+    <comment>Use the default question order.</comment>
+  </data>
+  <data name="questionOrderOption2" xml:space="preserve">
+    <value>Aleatorizar el orden de las preguntas.</value>
+    <comment>Randomize the order of the questions.</comment>
+  </data>
+  <data name="saveSettingsButton" xml:space="preserve">
+    <value>Guardar ajustes.</value>
+    <comment>Save Settings.</comment>
+  </data>
+  <data name="saveSettingsFail" xml:space="preserve">
+    <value>¡Error! La configuración no se guardó. Póngase en contacto con Test Mate para obtener ayuda.</value>
+    <comment>Error! Settings were not saved. Please contact Test Mate for assistance.</comment>
+  </data>
+  <data name="saveSettingsPass" xml:space="preserve">
+    <value>Ajustes guardados.</value>
+    <comment>Settings saved.</comment>
   </data>
   <data name="settingsKeyTermsDisplay" xml:space="preserve">
     <value>Si el archivo de prueba contiene una lista de términos clave, Test Mate puede mostrar el término como su pregunta y un conjunto de posibles definiciones como sus opciones (predeterminado); muestre la definición como su pregunta y un conjunto de posibles términos clave como sus elecciones; o muestre al azar términos o definiciones como sus preguntas.\nSu configuración actual se muestra a continuación; presione la configuración para cambiar su valor.</value>

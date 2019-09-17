@@ -14,40 +14,33 @@
                 <Label Text="{x:Static local:Resources.AppResources.settingsTitle}" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
                 <Label Text="{x:Static local:Resources.AppResources.settingsQuestionOrder}" />
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
-                    <Picker x:Name="picker1" Title="Question Order:">
-                        <Picker.ItemsSource>
-                            <x:Array Type="{x:Type x:String}">
-                                <x:String>Baboon</x:String>
-                                <x:String>Capuchin Monkey</x:String>
-                                <x:String>Blue Monkey</x:String>
-                            </x:Array>
-                        </Picker.ItemsSource>
+                    <Picker x:Name="questionOrderPicker">
+                        <Picker.Items>
+                            <x:Static Member="local:Resources.AppResources.questionOrderOption1" />
+                            <x:Static Member="local:Resources.AppResources.questionOrderOption2" />
+                        </Picker.Items>
                     </Picker>
                 </StackLayout>
                 <Label Text="{x:Static local:Resources.AppResources.settingsKeyTermsDisplay}" />
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
-                    <Picker x:Name="picker2" Title="Displaying Key Terms:">
-                        <Picker.ItemsSource>
-                            <x:Array Type="{x:Type x:String}">
-                                <x:String>Baboon</x:String>
-                                <x:String>Capuchin Monkey</x:String>
-                                <x:String>Blue Monkey</x:String>
-                            </x:Array>
-                        </Picker.ItemsSource>
+                    <Picker x:Name="keyTermDisplayPicker">
+                        <Picker.Items>
+                            <x:Static Member="local:Resources.AppResources.keyTermDisplayOption1" />
+                            <x:Static Member="local:Resources.AppResources.keyTermDisplayOption2" />
+                            <x:Static Member="local:Resources.AppResources.keyTermDisplayOption3" />
+                        </Picker.Items>
                     </Picker>
                 </StackLayout>
                 <Label Text="{x:Static local:Resources.AppResources.settingsProvideFeedback}" />
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
-                    <Picker x:Name="picker3" Title="Provide Feedback:">
-                        <Picker.ItemsSource>
-                            <x:Array Type="{x:Type x:String}">
-                                <x:String>Baboon</x:String>
-                                <x:String>Capuchin Monkey</x:String>
-                                <x:String>Blue Monkey</x:String>
-                                </x:Array>
-                            </Picker.ItemsSource>
+                    <Picker x:Name="provideFeedbackPicker">
+                        <Picker.Items>
+                            <x:Static Member="local:Resources.AppResources.provideFeedbackOption1" />
+                            <x:Static Member="local:Resources.AppResources.provideFeedbackOption2" />
+                        </Picker.Items>
                     </Picker>
                 </StackLayout>
+                <Button x:Name="saveSettingsButton" Text="{x:Static local:Resources.AppResources.saveSettingsButton}" StyleClass="button" Clicked="SaveSettingsButton_Clicked" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
