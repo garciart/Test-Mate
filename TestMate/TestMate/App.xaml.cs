@@ -36,8 +36,8 @@ namespace TestMate {
      */
     public partial class App : Application {
 
-        private string _configFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "TestMate.ini");
-        public static string configContents = "Hey!";
+        public static string _configFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "TestMate.ini");
+        public static string[] configContents = { "1", "1", "1" };
         public App() {
             InitializeComponent();
             MainPage = new NavigationPage(new MainPage());
@@ -46,10 +46,17 @@ namespace TestMate {
         protected override void OnStart() {
             // Handle when your app starts
             if (File.Exists(_configFile)) {
-                Application.Current.MainPage.DisplayAlert("Alert", "Found the configuration file!", "OK");
+                // File.Delete(_configFile);
+                configContents = File.ReadAllLines(_configFile);
+                /*
+                foreach (string c in configContents) {
+                    Application.Current.MainPage.DisplayAlert("Alert", c, "OK");
+                }
+                */
             }
             else {
-                Application.Current.MainPage.DisplayAlert("Alert", "No configuration file found!\nInitializing file...", "OK");
+                Application.Current.MainPage.DisplayAlert("Test Mate", "No configuration file found!\nInitializing file...", "OK");
+                File.WriteAllLines(_configFile, configContents);
             }
             // TestMate.Resources.AppResources.Culture = new System.Globalization.CultureInfo("en-US");
         }
