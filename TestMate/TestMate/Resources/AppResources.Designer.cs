@@ -214,29 +214,11 @@ namespace TestMate.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Save Settings..
+        ///   Looks up a localized string similar to Cancel.
         /// </summary>
-        public static string saveSettingsButton {
+        public static string settingsCancelButton {
             get {
-                return ResourceManager.GetString("saveSettingsButton", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Error! Settings were not saved. Please contact Test Mate for assistance..
-        /// </summary>
-        public static string saveSettingsFail {
-            get {
-                return ResourceManager.GetString("saveSettingsFail", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Settings saved..
-        /// </summary>
-        public static string saveSettingsPass {
-            get {
-                return ResourceManager.GetString("saveSettingsPass", resourceCulture);
+                return ResourceManager.GetString("settingsCancelButton", resourceCulture);
             }
         }
         
@@ -271,6 +253,43 @@ namespace TestMate.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Settings file not found!
+        ///Configuration reset and saved..
+        /// </summary>
+        public static string settingsReadError {
+            get {
+                return ResourceManager.GetString("settingsReadError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save Settings.
+        /// </summary>
+        public static string settingsSaveButton {
+            get {
+                return ResourceManager.GetString("settingsSaveButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error! Settings were not saved. {0} Please contact Test Mate for assistance..
+        /// </summary>
+        public static string settingsSaveFail {
+            get {
+                return ResourceManager.GetString("settingsSaveFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings saved..
+        /// </summary>
+        public static string settingsSavePass {
+            get {
+                return ResourceManager.GetString("settingsSavePass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Change Settings....
         /// </summary>
         public static string settingsTitle {
@@ -285,15 +304,6 @@ namespace TestMate.Resources {
         public static string startTitle {
             get {
                 return ResourceManager.GetString("startTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Switch language to Spanish.
-        /// </summary>
-        public static string swtichLanguageButton {
-            get {
-                return ResourceManager.GetString("swtichLanguageButton", resourceCulture);
             }
         }
     }

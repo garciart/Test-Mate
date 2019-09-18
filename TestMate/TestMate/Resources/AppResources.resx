@@ -168,14 +168,8 @@
   <data name="questionOrderOption2" xml:space="preserve">
     <value>Randomize the order of the questions.</value>
   </data>
-  <data name="saveSettingsButton" xml:space="preserve">
-    <value>Save Settings.</value>
-  </data>
-  <data name="saveSettingsFail" xml:space="preserve">
-    <value>Error! Settings were not saved. Please contact Test Mate for assistance.</value>
-  </data>
-  <data name="saveSettingsPass" xml:space="preserve">
-    <value>Settings saved.</value>
+  <data name="settingsCancelButton" xml:space="preserve">
+    <value>Cancel</value>
   </data>
   <data name="settingsKeyTermsDisplay" xml:space="preserve">
     <value>If the test file contans a list of key terms, Test Mate can display the term as your question and a set of possible definitions as your choices (default); display the definition as your question and a set of possible key terms as your choices; or randomly display terms or definitions as your questions.
@@ -189,13 +183,23 @@ Your current setting is shown below; click on the setting to change its value.</
     <value>Test Mate can present your test questions in the order that it read them from the test file (default) or in a random order.
 Your current setting is shown below; click on the setting to change its value.</value>
   </data>
+  <data name="settingsReadError" xml:space="preserve">
+    <value>Settings file not found!
+Configuration reset and saved.</value>
+  </data>
+  <data name="settingsSaveButton" xml:space="preserve">
+    <value>Save Settings</value>
+  </data>
+  <data name="settingsSaveFail" xml:space="preserve">
+    <value>Error! Settings were not saved. {0} Please contact Test Mate for assistance.</value>
+  </data>
+  <data name="settingsSavePass" xml:space="preserve">
+    <value>Settings saved.</value>
+  </data>
   <data name="settingsTitle" xml:space="preserve">
     <value>Change Settings...</value>
   </data>
   <data name="startTitle" xml:space="preserve">
     <value>Start a New Test...</value>
-  </data>
-  <data name="swtichLanguageButton" xml:space="preserve">
-    <value>Switch language to Spanish</value>
   </data>
 </root>

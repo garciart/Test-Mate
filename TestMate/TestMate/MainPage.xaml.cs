@@ -34,6 +34,9 @@ using TestMate.Resources;
 using Xamarin.Forms;
 
 namespace TestMate {
+    /// <summary>
+    /// Initialize component and display logo
+    /// </summary>
     public partial class MainPage : ContentPage {
         public MainPage() {
             InitializeComponent();
@@ -42,8 +45,12 @@ namespace TestMate {
         }
 
         protected override void OnAppearing() {
-            // Application.Current.MainPage.DisplayAlert("Alert", App.configContents, "OK");
             base.OnAppearing();
+            /*
+            foreach (string c in Common.configContents) {
+                Application.Current.MainPage.DisplayAlert("Test Mate", c, "OK");
+            }
+            */
         }
 
         private async void StartNewTestButton_Clicked(object sender, EventArgs e) {

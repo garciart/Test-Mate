@@ -185,17 +185,9 @@
     <value>Aleatorizar el orden de las preguntas.</value>
     <comment>Randomize the order of the questions.</comment>
   </data>
-  <data name="saveSettingsButton" xml:space="preserve">
-    <value>Guardar ajustes.</value>
-    <comment>Save Settings.</comment>
-  </data>
-  <data name="saveSettingsFail" xml:space="preserve">
-    <value>¡Error! La configuración no se guardó. Póngase en contacto con Test Mate para obtener ayuda.</value>
-    <comment>Error! Settings were not saved. Please contact Test Mate for assistance.</comment>
-  </data>
-  <data name="saveSettingsPass" xml:space="preserve">
-    <value>Ajustes guardados.</value>
-    <comment>Settings saved.</comment>
+  <data name="settingsCancelButton" xml:space="preserve">
+    <value>Cancelar</value>
+    <comment>Cancel</comment>
   </data>
   <data name="settingsKeyTermsDisplay" xml:space="preserve">
     <value>Si el archivo de prueba contiene una lista de términos clave, Test Mate puede mostrar el término como su pregunta y un conjunto de posibles definiciones como sus opciones (predeterminado); muestre la definición como su pregunta y un conjunto de posibles términos clave como sus elecciones; o muestre al azar términos o definiciones como sus preguntas.\nSu configuración actual se muestra a continuación; presione la configuración para cambiar su valor.</value>
@@ -209,6 +201,24 @@
     <value>Test Mate puede presentar sus preguntas de prueba en el orden en que las lee del archivo de prueba (predeterminado) o en un orden aleatorio.\nSu configuración actual se muestra a continuación; presione la configuración para cambiar su valor.</value>
     <comment>Test Mate can present your test questions in the order that it read them from the test file (default) or in a random order.\nYour current setting is shown below; click on the setting to change its value.</comment>
   </data>
+  <data name="settingsReadError" xml:space="preserve">
+    <value>¡No se encontró el archivo de configuración!
+Configuración restablecida y guardada.</value>
+    <comment>Settings file not found!
+Configuration reset and saved.</comment>
+  </data>
+  <data name="settingsSaveButton" xml:space="preserve">
+    <value>Guardar ajustes.</value>
+    <comment>Save Settings.</comment>
+  </data>
+  <data name="settingsSaveFail" xml:space="preserve">
+    <value>¡Error! La configuración no se guardó. {0} Póngase en contacto con Test Mate para obtener ayuda.</value>
+    <comment>Error! Settings were not saved. {0} Please contact Test Mate for assistance.</comment>
+  </data>
+  <data name="settingsSavePass" xml:space="preserve">
+    <value>Ajustes guardados.</value>
+    <comment>Settings saved.</comment>
+  </data>
   <data name="settingsTitle" xml:space="preserve">
     <value>Cambiar la configuración...</value>
     <comment>Change Settings...</comment>
@@ -216,9 +226,5 @@
   <data name="startTitle" xml:space="preserve">
     <value>Iniciar un nuevo examen...</value>
     <comment>Start a New Test...</comment>
-  </data>
-  <data name="swtichLanguageButton" xml:space="preserve">
-    <value>Cambia el idioma a inglés</value>
-    <comment>Switch language to Spanish</comment>
   </data>
 </root>
