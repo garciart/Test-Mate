@@ -1,5 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<!-- Get ContentPage title from resx file -->
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TestMate.SettingsPage"
@@ -40,7 +39,10 @@
                         </Picker.Items>
                     </Picker>
                 </StackLayout>
-                <Button x:Name="saveSettingsButton" Text="{x:Static local:Resources.AppResources.saveSettingsButton}" StyleClass="button" Clicked="SaveSettingsButton_Clicked" />
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <Button x:Name="saveSettingsButton" Text="{x:Static local:Resources.AppResources.settingsSaveButton}" StyleClass="button" Clicked="SaveSettingsButton_Clicked" />
+                    <Button x:Name="cancelButton" Text="{x:Static local:Resources.AppResources.settingsCancelButton}" StyleClass="button" Clicked="CancelSaveButton_Clicked" />
+                </StackLayout>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
