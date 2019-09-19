@@ -39,7 +39,7 @@ namespace TestMate
 		public AboutPage ()
 		{
 			InitializeComponent();
-            copyrightLabel.Text = String.Format(AppResources.copyrightLabel, DateTime.Now.Year.ToString());
+            CopyrightLabel.Text = String.Format(AppResources.CopyrightLabel, DateTime.Now.Year.ToString());
         }
 	}
 }

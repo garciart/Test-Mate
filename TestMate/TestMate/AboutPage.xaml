@@ -4,19 +4,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TestMate.AboutPage"
              xmlns:local="clr-namespace:TestMate"
-             Title="{x:Static local:Resources.AppResources.aboutTitle}">
+             Title="{x:Static local:Resources.AppResources.AboutTitle}">
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0" />
     </ContentPage.Padding>
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Padding="10">
-                <Label Text="{x:Static local:Resources.AppResources.aboutLabel1}" StyleClass="h1" />
-                <Label x:Name="copyrightLabel" />
+                <Label Text="{x:Static local:Resources.AppResources.AboutLabel1}" StyleClass="h1" />
+                <Label x:Name="CopyrightLabel" />
                 <BoxView StyleClass="hr" />
-                <Label Text="{x:Static local:Resources.AppResources.aboutLabel2}" />
+                <Label Text="{x:Static local:Resources.AppResources.AboutLabel2}" />
                 <BoxView StyleClass="hr" />
-                <Label Text="{x:Static local:Resources.AppResources.aboutLabel3}" />
+                <Label Text="{x:Static local:Resources.AppResources.AboutLabel3}" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
