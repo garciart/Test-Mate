@@ -21,45 +21,31 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-using System;
-using TestMate.Resources;
+using Plugin.FilePicker;
+using Plugin.FilePicker.Abstractions;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace TestMate {
-    /**
-     * Application controller page
-     *
-     * @author Rob Garcia at rgarcia@rgprogramming.com
-     */
-    public partial class App : Application {
-        public App() {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class StartPage : ContentPage {
+        public StartPage() {
             InitializeComponent();
-            MainPage = new NavigationPage(new MainPage());
         }
 
-        /// <summary>
-        /// Attempt to read and set stored settings upon application load
-        /// </summary>
-        protected override void OnStart() {
-            // Handle when your app starts
-            // ReadSettingsFromFile() returns null if successful
-            string errorMessage = Common.ReadSettingsFromFile();
-            if (!String.IsNullOrEmpty(errorMessage)) {
-                // Display error
-                Application.Current.MainPage.DisplayAlert("Test Mate", errorMessage, "OK");
-                // Disable application only if the error is NOT a missing settings file (e.g., IOException, etc.)
-                Common.enableAppFlag = (errorMessage != AppResources.SettingsMissingErrorMessage) ? false : true;
+        protected override void OnAppearing() {
+            base.OnAppearing();
+            List<string> fileList = new List<string>();
+            IEnumerable<string> files = Directory.EnumerateFiles(Common.AppDataPath, "*.tm4");
+            foreach (string fileName in files) {
+                fileList.Add(fileName);
             }
-        }
 
-        protected override void OnSleep() {
-            // Handle when your app sleeps
-        }
-
-       protected override void OnResume() {
-            // Handle when your app resumes
+            fileList.Sort();
+            fileListView.ItemsSource = fileList;
         }
     }
 }

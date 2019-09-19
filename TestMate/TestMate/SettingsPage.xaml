@@ -10,7 +10,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Padding="10" VerticalOptions="Center">
-                <Label Text="{x:Static local:Resources.AppResources.SettingsTitle}" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
+                <Label Text="{x:Static local:Resources.AppResources.SettingsTitle}" StyleClass="h1" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
                 <Label Text="{x:Static local:Resources.AppResources.SettingsQuestionOrderLabel}" />
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
                     <Picker x:Name="questionOrderPicker">

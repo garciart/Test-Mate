@@ -1,17 +1,21 @@
-﻿/* Refer to https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/styles/css/ */
+﻿/*
+    Xamarin uses slightly different CSS.
+    Refer to https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/styles/css/
+*/
 ^ContentPage {
-    color:midnightblue;
+    color: midnightblue;
 }
 .h1 {
-    font-weight:bold;
-    font-size:large;
+    font-style: bold;
+    font-size: large;
 }
 .hr {
-    height:1;
-    color:midnightblue;
+    height: 1;
+    color: midnightblue;
 }
 .button {
-    color:white;
-    background-color:midnightblue;
-    padding:3;
+    color: white;
+    background-color: midnightblue;
+    font-style: bold;
+    padding: 3;
 }
