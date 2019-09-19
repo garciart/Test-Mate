@@ -1,7 +1,7 @@
 ﻿/*
  * The MIT License
  *
- * Copyright 2018 Rob Garcia at rgarcia@rgprogramming.com.
+ * Copyright 2019 Rob Garcia at rgarcia@rgprogramming.com.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -34,39 +34,31 @@ namespace TestMate {
      * @author Rob Garcia at rgarcia@rgprogramming.com
      */
     public partial class App : Application {
-        /// <summary>
-        /// 
-        /// </summary>
         public App() {
             InitializeComponent();
             MainPage = new NavigationPage(new MainPage());
         }
 
         /// <summary>
-        /// 
+        /// Attempt to read and set stored settings upon application load
         /// </summary>
         protected override void OnStart() {
             // Handle when your app starts
-            // errorMessage is null if successful
+            // ReadSettingsFromFile() returns null if successful
             string errorMessage = Common.ReadSettingsFromFile();
             if (!String.IsNullOrEmpty(errorMessage)) {
                 // Display error
                 Application.Current.MainPage.DisplayAlert("Test Mate", errorMessage, "OK");
-                Common.enableAppFlag = (errorMessage == AppResources.SettingsMissingErrorMessage) ? true : false;
+                // Disable application only if the error is NOT a missing settings file (e.g., IOException, etc.)
+                Common.enableAppFlag = (errorMessage != AppResources.SettingsMissingErrorMessage) ? false : true;
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
         protected override void OnSleep() {
             // Handle when your app sleeps
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        protected override void OnResume() {
+       protected override void OnResume() {
             // Handle when your app resumes
         }
     }

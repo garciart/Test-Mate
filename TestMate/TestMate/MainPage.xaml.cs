@@ -21,37 +21,31 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using Plugin.FilePicker;
 using Plugin.FilePicker.Abstractions;
+using System;
 using TestMate.Resources;
 using Xamarin.Forms;
 
 namespace TestMate {
-    /// <summary>
-    /// Initialize component, display logo, and load settings.
-    /// </summary>
     public partial class MainPage : ContentPage {
+        /// <summary>
+        /// Initialize component and display logo, but disable buttons if unable to read or initialize settings file.
+        /// </summary>
         public MainPage() {
             InitializeComponent();
             // For uniformity, make sure image is 160 pixels per inch
             headerImage.Source = ImageSource.FromResource("TestMate.Assets.headerImage2.png");
+            // Disable all buttons except the About button if App.xaml.cs was not able to read or initialize the settings file.
+            if (Common.enableAppFlag == false) {
+                startButton.IsEnabled = false;
+                settingsButton.IsEnabled = false;
+                downloadButton.IsEnabled = false;
+            }
         }
 
         protected override void OnAppearing() {
             base.OnAppearing();
-            if (Common.enableAppFlag) {
-                // Disable all buttons except the About button.
-                startButton.IsEnabled = true;
-                settingsButton.IsEnabled = true;
-                downloadButton.IsEnabled = true;
-            }
         }
 
         private async void StartButton_Clicked(object sender, EventArgs e) {
@@ -68,38 +62,7 @@ namespace TestMate {
         }
 
         private async void DownloadButton_Clicked(object sender, EventArgs e) {
-            // await Navigation.PushModalAsync(new DownloadPage());
             await this.DisplayAlert("Test Mate", "You clicked Download Test!", "OK");
         }
-
-        /*
-        private double width;
-        private double height;
-        protected override void OnSizeAllocated(double width, double height) {
-            base.OnSizeAllocated(width, height);
-            if (width != this.width || height != this.height) {
-                this.width = width;
-                this.height = height;
-                if (width > height) {
-                    Grid.SetColumnSpan(headerImage, 2);
-                    Grid.SetColumn(startButton, 0);
-                    Grid.SetColumn(settingsButton, 0);
-                    Grid.SetColumn(aboutButton, 1);
-                    Grid.SetRow(aboutButton, 1);
-                    Grid.SetColumn(exitButton, 1);
-                    Grid.SetRow(exitButton, 2);
-                }
-                else {
-                    Grid.SetColumnSpan(headerImage, 1);
-                    Grid.SetColumn(startButton, 0);
-                    Grid.SetColumn(settingsButton, 0);
-                    Grid.SetColumn(aboutButton, 0);
-                    Grid.SetRow(aboutButton, 3);
-                    Grid.SetColumn(exitButton, 0);
-                    Grid.SetRow(exitButton, 4);
-                }
-            }
-        }
-        */
     }
 }

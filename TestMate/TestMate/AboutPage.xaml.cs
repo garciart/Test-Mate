@@ -22,23 +22,16 @@
  * THE SOFTWARE.
  */
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Resources;
-using System.Text;
-using System.Threading.Tasks;
 using TestMate.Resources;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace TestMate
-{
-	[XamlCompilation(XamlCompilationOptions.Compile)]
+namespace TestMate {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class AboutPage : ContentPage
 	{
-		public AboutPage ()
-		{
-			InitializeComponent();
+		public AboutPage () {
+            InitializeComponent();
             CopyrightLabel.Text = String.Format(AppResources.CopyrightLabel, DateTime.Now.Year.ToString());
         }
 	}
