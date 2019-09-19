@@ -49,8 +49,11 @@ namespace TestMate {
         }
 
         private async void StartButton_Clicked(object sender, EventArgs e) {
+            await Navigation.PushAsync(new StartPage());
+            /*
             FileData fileName = await CrossFilePicker.Current.PickFile();
             await this.DisplayAlert("Test Mate", (fileName == null ? AppResources.OpenFileErrorMessage : (String.Format(AppResources.ClickTestMessage, fileName))), "OK");
+            */
         }
 
         private async void SettingsButton_Clicked(object sender, EventArgs e) {
@@ -62,7 +65,8 @@ namespace TestMate {
         }
 
         private async void DownloadButton_Clicked(object sender, EventArgs e) {
-            await this.DisplayAlert("Test Mate", "You clicked Download Test!", "OK");
+            await Navigation.PushAsync(new DownloadPage());
+            // await this.DisplayAlert("Test Mate", "You clicked Download Test!", "OK");
         }
     }
 }

@@ -28,9 +28,12 @@ using TestMate.Resources;
 
 namespace TestMate {
     class Common {
+        // The location of the settings file and test files
+        public static string AppDataPath { get; private set; } = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
 
         // The settings file is in the local application data folder
-        private static string settingsFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "TestMate.ini");
+        private static readonly string settingsFile = Path.Combine(AppDataPath, "TestMate.ini");
+
         /* 
          * Default configuration settings
          * 0 - Use the default question order.
@@ -38,6 +41,7 @@ namespace TestMate {
          * 0 - Provide feedback immediately.
          */
         public static string[] settings = { "0", "0", "0" };
+
         // All UI items (e.g., buttons, etc.) are enabled by default
         public static bool enableAppFlag = true;
 
