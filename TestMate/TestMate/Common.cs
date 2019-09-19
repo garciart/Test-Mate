@@ -14,9 +14,10 @@ namespace TestMate {
          * 1 - Use the key term for the question and a set of possible definitions for the choices.
          * 1 - Provide feedback immediately.
          */
-        public static string[] configContents = { "1", "1", "1" };
+        public static string[] configContents = { "0", "0", "0" };
+        public static bool enableAppFlag = true;
 
-        public static string readSettingsFromFile() {
+        public static string ReadSettingsFromFile() {
             try {
                 if (File.Exists(settingsFile)) {
                     // File.Delete(settingsFile);
@@ -25,20 +26,20 @@ namespace TestMate {
                 }
                 else {
                     File.WriteAllLines(settingsFile, configContents, Encoding.UTF8);
-                    return AppResources.settingsReadError;
+                    return AppResources.SettingsMissingErrorMessage;
                 }
             } catch (Exception e) {
-                return String.Format(AppResources.settingsSaveFail, e.Message);
+                return String.Format(AppResources.SettingsReadErrorMessage, e.Message);
             }
         }
 
-        public static string saveSettingsToFile() {
+        public static string SaveSettingsToFile() {
             try {
                 File.WriteAllLines(settingsFile, configContents, Encoding.UTF8);
-                return String.Format(AppResources.settingsSavePass);
+                return String.Format(AppResources.SettingsSaveSuccessMessage);
             }
             catch (Exception e) {
-                return String.Format(AppResources.settingsSaveFail, e.Message);
+                return String.Format(AppResources.SettingsSaveErrorMessage, e.Message);
             }
         }
     }

@@ -117,89 +117,93 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="aboutLabel1" xml:space="preserve">
+  <data name="AboutLabel1" xml:space="preserve">
     <value>TEST MATE® VERSION 4.0</value>
   </data>
-  <data name="aboutLabel2" xml:space="preserve">
+  <data name="AboutLabel2" xml:space="preserve">
     <value>Test Mate® is a mobile self-study system, designed to assist you in achieving your educational and professional goals by allowing you to study what you want, when and where you want. Why study alone?</value>
   </data>
-  <data name="aboutLabel3" xml:space="preserve">
+  <data name="AboutLabel3" xml:space="preserve">
     <value>Warning: This computer program is protected by copyright law and international treaties. Unauthorized reproduction or distribution of this program, or any portion of it, may result in severe civil or criminal penalties, and will be prosecuted under the maximum extent possible under law.</value>
   </data>
-  <data name="aboutTitle" xml:space="preserve">
+  <data name="AboutTitle" xml:space="preserve">
     <value>About Test Mate...</value>
   </data>
-  <data name="clickTestMessage" xml:space="preserve">
+  <data name="ClickTestMessage" xml:space="preserve">
     <value>You clicked {0}!</value>
   </data>
-  <data name="copyrightLabel" xml:space="preserve">
+  <data name="CopyrightLabel" xml:space="preserve">
     <value>Copyright © 1993-{0} Rob Garcia. All rights reserved.</value>
   </data>
-  <data name="downloadButton" xml:space="preserve">
+  <data name="DownloadTitle" xml:space="preserve">
     <value>Download a Test...</value>
   </data>
-  <data name="keyTermDisplayOption1" xml:space="preserve">
+  <data name="KeyTermDisplayOption1" xml:space="preserve">
     <value>Use the key term for the question and a set of possible definitions for the choices.</value>
   </data>
-  <data name="keyTermDisplayOption2" xml:space="preserve">
+  <data name="KeyTermDisplayOption2" xml:space="preserve">
     <value>Use the definition for the question and a set of possible key terms for the choices.</value>
   </data>
-  <data name="keyTermDisplayOption3" xml:space="preserve">
+  <data name="KeyTermDisplayOption3" xml:space="preserve">
     <value>Randomly use key terms or definitions for the questions.</value>
   </data>
-  <data name="mainSubtitle" xml:space="preserve">
+  <data name="AppSubtitle" xml:space="preserve">
     <value>Why Study Alone?</value>
   </data>
-  <data name="mainTitle" xml:space="preserve">
+  <data name="AppTitle" xml:space="preserve">
     <value>WELCOME TO TEST MATE!</value>
   </data>
-  <data name="openFileErrorMessage" xml:space="preserve">
+  <data name="OpenFileErrorMessage" xml:space="preserve">
     <value>Cannot open that file!</value>
   </data>
-  <data name="provideFeedbackOption1" xml:space="preserve">
+  <data name="ProvideFeedbackOption1" xml:space="preserve">
     <value>Provide feedback immediately.</value>
   </data>
-  <data name="provideFeedbackOption2" xml:space="preserve">
+  <data name="ProvideFeedbackOption2" xml:space="preserve">
     <value>Provide feedback after the test is complete.</value>
   </data>
-  <data name="questionOrderOption1" xml:space="preserve">
+  <data name="QuestionOrderOption1" xml:space="preserve">
     <value>Use the default question order.</value>
   </data>
-  <data name="questionOrderOption2" xml:space="preserve">
+  <data name="QuestionOrderOption2" xml:space="preserve">
     <value>Randomize the order of the questions.</value>
   </data>
-  <data name="settingsCancelButton" xml:space="preserve">
+  <data name="SettingsCancelButton" xml:space="preserve">
     <value>Cancel</value>
   </data>
-  <data name="settingsKeyTermsDisplay" xml:space="preserve">
+  <data name="SettingsKeyTermsDisplayLabel" xml:space="preserve">
     <value>If the test file contans a list of key terms, Test Mate can display the term as your question and a set of possible definitions as your choices (default); display the definition as your question and a set of possible key terms as your choices; or randomly display terms or definitions as your questions.
 Your current setting is shown below; click on the setting to change its value.</value>
   </data>
-  <data name="settingsProvideFeedback" xml:space="preserve">
+  <data name="SettingsProvideFeedbackLabel" xml:space="preserve">
     <value>Test Mate can provide immediate feedback after you choose an answer (default) or provide you feedback after you have completed the test.
 Your current setting is shown below; click on the setting to change its value.</value>
   </data>
-  <data name="settingsQuestionOrder" xml:space="preserve">
+  <data name="SettingsQuestionOrderLabel" xml:space="preserve">
     <value>Test Mate can present your test questions in the order that it read them from the test file (default) or in a random order.
 Your current setting is shown below; click on the setting to change its value.</value>
   </data>
-  <data name="settingsReadError" xml:space="preserve">
-    <value>Settings file not found!
-Configuration reset and saved.</value>
+  <data name="SettingsReadErrorMessage" xml:space="preserve">
+    <value>Error! Cannot access the settings file: {0}
+Please contact Test Mate for assistance.</value>
   </data>
-  <data name="settingsSaveButton" xml:space="preserve">
+  <data name="SettingsSaveButton" xml:space="preserve">
     <value>Save Settings</value>
   </data>
-  <data name="settingsSaveFail" xml:space="preserve">
-    <value>Error! Settings were not saved. {0} Please contact Test Mate for assistance.</value>
+  <data name="SettingsSaveErrorMessage" xml:space="preserve">
+    <value>Error! Settings were not saved: {0} Please contact Test Mate for assistance.</value>
   </data>
-  <data name="settingsSavePass" xml:space="preserve">
+  <data name="SettingsSaveSuccessMessage" xml:space="preserve">
     <value>Settings saved.</value>
   </data>
-  <data name="settingsTitle" xml:space="preserve">
+  <data name="SettingsTitle" xml:space="preserve">
     <value>Change Settings...</value>
   </data>
-  <data name="startTitle" xml:space="preserve">
+  <data name="StartTitle" xml:space="preserve">
     <value>Start a New Test...</value>
+  </data>
+  <data name="SettingsMissingErrorMessage" xml:space="preserve">
+    <value>Settings file not found!
+Configuration reset and saved.</value>
   </data>
 </root>

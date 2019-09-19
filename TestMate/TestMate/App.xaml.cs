@@ -22,10 +22,9 @@
  * THE SOFTWARE.
  */
 using System;
-using System.IO;
+using TestMate.Resources;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using TestMate.Resources;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace TestMate {
@@ -35,23 +34,38 @@ namespace TestMate {
      * @author Rob Garcia at rgarcia@rgprogramming.com
      */
     public partial class App : Application {
+        /// <summary>
+        /// 
+        /// </summary>
         public App() {
             InitializeComponent();
             MainPage = new NavigationPage(new MainPage());
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         protected override void OnStart() {
             // Handle when your app starts
-            string errorMessage = Common.readSettingsFromFile();
+            // errorMessage is null if successful
+            string errorMessage = Common.ReadSettingsFromFile();
             if (!String.IsNullOrEmpty(errorMessage)) {
+                // Display error
                 Application.Current.MainPage.DisplayAlert("Test Mate", errorMessage, "OK");
+                Common.enableAppFlag = (errorMessage == AppResources.SettingsMissingErrorMessage) ? true : false;
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         protected override void OnSleep() {
             // Handle when your app sleeps
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         protected override void OnResume() {
             // Handle when your app resumes
         }

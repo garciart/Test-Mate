@@ -17,7 +17,7 @@ namespace TestMate {
             Common.configContents[0] = questionOrderPicker.SelectedIndex.ToString();
             Common.configContents[1] = keyTermDisplayPicker.SelectedIndex.ToString();
             Common.configContents[2] = provideFeedbackPicker.SelectedIndex.ToString();
-            await this.DisplayAlert("Test Mate", Common.saveSettingsToFile(), "OK");
+            await this.DisplayAlert("Test Mate", Common.SaveSettingsToFile(), "OK");
             await Application.Current.MainPage.Navigation.PopAsync();
         }
 

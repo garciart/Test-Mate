@@ -35,7 +35,7 @@ using Xamarin.Forms;
 
 namespace TestMate {
     /// <summary>
-    /// Initialize component and display logo
+    /// Initialize component, display logo, and load settings.
     /// </summary>
     public partial class MainPage : ContentPage {
         public MainPage() {
@@ -46,28 +46,28 @@ namespace TestMate {
 
         protected override void OnAppearing() {
             base.OnAppearing();
-            /*
-            foreach (string c in Common.configContents) {
-                Application.Current.MainPage.DisplayAlert("Test Mate", c, "OK");
+            if (Common.enableAppFlag) {
+                // Disable all buttons except the About button.
+                startButton.IsEnabled = true;
+                settingsButton.IsEnabled = true;
+                downloadButton.IsEnabled = true;
             }
-            */
         }
 
-        private async void StartNewTestButton_Clicked(object sender, EventArgs e) {
+        private async void StartButton_Clicked(object sender, EventArgs e) {
             FileData fileName = await CrossFilePicker.Current.PickFile();
-            await this.DisplayAlert("Test Mate", (fileName == null ? AppResources.openFileErrorMessage : (String.Format(AppResources.clickTestMessage, fileName))), "OK");
+            await this.DisplayAlert("Test Mate", (fileName == null ? AppResources.OpenFileErrorMessage : (String.Format(AppResources.ClickTestMessage, fileName))), "OK");
         }
 
-        private async void ChangeSettingsButton_Clicked(object sender, EventArgs e) {
+        private async void SettingsButton_Clicked(object sender, EventArgs e) {
             await Navigation.PushAsync(new SettingsPage());            
         }
 
-        private async void AboutTestMateButton_Clicked(object sender, EventArgs e) {
+        private async void AboutButton_Clicked(object sender, EventArgs e) {
             await Navigation.PushAsync(new AboutPage());
-            // await this.DisplayAlert("Test Mate", "You clicked About Test Mate!", "OK");
         }
 
-        private async void DownloadTestButton_Clicked(object sender, EventArgs e) {
+        private async void DownloadButton_Clicked(object sender, EventArgs e) {
             // await Navigation.PushModalAsync(new DownloadPage());
             await this.DisplayAlert("Test Mate", "You clicked Download Test!", "OK");
         }
