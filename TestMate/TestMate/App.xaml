@@ -4,5 +4,6 @@
              x:Class="TestMate.App">
     <Application.Resources>
         <StyleSheet Source="/Assets/Styles.css" />
+        <Thickness x:Key="PageMargin">20</Thickness>
     </Application.Resources>
 </Application>

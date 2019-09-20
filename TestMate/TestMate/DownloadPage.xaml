@@ -4,6 +4,9 @@
              x:Class="TestMate.DownloadPage"
              xmlns:local="clr-namespace:TestMate"
              Title="{x:Static local:Resources.AppResources.DownloadTitle}">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0" />
+    </ContentPage.Padding>
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Welcome to Xamarin.Forms!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />

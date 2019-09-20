@@ -232,4 +232,8 @@ Configuración restablecida y guardada.</value>
     <comment>Settings file not found!
 Configuration reset and saved.</comment>
   </data>
+  <data name="StartSubtitle" xml:space="preserve">
+    <value>Seleccione una prueba ...</value>
+    <comment>Select a test...</comment>
+  </data>
 </root>
