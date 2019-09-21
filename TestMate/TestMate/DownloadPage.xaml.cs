@@ -21,13 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -40,12 +33,11 @@ namespace TestMate {
 
         protected override void OnAppearing() {
             base.OnAppearing();
-            string filename = Path.Combine(Common.AppDataPath, "BLS1.tm4");
-            File.WriteAllText(filename, "Basic Life Support Chapter: 1", Encoding.UTF8);
-            filename = Path.Combine(Common.AppDataPath, "BLS2.tm4");
-            File.WriteAllText(filename, "Basic Life Support: Chapter 2", Encoding.UTF8);
-            filename = Path.Combine(Common.AppDataPath, "ALS1.tm4");
-            File.WriteAllText(filename, "Advanced Life Support: Chapter 1", Encoding.UTF8);
+            /*
+            File.WriteAllText(Path.Combine(Common.AppDataPath, "BLS1.tm4"), "Basic Life Support Chapter: 1", Encoding.UTF8);
+            File.WriteAllText(Path.Combine(Common.AppDataPath, "BLS2.tm4"), "Basic Life Support: Chapter 2", Encoding.UTF8);
+            File.WriteAllText(Path.Combine(Common.AppDataPath, "ALS1.tm4"), "Advanced Life Support: Chapter 1", Encoding.UTF8);
+            */
         }
     }
 }

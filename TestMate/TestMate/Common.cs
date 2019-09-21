@@ -60,7 +60,8 @@ namespace TestMate {
                     File.WriteAllLines(settingsFile, settings, Encoding.UTF8);
                     return AppResources.SettingsMissingErrorMessage;
                 }
-            } catch (Exception e) {
+            }
+            catch (Exception e) {
                 return String.Format(AppResources.SettingsReadErrorMessage, e.Message);
             }
         }

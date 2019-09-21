@@ -58,7 +58,7 @@ namespace TestMate {
             // Handle when your app sleeps
         }
 
-       protected override void OnResume() {
+        protected override void OnResume() {
             // Handle when your app resumes
         }
     }

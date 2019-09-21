@@ -4,10 +4,20 @@
              x:Class="TestMate.StartPage"
              xmlns:local="clr-namespace:TestMate"
              Title="{x:Static local:Resources.AppResources.StartTitle}">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0" />
+    </ContentPage.Padding>
     <ContentPage.Content>
         <StackLayout x:Name="testDirectory">
-            <Label Text="Welcome to Xamarin.Forms!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
-            <ListView x:Name="fileListView" />
+            <Label Text="{x:Static local:Resources.AppResources.StartSubtitle}" StyleClass="h1" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
+            <ListView x:Name="fileList">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}"
+                          Detail="{Binding Date}" TextColor="Black" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

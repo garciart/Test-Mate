@@ -309,6 +309,15 @@ namespace TestMate.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select a test....
+        /// </summary>
+        public static string StartSubtitle {
+            get {
+                return ResourceManager.GetString("StartSubtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Start a New Test....
         /// </summary>
         public static string StartTitle {

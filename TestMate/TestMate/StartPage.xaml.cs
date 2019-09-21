@@ -21,11 +21,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-using Plugin.FilePicker;
-using Plugin.FilePicker.Abstractions;
 using System.Collections.Generic;
 using System.IO;
-using System.Threading.Tasks;
+using System.Linq;
+using TestMate.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -38,14 +37,18 @@ namespace TestMate {
 
         protected override void OnAppearing() {
             base.OnAppearing();
-            List<string> fileList = new List<string>();
+            List<Test> tests = new List<Test>();
             IEnumerable<string> files = Directory.EnumerateFiles(Common.AppDataPath, "*.tm4");
             foreach (string fileName in files) {
-                fileList.Add(fileName);
+                tests.Add(new Test {
+                    FileName = Path.GetFileName(fileName),
+                    Name = File.ReadLines(fileName).First(),
+                    Date = File.GetCreationTime(fileName)
+                });
             }
-
-            fileList.Sort();
-            fileListView.ItemsSource = fileList;
+            fileList.ItemsSource = tests
+                .OrderBy(n => n.Name)
+                .ToList();
         }
     }
 }

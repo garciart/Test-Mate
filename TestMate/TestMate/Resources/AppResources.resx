@@ -206,4 +206,7 @@ Please contact Test Mate for assistance.</value>
     <value>Settings file not found!
 Configuration reset and saved.</value>
   </data>
+  <data name="StartSubtitle" xml:space="preserve">
+    <value>Select a test...</value>
+  </data>
 </root>
