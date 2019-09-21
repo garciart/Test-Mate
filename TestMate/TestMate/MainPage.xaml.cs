@@ -21,10 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-using Plugin.FilePicker;
-using Plugin.FilePicker.Abstractions;
 using System;
-using TestMate.Resources;
 using Xamarin.Forms;
 
 namespace TestMate {
@@ -50,14 +47,10 @@ namespace TestMate {
 
         private async void StartButton_Clicked(object sender, EventArgs e) {
             await Navigation.PushAsync(new StartPage());
-            /*
-            FileData fileName = await CrossFilePicker.Current.PickFile();
-            await this.DisplayAlert("Test Mate", (fileName == null ? AppResources.OpenFileErrorMessage : (String.Format(AppResources.ClickTestMessage, fileName))), "OK");
-            */
         }
 
         private async void SettingsButton_Clicked(object sender, EventArgs e) {
-            await Navigation.PushAsync(new SettingsPage());            
+            await Navigation.PushAsync(new SettingsPage());
         }
 
         private async void AboutButton_Clicked(object sender, EventArgs e) {

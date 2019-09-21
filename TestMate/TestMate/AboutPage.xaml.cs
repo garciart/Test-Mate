@@ -28,11 +28,10 @@ using Xamarin.Forms.Xaml;
 
 namespace TestMate {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class AboutPage : ContentPage
-	{
-		public AboutPage () {
+    public partial class AboutPage : ContentPage {
+        public AboutPage() {
             InitializeComponent();
             CopyrightLabel.Text = String.Format(AppResources.CopyrightLabel, DateTime.Now.Year.ToString());
         }
-	}
+    }
 }
