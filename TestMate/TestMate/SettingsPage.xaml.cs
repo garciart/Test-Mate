@@ -22,6 +22,7 @@
  * THE SOFTWARE.
  */
 using System;
+using TestMate.Common;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -33,9 +34,9 @@ namespace TestMate {
         /// </summary>
         public SettingsPage() {
             InitializeComponent();
-            questionOrderPicker.SelectedIndex = int.Parse(Common.settings[0]);
-            keyTermDisplayPicker.SelectedIndex = int.Parse(Common.settings[1]);
-            provideFeedbackPicker.SelectedIndex = int.Parse(Common.settings[2]);
+            questionOrderPicker.SelectedIndex = int.Parse(Constants.settings[0]);
+            keyTermDisplayPicker.SelectedIndex = int.Parse(Constants.settings[1]);
+            provideFeedbackPicker.SelectedIndex = int.Parse(Constants.settings[2]);
         }
 
         /// <summary>
@@ -44,11 +45,11 @@ namespace TestMate {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private async void SaveSettingsButton_Clicked(object sender, EventArgs e) {
-            Common.settings[0] = questionOrderPicker.SelectedIndex.ToString();
-            Common.settings[1] = keyTermDisplayPicker.SelectedIndex.ToString();
-            Common.settings[2] = provideFeedbackPicker.SelectedIndex.ToString();
+            Constants.settings[0] = questionOrderPicker.SelectedIndex.ToString();
+            Constants.settings[1] = keyTermDisplayPicker.SelectedIndex.ToString();
+            Constants.settings[2] = provideFeedbackPicker.SelectedIndex.ToString();
             // Returns success or error message
-            await this.DisplayAlert("Test Mate", Common.SaveSettingsToFile(), "OK");
+            await this.DisplayAlert("Test Mate", AppFunctions.SaveSettingsToFile(), "OK");
             await Application.Current.MainPage.Navigation.PopAsync();
         }
 

@@ -22,6 +22,7 @@
  * THE SOFTWARE.
  */
 using System;
+using TestMate.Common;
 using Xamarin.Forms;
 
 namespace TestMate {
@@ -34,7 +35,7 @@ namespace TestMate {
             // For uniformity, make sure image is 160 pixels per inch
             headerImage.Source = ImageSource.FromResource("TestMate.Assets.headerImage2.png");
             // Disable all buttons except the About button if App.xaml.cs was not able to read or initialize the settings file.
-            if (Common.enableAppFlag == false) {
+            if (Constants.enableAppFlag == false) {
                 startButton.IsEnabled = false;
                 settingsButton.IsEnabled = false;
                 downloadButton.IsEnabled = false;
