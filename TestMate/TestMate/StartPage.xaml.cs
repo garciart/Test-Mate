@@ -24,6 +24,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using TestMate.Common;
 using TestMate.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -38,7 +39,7 @@ namespace TestMate {
         protected override void OnAppearing() {
             base.OnAppearing();
             List<Test> tests = new List<Test>();
-            IEnumerable<string> files = Directory.EnumerateFiles(Common.AppDataPath, "*.tm4");
+            IEnumerable<string> files = Directory.EnumerateFiles(Constants.AppDataPath, "*.tm4");
             foreach (string fileName in files) {
                 tests.Add(new Test {
                     FileName = Path.GetFileName(fileName),

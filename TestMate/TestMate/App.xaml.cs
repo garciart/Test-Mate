@@ -22,6 +22,7 @@
  * THE SOFTWARE.
  */
 using System;
+using TestMate.Common;
 using TestMate.Resources;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -45,12 +46,12 @@ namespace TestMate {
         protected override void OnStart() {
             // Handle when your app starts
             // ReadSettingsFromFile() returns null if successful
-            string errorMessage = Common.ReadSettingsFromFile();
+            string errorMessage = AppFunctions.ReadSettingsFromFile();
             if (!String.IsNullOrEmpty(errorMessage)) {
                 // Display error
                 Application.Current.MainPage.DisplayAlert("Test Mate", errorMessage, "OK");
                 // Disable application only if the error is NOT a missing settings file (e.g., IOException, etc.)
-                Common.enableAppFlag = (errorMessage != AppResources.SettingsMissingErrorMessage) ? false : true;
+                Constants.enableAppFlag = (errorMessage != AppResources.SettingsMissingErrorMessage) ? false : true;
             }
         }
 
