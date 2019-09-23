@@ -12,16 +12,13 @@
             <StackLayout Padding="10" VerticalOptions="Center">
                 <Label Text="{x:Static local:Resources.AppResources.SettingsTitle}" StyleClass="h1" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
                 <Label Text="{x:Static local:Resources.AppResources.SettingsQuestionOrderLabel}" />
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
                     <Picker x:Name="questionOrderPicker">
                         <Picker.Items>
                             <x:Static Member="local:Resources.AppResources.QuestionOrderOption1" />
                             <x:Static Member="local:Resources.AppResources.QuestionOrderOption2" />
                         </Picker.Items>
                     </Picker>
-                </StackLayout>
                 <Label Text="{x:Static local:Resources.AppResources.SettingsKeyTermsDisplayLabel}" />
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
                     <Picker x:Name="keyTermDisplayPicker">
                         <Picker.Items>
                             <x:Static Member="local:Resources.AppResources.KeyTermDisplayOption1" />
@@ -29,20 +26,21 @@
                             <x:Static Member="local:Resources.AppResources.KeyTermDisplayOption3" />
                         </Picker.Items>
                     </Picker>
-                </StackLayout>
                 <Label Text="{x:Static local:Resources.AppResources.SettingsProvideFeedbackLabel}" />
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
                     <Picker x:Name="provideFeedbackPicker">
                         <Picker.Items>
                             <x:Static Member="local:Resources.AppResources.ProvideFeedbackOption1" />
                             <x:Static Member="local:Resources.AppResources.ProvideFeedbackOption2" />
                         </Picker.Items>
                     </Picker>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
                     <Button x:Name="saveSettingsButton" Text="{x:Static local:Resources.AppResources.SettingsSaveButton}" StyleClass="button" Clicked="SaveSettingsButton_Clicked" />
-                    <Button x:Name="cancelButton" Text="{x:Static local:Resources.AppResources.SettingsCancelButton}" StyleClass="button" Clicked="CancelSaveButton_Clicked" />
-                </StackLayout>
+                    <Button x:Name="cancelButton" Text="{x:Static local:Resources.AppResources.SettingsCancelButton}" StyleClass="button" Clicked="CancelSaveButton_Clicked" Grid.Column="1" />
+                </Grid>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
