@@ -22,17 +22,41 @@
  * THE SOFTWARE.
  */
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
+using TestMate.Common;
 
 namespace TestMate.Models {
     /**
-     * TestMate model class for multiple choice data objects
+     * TestMate model class for key term data objects
      *
      * @author Rob Garcia at rgarcia@rgprogramming.com
      */
-    public class MultipleChoice : TestData {
+    public class KeyTermQuestion : Question {
+        /// <summary>
+        /// The key term; cannot be null.
+        /// </summary>
+        public string KeyTerm {
+            get {
+                return KeyTerm;
+            }
+            set {
+                KeyTerm = value ?? throw new ArgumentNullException("Key terms cannot be null or empty.");
+            }
+        }
+        
+        /// <summary>
+        /// The key term definition; cannot be null.
+        /// </summary>
+        public string Definition {
+            get {
+                return Definition;
+            }
+            set {
+                Definition = value ?? throw new ArgumentNullException("Key term definitions cannot be null or empty.");
+            }
+        }
 
+        public KeyTermQuestion() {
+            QuestionType = Constants.QuestionType.K;
+        }
     }
 }

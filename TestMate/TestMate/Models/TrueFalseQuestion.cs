@@ -22,8 +22,7 @@
  * THE SOFTWARE.
  */
 using System;
-using System.Collections.Generic;
-using System.Text;
+using TestMate.Common;
 
 namespace TestMate.Models {
     /**
@@ -31,7 +30,26 @@ namespace TestMate.Models {
      *
      * @author Rob Garcia at rgarcia@rgprogramming.com
      */
-    public class TrueFalse : TestData {
+    public class TrueFalseQuestion : Question {
+        /// <summary>
+        /// The true or false question; cannot be null.
+        /// </summary>
+        public string Question {
+            get {
+                return Question;
+            }
+            set {
+                Question = value ?? throw new ArgumentNullException("True or false questions cannot be null or empty.");
+            }
+        }
 
+        /// <summary>
+        /// The true or false answer; default value is true;
+        /// </summary>
+        public bool Answer { get; set; } = true;
+
+        public TrueFalseQuestion() {
+            QuestionType = Constants.QuestionType.T;
+        }
     }
 }
