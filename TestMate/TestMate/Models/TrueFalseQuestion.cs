@@ -22,17 +22,32 @@
  * THE SOFTWARE.
  */
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
+using TestMate.Common;
 
 namespace TestMate.Models {
-    /**
-     * TestMate model class for multiple choice data objects
-     *
-     * @author Rob Garcia at rgarcia@rgprogramming.com
-     */
-    public class MultipleChoice : TestData {
+    /// <summary>
+    /// TestMate model class for true/false data objects
+    /// </summary>
+    public class TrueFalseQuestion : Question {
+        /// <summary>
+        /// The true or false question; cannot be null.
+        /// </summary>
+        public string Question {
+            get {
+                return Question;
+            }
+            set {
+                Question = value ?? throw new ArgumentNullException("True or false questions cannot be null or empty.");
+            }
+        }
 
+        /// <summary>
+        /// The true or false answer; default value is true;
+        /// </summary>
+        public bool Answer { get; set; } = true;
+
+        public TrueFalseQuestion() {
+            QuestionType = Constants.QuestionType.TrueFalse;
+        }
     }
 }

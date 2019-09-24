@@ -38,17 +38,17 @@ namespace TestMate {
 
         protected override void OnAppearing() {
             base.OnAppearing();
-            List<Test> tests = new List<Test>();
+            List<TestFile> testfiles = new List<TestFile>();
             IEnumerable<string> files = Directory.EnumerateFiles(Constants.AppDataPath, "*.tm4");
             foreach (string fileName in files) {
-                tests.Add(new Test {
+                testfiles.Add(new TestFile {
                     FileName = Path.GetFileName(fileName),
-                    Name = File.ReadLines(fileName).First(),
-                    Date = File.GetCreationTime(fileName)
+                    TestName = File.ReadLines(fileName).First(),
+                    DateCreated = File.GetCreationTime(fileName)
                 });
             }
-            fileList.ItemsSource = tests
-                .OrderBy(n => n.Name)
+            fileList.ItemsSource = testfiles
+                .OrderBy(n => n.TestName)
                 .ToList();
         }
     }

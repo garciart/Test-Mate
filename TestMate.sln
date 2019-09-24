@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.136
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29318.209
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestMate.Android", "TestMate\TestMate.Android\TestMate.Android.csproj", "{5B8CC998-5CB9-4C1A-8819-D0B9AAB3BDBD}"
 EndProject
@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestMate.iOS", "TestMate\Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestMate.UWP", "TestMate\TestMate.UWP\TestMate.UWP.csproj", "{CF79D1CD-20EF-4A3E-BC74-A578900E7DB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestMate", "TestMate\TestMate\TestMate.csproj", "{7BB70F59-C280-49D3-9418-ABCE1FFD5080}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestMate", "TestMate\TestMate\TestMate.csproj", "{7BB70F59-C280-49D3-9418-ABCE1FFD5080}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

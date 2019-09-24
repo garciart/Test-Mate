@@ -22,16 +22,25 @@
  * THE SOFTWARE.
  */
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace TestMate.Models {
-    /**
-     * TestMate model class for true/false data objects
-     *
-     * @author Rob Garcia at rgarcia@rgprogramming.com
-     */
-    public class TrueFalse : TestData {
+    /// <summary>
+    /// TestMate model class for test file data objects
+    /// </summary>
+    public class TestFile {
+        /// <summary>
+        /// Path, filename, and extension of test file.
+        /// </summary>
+        public string FileName { get; set; }
 
+        /// <summary>
+        /// Descriptive name of the test.
+        /// </summary>
+        public string TestName { get; set; }
+
+        /// <summary>
+        /// The date the test was created.
+        /// </summary>
+        public DateTime DateCreated { get; set; }
     }
 }
