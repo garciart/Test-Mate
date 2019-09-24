@@ -26,11 +26,9 @@ using System.Collections.Generic;
 using TestMate.Common;
 
 namespace TestMate.Models {
-    /**
-     * TestMate model class for multiple choice data objects
-     *
-     * @author Rob Garcia at rgarcia@rgprogramming.com
-     */
+    /// <summary>
+    /// TestMate model class for multiple choice data objects.
+    /// </summary>
     public class MultipleChoiceQuestion : Question {
         /// <summary>
         /// The multiple choice question; cannot be null.
@@ -83,7 +81,7 @@ namespace TestMate.Models {
 
         public MultipleChoiceQuestion() {
             this.Choices = new List<string>();
-            QuestionType = Constants.QuestionType.M;
+            QuestionType = Constants.QuestionType.MultipleChoice;
         }
     }
 }

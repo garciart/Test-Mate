@@ -25,11 +25,9 @@ using System;
 using TestMate.Common;
 
 namespace TestMate.Models {
-    /**
-     * TestMate model class for key term data objects
-     *
-     * @author Rob Garcia at rgarcia@rgprogramming.com
-     */
+    /// <summary>
+    /// TestMate model class for key term data objects.
+    /// </summary>
     public class KeyTermQuestion : Question {
         /// <summary>
         /// The key term; cannot be null.
@@ -56,7 +54,7 @@ namespace TestMate.Models {
         }
 
         public KeyTermQuestion() {
-            QuestionType = Constants.QuestionType.K;
+            QuestionType = Constants.QuestionType.KeyTerm;
         }
     }
 }

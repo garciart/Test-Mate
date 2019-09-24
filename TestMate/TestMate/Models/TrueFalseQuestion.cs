@@ -25,11 +25,9 @@ using System;
 using TestMate.Common;
 
 namespace TestMate.Models {
-    /**
-     * TestMate model class for true/false data objects
-     *
-     * @author Rob Garcia at rgarcia@rgprogramming.com
-     */
+    /// <summary>
+    /// TestMate model class for true/false data objects
+    /// </summary>
     public class TrueFalseQuestion : Question {
         /// <summary>
         /// The true or false question; cannot be null.
@@ -49,7 +47,7 @@ namespace TestMate.Models {
         public bool Answer { get; set; } = true;
 
         public TrueFalseQuestion() {
-            QuestionType = Constants.QuestionType.T;
+            QuestionType = Constants.QuestionType.TrueFalse;
         }
     }
 }

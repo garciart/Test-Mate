@@ -21,35 +21,26 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using TestMate.Common;
-using TestMate.Models;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using System;
 
-namespace TestMate {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class StartPage : ContentPage {
-        public StartPage() {
-            InitializeComponent();
-        }
+namespace TestMate.Models {
+    /// <summary>
+    /// TestMate model class for test file data objects
+    /// </summary>
+    public class TestFile {
+        /// <summary>
+        /// Path, filename, and extension of test file.
+        /// </summary>
+        public string FileName { get; set; }
 
-        protected override void OnAppearing() {
-            base.OnAppearing();
-            List<TestFile> testfiles = new List<TestFile>();
-            IEnumerable<string> files = Directory.EnumerateFiles(Constants.AppDataPath, "*.tm4");
-            foreach (string fileName in files) {
-                testfiles.Add(new TestFile {
-                    FileName = Path.GetFileName(fileName),
-                    TestName = File.ReadLines(fileName).First(),
-                    DateCreated = File.GetCreationTime(fileName)
-                });
-            }
-            fileList.ItemsSource = testfiles
-                .OrderBy(n => n.TestName)
-                .ToList();
-        }
+        /// <summary>
+        /// Descriptive name of the test.
+        /// </summary>
+        public string TestName { get; set; }
+
+        /// <summary>
+        /// The date the test was created.
+        /// </summary>
+        public DateTime DateCreated { get; set; }
     }
 }

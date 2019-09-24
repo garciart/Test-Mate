@@ -51,7 +51,7 @@ namespace TestMate {
                 // Display error
                 Application.Current.MainPage.DisplayAlert("Test Mate", errorMessage, "OK");
                 // Disable application only if the error is NOT a missing settings file (e.g., IOException, etc.)
-                Constants.enableAppFlag = (errorMessage != AppResources.SettingsMissingErrorMessage) ? false : true;
+                AppFunctions.enableAppFlag = (errorMessage != AppResources.SettingsMissingErrorMessage) ? false : true;
             }
         }
 

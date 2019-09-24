@@ -26,27 +26,25 @@ using System.Text.RegularExpressions;
 using TestMate.Common;
 
 namespace TestMate.Models {
-    /**
-     * TestMate model abstract class for test data objects
-     *
-     * @author Rob Garcia at rgarcia@rgprogramming.com
-     */
+    /// <summary>
+    /// TestMate model abstract class for test data objects.
+    /// </summary>
     public abstract class Question {
         /// <summary>
         /// The question type; K for Key Term, M for Multiple Choice, T for True or False.
         /// </summary>
         public Constants.QuestionType QuestionType { get; set; }
-        
+
         /// <summary>
         /// The media type; N for none, I for images, A for audio files, and V for video files.
         /// </summary>
         public Constants.MediaType MediaType { get; set; }
 
         /// <summary>
-        /// The media file name; must be null or a name
+        /// The media file name; must be null or a name.
         /// </summary>
         public string MediaFileName { get; set; } = null;
-        
+
         /// <summary>
         /// The explanation for feedback. Can be temporarily null; multiple choice questions populate this field during construction, while key term and true/false questions populate this field when the test is built.
         /// </summary>
@@ -57,8 +55,8 @@ namespace TestMate.Models {
         /// </summary>
         /// <param name="mediaType">The media type; N for none, I for images, A for audio files, and V for video files.</param>
         /// <param name="mediaFileName">The media file name.</param>
-        protected void ValidateAndSetMedia(Constants.MediaType mediaType, string mediaFileName) {
-            if (mediaType == Constants.MediaType.N) {
+        public void ValidateAndSetMedia(Constants.MediaType mediaType, string mediaFileName) {
+            if (mediaType == Constants.MediaType.None) {
                 if (!mediaFileName.ToLowerInvariant().Equals("null")) {
                     throw new ArgumentException("Filename should be NULL.");
                 }
@@ -68,22 +66,22 @@ namespace TestMate.Models {
                     throw new ArgumentException("Missing media file name.");
                 }
                 switch (mediaType) {
-                    case Constants.MediaType.I: {
-                            Regex regex = new Regex(@"^[\\w\\- ]+(.jpg|.png)$");
+                    case Constants.MediaType.Audio: {
+                            Regex regex = new Regex(@"^[\w\- ]+(.mp3)$");
                             if (!regex.Match(mediaFileName).Success) {
                                 throw new ArgumentException("Media format not supported for that media type.");
                             }
                             break;
                         }
-                    case Constants.MediaType.A: {
-                            Regex regex = new Regex(@"^[\\w\\- ]+(.mp3)$");
+                    case Constants.MediaType.Image: {
+                            Regex regex = new Regex(@"^[\w\- ]+(.jpg|.png)$");
                             if (!regex.Match(mediaFileName).Success) {
                                 throw new ArgumentException("Media format not supported for that media type.");
                             }
                             break;
                         }
-                    case Constants.MediaType.V: {
-                            Regex regex = new Regex(@"^[\\w\\- ]+(.mpg|.mpeg|.mp4)$");
+                    case Constants.MediaType.Video: {
+                            Regex regex = new Regex(@"^[\w\- ]+(.mpg|.mpeg|.mp4)$");
                             if (!regex.Match(mediaFileName).Success) {
                                 throw new ArgumentException("Media format not supported for that media type.");
                             }
@@ -93,8 +91,8 @@ namespace TestMate.Models {
                             throw new ArgumentException("Unsupported media type.");
                         }
                 }
-                this.MediaType = mediaType;
-                this.MediaFileName = mediaFileName;
+                MediaType = mediaType;
+                MediaFileName = mediaFileName;
             }
         }
     }

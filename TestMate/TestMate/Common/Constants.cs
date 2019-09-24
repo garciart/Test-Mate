@@ -2,114 +2,74 @@
 using System.IO;
 
 namespace TestMate.Common {
+    /// <summary>
+    /// Constant values used throughout the application.
+    /// </summary>
     public static class Constants {
-        // The location of the settings file and test files
+        /// <summary>
+        /// The path of the settings file and test files.
+        /// </summary>
         public static string AppDataPath { get; private set; } = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
 
-        // The settings file is in the local application data folder
-        public static string settingsFile = Path.Combine(AppDataPath, "TestMate.ini");
+        /// <summary>
+        /// The settings file is in the local application data folder.
+        /// </summary>
+        public static string SettingsFile = Path.Combine(AppDataPath, "TestMate.ini");
 
-        /**
-         * Used to convert the user's choice to an index
-         */
-        public static readonly char[] LETTERS = { 'A', 'B', 'C', 'D' };
+        /// <summary>
+        /// Used to convert the user's choice to an index.
+        /// </summary>
+        public static readonly char[] Letters = { 'A', 'B', 'C', 'D' };
 
-        /**
-         * Question order settings
-         */
+        /// <summary>
+        /// Question order settings:
+        /// Default to display questions as read from the file,
+        /// Random to randomize the order.
+        /// </summary>
         public enum QuestionOrder {
-            /**
-             * DEFAULT to display questions as read from the file
-             */
-            DEFAULT,
-            /**
-             * RANDOM to randomize the order
-             */
-            RANDOM
+            Default,
+            Random
         }
 
-        /**
-         * Term display settings
-         */
+        /// <summary>
+        /// Term display settings:
+        /// TermAsQuestion to display terms as question (Default),
+        /// DefinitionAsQuestion to display definitions as question,
+        /// Mixed to mix it up.
+        /// </summary>
         public enum TermDisplay {
-            /**
-             * TERMISQUESTION to display terms as question (Default)
-             */
-            TERMISQUESTION,
-            /**
-             * DEFISQUESTION to display definitions as question
-             */
-            DEFISQUESTION,
-            /**
-             * MIXEDQUESTION to mix it up
-             */
-            MIXEDQUESTION
+            TermAsQuestion,
+            DefinitionAsQuestion,
+            Mixed
         }
 
-        /**
-         * Provide feedback settings
-         */
+        /// <summary>
+        /// Provide feedback settings:
+        /// Yes to to provide feedback after each answer (Default),
+        /// No to wait until the end of the test to provide feedback.
+        /// </summary>
         public enum ProvideFeedback {
-            /**
-             * YES to to provide feedback after each answer (Default)
-             */
-            YES,
-            /**
-             * NO to wait until the end of the test to provide feedback
-             */
-            NO
+            Yes,
+            No
         }
 
-        /**
-         * Question type constants
-         */
+        /// <summary>
+        /// Question type constants: KeyTerm, MultipleChoice, TrueFalse.
+        /// </summary>
         public enum QuestionType {
-            /**
-             * K for Key Term
-             */
-            K,
-            /**
-             * M for Multiple Choice
-             */
-            M,
-            /**
-             * T for True or False
-             */
-            T
+            KeyTerm,
+            MultipleChoice,
+            TrueFalse
         }
 
-        /**
-         * Media flag constants
-         */
+        /// <summary>
+        /// Media type constants: None, Audio, Image, Video.
+        /// </summary>
         public enum MediaType {
-            /**
-             * N for none
-             */
-            N,
-            /**
-             * I for images
-             */
-            I,
-            /**
-             * A for audio files
-             */
-            A,
-            /**
-             * V for video files
-             */
-            V
+            None,
+            Audio,
+            Image,
+            Video
         }
-
-
-        /* 
-         * Default configuration settings
-         * 0 - Use the default question order.
-         * 0 - Use the key term for the question and a set of possible definitions for the choices.
-         * 0 - Provide feedback immediately.
-         */
-        public static string[] settings = { "0", "0", "0" };
-
-        // All UI items (e.g., buttons, etc.) are enabled by default
-        public static bool enableAppFlag = true;
     }
 }
