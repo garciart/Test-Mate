@@ -57,19 +57,19 @@ namespace TestMate.Common {
         /// Question type constants: KeyTerm, MultipleChoice, TrueFalse.
         /// </summary>
         public enum QuestionType {
-            KeyTerm,
-            MultipleChoice,
-            TrueFalse
+            K,
+            M,
+            T
         }
 
         /// <summary>
         /// Media type constants: None, Audio, Image, Video.
         /// </summary>
         public enum MediaType {
-            None,
-            Audio,
-            Image,
-            Video
+            N,
+            A,
+            I,
+            V
         }
     }
 }
