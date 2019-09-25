@@ -54,7 +54,7 @@ namespace TestMate.Models {
         }
 
         public KeyTermQuestion() {
-            QuestionType = Constants.QuestionType.KeyTerm;
+            QuestionType = Constants.QuestionType.K;
         }
     }
 }

@@ -47,7 +47,7 @@ namespace TestMate.Models {
         public bool Answer { get; set; } = true;
 
         public TrueFalseQuestion() {
-            QuestionType = Constants.QuestionType.TrueFalse;
+            QuestionType = Constants.QuestionType.T;
         }
     }
 }

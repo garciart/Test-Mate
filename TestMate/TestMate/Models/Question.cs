@@ -56,7 +56,7 @@ namespace TestMate.Models {
         /// <param name="mediaType">The media type; N for none, I for images, A for audio files, and V for video files.</param>
         /// <param name="mediaFileName">The media file name.</param>
         public void ValidateAndSetMedia(Constants.MediaType mediaType, string mediaFileName) {
-            if (mediaType == Constants.MediaType.None) {
+            if (mediaType == Constants.MediaType.N) {
                 if (!mediaFileName.ToLowerInvariant().Equals("null")) {
                     throw new ArgumentException("Filename should be NULL.");
                 }
@@ -66,21 +66,21 @@ namespace TestMate.Models {
                     throw new ArgumentException("Missing media file name.");
                 }
                 switch (mediaType) {
-                    case Constants.MediaType.Audio: {
+                    case Constants.MediaType.A: {
                             Regex regex = new Regex(@"^[\w\- ]+(.mp3)$");
                             if (!regex.Match(mediaFileName).Success) {
                                 throw new ArgumentException("Media format not supported for that media type.");
                             }
                             break;
                         }
-                    case Constants.MediaType.Image: {
+                    case Constants.MediaType.I: {
                             Regex regex = new Regex(@"^[\w\- ]+(.jpg|.png)$");
                             if (!regex.Match(mediaFileName).Success) {
                                 throw new ArgumentException("Media format not supported for that media type.");
                             }
                             break;
                         }
-                    case Constants.MediaType.Video: {
+                    case Constants.MediaType.V: {
                             Regex regex = new Regex(@"^[\w\- ]+(.mpg|.mpeg|.mp4)$");
                             if (!regex.Match(mediaFileName).Success) {
                                 throw new ArgumentException("Media format not supported for that media type.");

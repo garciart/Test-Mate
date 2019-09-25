@@ -28,7 +28,7 @@ namespace TestMate.Common {
         public static string ReadSettingsFromFile() {
             try {
                 if (File.Exists(Constants.SettingsFile)) {
-                    // File.Delete(settingsFile);
+                    // File.Delete(Constants.SettingsFile);
                     settings = File.ReadAllLines(Constants.SettingsFile, Encoding.UTF8);
                     return null;
                 }

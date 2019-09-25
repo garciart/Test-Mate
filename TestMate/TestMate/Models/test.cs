@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Text;
 using TestMate.Common;
 
@@ -16,7 +18,7 @@ namespace TestMate.Models {
         /// <summary>
         /// The test title.
         /// </summary>
-        private string testTitle { get; set; }
+        public string TestTitle { get; set; }
 
         /// <summary>
         /// Creates an array list of test questions.
@@ -25,12 +27,12 @@ namespace TestMate.Models {
         /// <param name="questionOrder">Question order setting: Default to display questions as read from the file, Random to randomize the order.</param>
         /// <param name="termDisplay">Term display settings: TermAsQuestion to display terms as question (Default); DefinitionAsQuestion to display definitions as question; Mixed to mix it up.</param>
         /// <returns>A formatted list of test questions created from test data objects.</returns>
-        public List<TestQuestion> getTest(string testFileName, Constants.QuestionOrder questionOrder, Constants.TermDisplay termDisplay) {
+        public List<TestQuestion> GetTest(string testFileName, Constants.QuestionOrder questionOrder, Constants.TermDisplay termDisplay) {
             List<TestQuestion> testQuestions = new List<TestQuestion>();
-            List<Question> testData = readFile(testFileName);
+            List<Question> testData = ReadFile(testFileName);
             List<int> ktIndex = new List<int>();
             for (int x = 0; x < testData.Count; x++) {
-                if (testData[x].QuestionType == Constants.QuestionType.KeyTerm) {
+                if (testData[x].QuestionType == Constants.QuestionType.K) {
                     ktIndex.Add(x);
                 }
             }
@@ -39,7 +41,7 @@ namespace TestMate.Models {
                 Constants.QuestionType qt = testData[x].QuestionType;
                 RandomNumbers rn;
                 switch (qt) {
-                    case Constants.QuestionType.KeyTerm:
+                    case Constants.QuestionType.K:
                         KeyTermQuestion kt = (KeyTermQuestion)testData[x];
                         int ktNumberOfChoices = ((ktIndex.Count - 1) < 3 ? (ktIndex.Count - 1) : 3);
                         List<string> ktTempChoices = new List<string>();
@@ -70,7 +72,7 @@ namespace TestMate.Models {
                         }
                         ktCount++;
                         break;
-                    case Constants.QuestionType.MultipleChoice:
+                    case Constants.QuestionType.M:
                         MultipleChoiceQuestion mc = (MultipleChoiceQuestion)testData[x];
                         List<string> mcTempChoices = new List<string>();
                         rn = new RandomNumbers(mc.NumberOfChoices, 0, mc.NumberOfChoices);
@@ -79,11 +81,12 @@ namespace TestMate.Models {
                         }
                         testQuestions.Add(new TestQuestion(qt, mc.Question, mc.MediaType, mc.MediaFileName, mc.NumberOfChoices, mcTempChoices, rn.IndexLocation, mc.Explanation));
                         break;
-                    case Constants.QuestionType.TrueFalse:
+                    case Constants.QuestionType.T:
                         TrueFalseQuestion tf = (TrueFalseQuestion)testData[x];
-                        List<string> tfTempChoices = new List<string>();
-                        tfTempChoices.Add("true");
-                        tfTempChoices.Add("false");
+                        List<string> tfTempChoices = new List<string> {
+                            "true",
+                            "false"
+                        };
                         testQuestions.Add(new TestQuestion(qt, tf.Question, tf.MediaType, tf.MediaFileName, 1, tfTempChoices, (tf.Answer ? 0 : 1), tf.Explanation));
                         break;
                     default:
@@ -106,62 +109,66 @@ namespace TestMate.Models {
         /// </summary>
         /// <param name="testFileName"></param>
         /// <returns></returns>
-        private ArrayList<TestData> readFile(String testFileName) {
-        // Due to MultipleChoice's fluctuating size, we will use getters and setters instead of a constructor for all question types
-        // Due to MultipleChoice's fluctuating size, we will use getters and setters instead of a constructor for all question types
-        ArrayList<TestData> testData = new ArrayList<>();
-InputStream inputStream = new FileInputStream(testFileName);
-Reader isr = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
-        try (BufferedReader bufferedReader = new BufferedReader(isr)) {
-            setTestTitle(bufferedReader.readLine());
-String qTypeFromFile;
-            while (!Utilities.isNullOrEmpty(qTypeFromFile = bufferedReader.readLine())) {
-                qTypeFromFile = qTypeFromFile.toUpperCase(Locale.ENGLISH);
-                if (qTypeFromFile.equals(Constants.QuestionType.K.toString())) {
-                    KeyTerm k = new KeyTerm();
-k.setKeyTerm(Utilities.fixEscapeCharacters(bufferedReader.readLine()));
-                    k.validateAndSetMedia(Constants.MediaType.valueOf(bufferedReader.readLine().toUpperCase(Locale.ENGLISH)), bufferedReader.readLine());
-                    k.setKTDefinition(Utilities.fixEscapeCharacters(bufferedReader.readLine()));
-                    k.setExplanation(k.getKeyTerm() + ": " + k.getKTDefinition());
-                    testData.add(k);
-                } else if (qTypeFromFile.equals(Constants.QuestionType.M.toString())) {
-                    MultipleChoice m = new MultipleChoice();
-m.setMCQuestion(Utilities.fixEscapeCharacters(bufferedReader.readLine()));
-                    m.validateAndSetMedia(Constants.MediaType.valueOf(bufferedReader.readLine().toUpperCase(Locale.ENGLISH)), bufferedReader.readLine());
-                    m.setMCNumberOfChoices(Integer.parseInt(bufferedReader.readLine()));
-                    for (int x = 0; x <= m.getMCNumberOfChoices(); x++) {
-                        m.getMCChoices().add(Utilities.fixEscapeCharacters(bufferedReader.readLine()));
+        private List<Question> ReadFile(string testFileName) {
+            List<Question> testQuestion = new List<Question>();
+            try {
+                using (StreamReader sr = new StreamReader(testFileName, Encoding.UTF8)) {
+                    TestTitle = sr.ReadLine();
+                    string questionTypeFromFile;
+                    while ((questionTypeFromFile = sr.ReadLine()) != null) {
+                        questionTypeFromFile = questionTypeFromFile.ToUpperInvariant();
+                        if (questionTypeFromFile.Equals(Constants.QuestionType.K.ToString())) {
+                            KeyTermQuestion k = new KeyTermQuestion();
+                            k.KeyTerm = sr.ReadLine();
+                            k.ValidateAndSetMedia((Constants.MediaType)Enum.Parse(typeof(Constants.MediaType), sr.ReadLine()), sr.ReadLine());
+                            k.Definition = sr.ReadLine();
+                            k.Explanation = k.KeyTerm + ": " + k.Definition;
+                            testQuestion.Add(k);
+                        }
+                        else if (questionTypeFromFile.Equals(Constants.QuestionType.M.ToString())) {
+                            MultipleChoiceQuestion m = new MultipleChoiceQuestion();
+                            m.Question = sr.ReadLine();
+                            m.ValidateAndSetMedia((Constants.MediaType)Enum.Parse(typeof(Constants.MediaType), sr.ReadLine()), sr.ReadLine());
+                            m.NumberOfChoices = Int32.Parse(sr.ReadLine());
+                            for (int x = 0; x <= m.NumberOfChoices; x++) {
+                                m.Choices.Add(sr.ReadLine());
+                            }
+                            string tempExplanation = sr.ReadLine();
+                            if (tempExplanation.ToLowerInvariant().Equals("null") || String.IsNullOrEmpty(tempExplanation)) {
+                                m.Explanation = "The answer is: " + m.Choices[0];
+                            }
+                            else {
+                                m.Explanation = tempExplanation;
+                            }
+                            testQuestion.Add(m);
+                        }
+                        else if (questionTypeFromFile.Equals(Constants.QuestionType.T.ToString())) {
+                            TrueFalseQuestion t = new TrueFalseQuestion();
+                            t.Question = sr.ReadLine();
+                            t.ValidateAndSetMedia((Constants.MediaType)Enum.Parse(typeof(Constants.MediaType), sr.ReadLine()), sr.ReadLine());
+                            t.Answer = Boolean.Parse(sr.ReadLine());
+                            string tempExplanation = sr.ReadLine();
+                            if (tempExplanation.ToLowerInvariant().Equals("null") || String.IsNullOrEmpty(tempExplanation)) {
+                                t.Explanation = "The answer is: " + t.Answer;
+                            }
+                            else {
+                                t.Explanation = tempExplanation;
+                            }
+                            testQuestion.Add(t);
+                        }
+                        else {
+                            throw new ArgumentException("Corrupt data file. Check structure and values.");
+                        }
                     }
-                    String tempExplanation = Utilities.fixEscapeCharacters(bufferedReader.readLine());
-                    if (tempExplanation.toLowerCase(Locale.ENGLISH).equals("null") || Utilities.isNullOrEmpty(tempExplanation)) {
-                        m.setExplanation("The answer is: " + m.getMCChoices().get(0));
-                    } else {
-                        m.setExplanation(tempExplanation);
-                    }
-                    testData.add(m);
-                } else if (qTypeFromFile.equals(Constants.QuestionType.T.toString())) {
-                    TrueFalse t = new TrueFalse();
-t.setTFQuestion(Utilities.fixEscapeCharacters(bufferedReader.readLine()));
-                    t.validateAndSetMedia(Constants.MediaType.valueOf(bufferedReader.readLine().toUpperCase(Locale.ENGLISH)), bufferedReader.readLine());
-                    t.setTFAnswer(Boolean.valueOf(bufferedReader.readLine()));
-                    String tempExplanation = Utilities.fixEscapeCharacters(bufferedReader.readLine());
-                    if (tempExplanation.toLowerCase(Locale.ENGLISH).equals("null") || Utilities.isNullOrEmpty(tempExplanation)) {
-                        t.setExplanation("The answer is: " + t.getTFAnswer());
-                    } else {
-                        t.setExplanation(tempExplanation);
-                    }
-                    testData.add(t);
-                } else {
-                    throw new IllegalArgumentException("Corrupt data file. Check structure and values.");
                 }
             }
-        } catch (FileNotFoundException ex) {
-            throw new FileNotFoundException("Cannot find test file: " + ex.toString());
-        } catch (IOException ex) {
-            throw new IOException("Cannot open test file: " + ex.toString());
+            catch (FileNotFoundException ex) {
+                throw new FileNotFoundException("Cannot find test file: " + ex.ToString());
+            }
+            catch (IOException ex) {
+                throw new IOException("Cannot open test file: " + ex.ToString());
+            }
+            return testQuestion;
         }
-        
-        return testData;
-    }
     }
 }

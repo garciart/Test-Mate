@@ -17,6 +17,7 @@
     <None Remove="Assets\TMBanner.png" />
     <None Remove="Assets\tmbanner360.png" />
     <None Remove="Assets\tmicon48.png" />
+    <None Remove="small-test.tmf" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +27,7 @@
     <EmbeddedResource Include="Assets\TMBanner.png" />
     <EmbeddedResource Include="Assets\tmbanner360.png" />
     <EmbeddedResource Include="Assets\tmicon48.png" />
+    <EmbeddedResource Include="small-test.tmf" />
   </ItemGroup>
 
   <ItemGroup>
