@@ -6,12 +6,7 @@ namespace TestMate.Models {
     /// <summary>
     /// TestMate model class for test question objects.
     /// </summary>
-    public class TestQuestion {
-        /// <summary>
-        /// The question type: KeyTerm, MultipleChoice, TrueFalse.
-        /// </summary>
-        public Constants.QuestionType QuestionType { get; set; }
-
+    public class TestQuestion : Question {
         /// <summary>
         /// The final test question. Determined by code and settings for key terms/definitions.
         /// </summary>
@@ -20,19 +15,9 @@ namespace TestMate.Models {
                 return Question;
             }
             set {
-                Question = value ?? throw new ArgumentNullException("Multiple choice questions cannot be null or empty.");
+                Question = value ?? throw new ArgumentNullException("Questions cannot be null or empty.");
             }
         }
-
-        /// <summary>
-        /// The media type: None, Audio, Image, Video.
-        /// </summary>
-        public Constants.MediaType MediaType { get; set; }
-
-        /// <summary>
-        /// The media file name or null if no media is associated with the question.
-        /// </summary>
-        public string MediaFileName { get; set; } = null;
 
         /// <summary>
         /// The final number of possible answers for the question. Must be less than six.
@@ -43,10 +28,10 @@ namespace TestMate.Models {
             }
             set {
                 if (value <= 0) {
-                    throw new ArgumentException("The number of multiple choice answers cannot be null or zero.");
+                    throw new ArgumentException("The number of answers cannot be null or zero.");
                 }
                 else if (value > 6) {
-                    throw new ArgumentException("The number of multiple choice answers cannot be greater than six.");
+                    throw new ArgumentException("The number of answers cannot be greater than six.");
                 }
                 else {
                     NumberOfChoices = value;
@@ -80,26 +65,14 @@ namespace TestMate.Models {
             }
             set {
                 if (value <= 0) {
-                    throw new ArgumentException("The number of choices cannot be null or zero.");
+                    throw new ArgumentException("The correct answer index cannot be null or zero.");
                 }
                 else if (value > 6) {
-                    throw new ArgumentException("The number of choices cannot be greater than six.");
+                    throw new ArgumentException("The correct answer index cannot be greater than six.");
                 }
                 else {
                     CorrectAnswerIndex = value;
                 }
-            }
-        }
-
-        /// <summary>
-        /// The explanation for the correct answer of the test question.
-        /// </summary>
-        public string Explanation {
-            get {
-                return Explanation;
-            }
-            set {
-                Explanation = value ?? throw new ArgumentNullException("Correct answers must have an explantion.");
             }
         }
 

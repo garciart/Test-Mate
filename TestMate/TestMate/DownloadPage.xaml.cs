@@ -21,6 +21,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
+using System.Text;
+using TestMate.Common;
+using TestMate.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -33,10 +40,33 @@ namespace TestMate {
 
         protected override void OnAppearing() {
             base.OnAppearing();
+
             /*
-            File.WriteAllText(Path.Combine(Common.AppDataPath, "BLS1.tm4"), "Basic Life Support Chapter: 1", Encoding.UTF8);
-            File.WriteAllText(Path.Combine(Common.AppDataPath, "BLS2.tm4"), "Basic Life Support: Chapter 2", Encoding.UTF8);
-            File.WriteAllText(Path.Combine(Common.AppDataPath, "ALS1.tm4"), "Advanced Life Support: Chapter 1", Encoding.UTF8);
+            Test test = new Test();
+            List<TestQuestion> testQuestion = test.GetTest(Path.Combine(Constants.AppDataPath, "small-test.tmf"), Constants.QuestionOrder.Default, Constants.TermDisplay.Mixed);
+            Application.Current.MainPage.DisplayAlert("Test Mate", testQuestion.ToString(), "OK");
+            */
+
+            /*
+            var assembly = Assembly.GetExecutingAssembly();
+            var resourceName = "TestMate.small-test.tmf";
+            string smallTestContents;
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName)) {
+                using (StreamReader reader = new StreamReader(stream, Encoding.UTF8)) {
+                    smallTestContents = reader.ReadToEnd();
+                }
+            }
+            // Application.Current.MainPage.DisplayAlert("Test Mate", smallTestContents.ToString(), "OK");
+            File.WriteAllText(Path.Combine(Constants.AppDataPath, "small-test.tmf"), smallTestContents, Encoding.UTF8);
+            /*
+            string savedTestContents = File.ReadAllText(Path.Combine(Constants.AppDataPath, "small-test.tmf"));
+            Application.Current.MainPage.DisplayAlert("Test Mate", savedTestContents.ToString(), "OK");
+            */
+            /*
+            string[] savedTestContents = File.ReadAllLines(Path.Combine(Constants.AppDataPath, "small-test.tmf"));
+            foreach (string line in savedTestContents) {
+                Console.WriteLine("\"" + line + "\"");
+            }
             */
         }
     }

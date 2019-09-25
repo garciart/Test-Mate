@@ -81,7 +81,7 @@ namespace TestMate.Models {
 
         public MultipleChoiceQuestion() {
             this.Choices = new List<string>();
-            QuestionType = Constants.QuestionType.MultipleChoice;
+            QuestionType = Constants.QuestionType.M;
         }
     }
 }
