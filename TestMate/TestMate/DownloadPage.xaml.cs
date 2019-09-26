@@ -36,16 +36,19 @@ namespace TestMate {
     public partial class DownloadPage : ContentPage {
         public DownloadPage() {
             InitializeComponent();
+
         }
 
         protected override void OnAppearing() {
             base.OnAppearing();
 
-            /*
             Test test = new Test();
             List<TestQuestion> testQuestion = test.GetTest(Path.Combine(Constants.AppDataPath, "small-test.tmf"), Constants.QuestionOrder.Default, Constants.TermDisplay.Mixed);
-            Application.Current.MainPage.DisplayAlert("Test Mate", testQuestion.ToString(), "OK");
-            */
+            string myTest = "";
+            foreach (TestQuestion t in testQuestion) {
+                myTest += t.Question + "\n";
+            }
+            Application.Current.MainPage.DisplayAlert("Test Mate", myTest, "OK");
 
             /*
             var assembly = Assembly.GetExecutingAssembly();
@@ -58,15 +61,6 @@ namespace TestMate {
             }
             // Application.Current.MainPage.DisplayAlert("Test Mate", smallTestContents.ToString(), "OK");
             File.WriteAllText(Path.Combine(Constants.AppDataPath, "small-test.tmf"), smallTestContents, Encoding.UTF8);
-            /*
-            string savedTestContents = File.ReadAllText(Path.Combine(Constants.AppDataPath, "small-test.tmf"));
-            Application.Current.MainPage.DisplayAlert("Test Mate", savedTestContents.ToString(), "OK");
-            */
-            /*
-            string[] savedTestContents = File.ReadAllLines(Path.Combine(Constants.AppDataPath, "small-test.tmf"));
-            foreach (string line in savedTestContents) {
-                Console.WriteLine("\"" + line + "\"");
-            }
             */
         }
     }

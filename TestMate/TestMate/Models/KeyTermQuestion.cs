@@ -29,15 +29,18 @@ namespace TestMate.Models {
     /// TestMate model class for key term data objects.
     /// </summary>
     public class KeyTermQuestion : Question {
+        private string keyTerm = "";
+        private string definition = "";
+
         /// <summary>
         /// The key term; cannot be null.
         /// </summary>
         public string KeyTerm {
             get {
-                return KeyTerm;
+                return keyTerm;
             }
             set {
-                KeyTerm = value ?? throw new ArgumentNullException("Key terms cannot be null or empty.");
+                keyTerm = value ?? throw new ArgumentNullException("Key terms cannot be null or empty.");
             }
         }
         
@@ -46,10 +49,10 @@ namespace TestMate.Models {
         /// </summary>
         public string Definition {
             get {
-                return Definition;
+                return definition;
             }
             set {
-                Definition = value ?? throw new ArgumentNullException("Key term definitions cannot be null or empty.");
+                definition = value ?? throw new ArgumentNullException("Key term definitions cannot be null or empty.");
             }
         }
 
