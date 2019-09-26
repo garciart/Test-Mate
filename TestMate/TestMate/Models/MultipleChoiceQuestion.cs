@@ -30,15 +30,19 @@ namespace TestMate.Models {
     /// TestMate model class for multiple choice data objects.
     /// </summary>
     public class MultipleChoiceQuestion : Question {
+        private string question = "";
+        private int numberOfChoices = 0;
+        private List<string> choices = new List<string>();
+
         /// <summary>
         /// The multiple choice question; cannot be null.
         /// </summary>
         public string Question {
             get {
-                return Question;
+                return question;
             }
             set {
-                Question = value ?? throw new ArgumentNullException("Multiple choice questions cannot be null or empty.");
+                question = value ?? throw new ArgumentNullException("Multiple choice questions cannot be null or empty.");
             }
         }
 
@@ -47,7 +51,7 @@ namespace TestMate.Models {
         /// </summary>
         public int NumberOfChoices {
             get {
-                return NumberOfChoices;
+                return numberOfChoices;
             }
             set {
                 if (value <= 0) {
@@ -57,7 +61,7 @@ namespace TestMate.Models {
                     throw new ArgumentException("The number of multiple choice answers cannot be greater than six.");
                 }
                 else {
-                    NumberOfChoices = value;
+                    numberOfChoices = value;
                 }
             }
         }
@@ -67,20 +71,15 @@ namespace TestMate.Models {
         /// </summary>
         public List<string> Choices {
             get {
-                return Choices;
+                return choices;
             }
             set {
-                if (value == null) {
-                    throw new ArgumentNullException("Multiple choice questions must have at least one choice.");
-                }
-                else {
-                    Choices = value;
-                }
+                choices = value ?? throw new ArgumentNullException("Multiple choice questions must have at least one choice.");
             }
         }
 
         public MultipleChoiceQuestion() {
-            this.Choices = new List<string>();
+            // this.Choices = new List<string>();
             QuestionType = Constants.QuestionType.M;
         }
     }

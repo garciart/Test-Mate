@@ -29,15 +29,17 @@ namespace TestMate.Models {
     /// TestMate model class for true/false data objects
     /// </summary>
     public class TrueFalseQuestion : Question {
+        private string question = "";
+
         /// <summary>
         /// The true or false question; cannot be null.
         /// </summary>
         public string Question {
             get {
-                return Question;
+                return question;
             }
             set {
-                Question = value ?? throw new ArgumentNullException("True or false questions cannot be null or empty.");
+                question = value ?? throw new ArgumentNullException("True or false questions cannot be null or empty.");
             }
         }
 
