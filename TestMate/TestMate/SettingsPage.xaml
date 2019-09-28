@@ -12,14 +12,14 @@
             <StackLayout Padding="10" VerticalOptions="Center">
                 <Label Text="{x:Static local:Resources.AppResources.SettingsTitle}" StyleClass="h1" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
                 <Label Text="{x:Static local:Resources.AppResources.SettingsQuestionOrderLabel}" />
-                    <Picker x:Name="questionOrderPicker">
+                    <Picker x:Name="QuestionOrderPicker">
                         <Picker.Items>
                             <x:Static Member="local:Resources.AppResources.QuestionOrderOption1" />
                             <x:Static Member="local:Resources.AppResources.QuestionOrderOption2" />
                         </Picker.Items>
                     </Picker>
                 <Label Text="{x:Static local:Resources.AppResources.SettingsKeyTermsDisplayLabel}" />
-                    <Picker x:Name="keyTermDisplayPicker">
+                    <Picker x:Name="KeyTermDisplayPicker">
                         <Picker.Items>
                             <x:Static Member="local:Resources.AppResources.KeyTermDisplayOption1" />
                             <x:Static Member="local:Resources.AppResources.KeyTermDisplayOption2" />
@@ -27,7 +27,7 @@
                         </Picker.Items>
                     </Picker>
                 <Label Text="{x:Static local:Resources.AppResources.SettingsProvideFeedbackLabel}" />
-                    <Picker x:Name="provideFeedbackPicker">
+                    <Picker x:Name="ProvideFeedbackPicker">
                         <Picker.Items>
                             <x:Static Member="local:Resources.AppResources.ProvideFeedbackOption1" />
                             <x:Static Member="local:Resources.AppResources.ProvideFeedbackOption2" />
@@ -38,8 +38,8 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <Button x:Name="saveSettingsButton" Text="{x:Static local:Resources.AppResources.SettingsSaveButton}" StyleClass="button" Clicked="SaveSettingsButton_Clicked" />
-                    <Button x:Name="cancelButton" Text="{x:Static local:Resources.AppResources.SettingsCancelButton}" StyleClass="button" Clicked="CancelSaveButton_Clicked" Grid.Column="1" />
+                    <Button x:Name="SaveSettingsButton" Text="{x:Static local:Resources.AppResources.SettingsSaveButton}" StyleClass="button" Clicked="SaveSettingsButton_Clicked" />
+                    <Button x:Name="CancelButton" Text="{x:Static local:Resources.AppResources.SettingsCancelButton}" StyleClass="button" Clicked="CancelSaveButton_Clicked" Grid.Column="1" />
                 </Grid>
             </StackLayout>
         </ScrollView>

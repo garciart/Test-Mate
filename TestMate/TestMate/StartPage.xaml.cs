@@ -47,7 +47,7 @@ namespace TestMate {
                     DateCreated = File.GetCreationTime(fileName)
                 });
             }
-            fileList.ItemsSource = testfiles
+            FileList.ItemsSource = testfiles
                 .OrderBy(n => n.TestName)
                 .ToList();
         }

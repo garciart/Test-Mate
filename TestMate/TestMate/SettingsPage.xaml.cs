@@ -34,9 +34,9 @@ namespace TestMate {
         /// </summary>
         public SettingsPage() {
             InitializeComponent();
-            questionOrderPicker.SelectedIndex = int.Parse(AppFunctions.settings[0]);
-            keyTermDisplayPicker.SelectedIndex = int.Parse(AppFunctions.settings[1]);
-            provideFeedbackPicker.SelectedIndex = int.Parse(AppFunctions.settings[2]);
+            QuestionOrderPicker.SelectedIndex = int.Parse(AppFunctions.settings[0]);
+            KeyTermDisplayPicker.SelectedIndex = int.Parse(AppFunctions.settings[1]);
+            ProvideFeedbackPicker.SelectedIndex = int.Parse(AppFunctions.settings[2]);
         }
 
         /// <summary>
@@ -45,9 +45,9 @@ namespace TestMate {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private async void SaveSettingsButton_Clicked(object sender, EventArgs e) {
-            AppFunctions.settings[0] = questionOrderPicker.SelectedIndex.ToString();
-            AppFunctions.settings[1] = keyTermDisplayPicker.SelectedIndex.ToString();
-            AppFunctions.settings[2] = provideFeedbackPicker.SelectedIndex.ToString();
+            AppFunctions.settings[0] = QuestionOrderPicker.SelectedIndex.ToString();
+            AppFunctions.settings[1] = KeyTermDisplayPicker.SelectedIndex.ToString();
+            AppFunctions.settings[2] = ProvideFeedbackPicker.SelectedIndex.ToString();
             // Returns success or error message
             await this.DisplayAlert("Test Mate", AppFunctions.SaveSettingsToFile(), "OK");
             await Application.Current.MainPage.Navigation.PopAsync();
@@ -58,8 +58,8 @@ namespace TestMate {
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void CancelSaveButton_Clicked(object sender, EventArgs e) {
-            Application.Current.MainPage.Navigation.PopAsync();
+        private async void CancelSaveButton_Clicked(object sender, EventArgs e) {
+            await Application.Current.MainPage.Navigation.PopAsync();
         }
     }
 }
