@@ -8,9 +8,9 @@
         <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0" />
     </ContentPage.Padding>
     <ContentPage.Content>
-        <StackLayout x:Name="testDirectory">
+        <StackLayout Padding="10" x:Name="TestDirectory">
             <Label Text="{x:Static local:Resources.AppResources.StartSubtitle}" StyleClass="h1" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
-            <ListView x:Name="fileList">
+            <ListView x:Name="FileList">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextCell Text="{Binding TestName}"

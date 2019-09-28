@@ -8,15 +8,15 @@
         <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0" />
     </ContentPage.Padding>
     <ContentPage.Content>
-        <ScrollView x:Name="mainScrollView">
+        <ScrollView x:Name="MainScrollView">
             <StackLayout Padding="10" VerticalOptions="Center">
                 <Label Text="{x:Static local:Resources.AppResources.AppTitle}" StyleClass="h1" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
-                <Image x:Name="headerImage" Aspect="AspectFit" HeightRequest="100" />
+                <Image x:Name="HeaderImage" Aspect="AspectFit" HeightRequest="100" />
                 <Label Text="{x:Static local:Resources.AppResources.AppSubtitle}" StyleClass="h1" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
-                <Button x:Name="startButton" Text="{x:Static local:Resources.AppResources.StartTitle}" StyleClass="button" Clicked="StartButton_Clicked" IsEnabled="True" />
-                <Button x:Name="settingsButton" Text="{x:Static local:Resources.AppResources.SettingsTitle}" StyleClass="button" Clicked="SettingsButton_Clicked" IsEnabled="True" />
-                <Button x:Name="aboutButton" Text="{x:Static local:Resources.AppResources.AboutTitle}" StyleClass="button" Clicked="AboutButton_Clicked" />
-                <Button x:Name="downloadButton" Text="{x:Static local:Resources.AppResources.DownloadTitle}" StyleClass="button" Clicked="DownloadButton_Clicked" IsEnabled="True" />
+                <Button x:Name="StartButton" Text="{x:Static local:Resources.AppResources.StartTitle}" StyleClass="button" Clicked="StartButton_Clicked" IsEnabled="True" />
+                <Button x:Name="SettingsButton" Text="{x:Static local:Resources.AppResources.SettingsTitle}" StyleClass="button" Clicked="SettingsButton_Clicked" IsEnabled="True" />
+                <Button x:Name="AboutButton" Text="{x:Static local:Resources.AppResources.AboutTitle}" StyleClass="button" Clicked="AboutButton_Clicked" />
+                <Button x:Name="DownloadButton" Text="{x:Static local:Resources.AppResources.DownloadTitle}" StyleClass="button" Clicked="DownloadButton_Clicked" IsEnabled="True" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

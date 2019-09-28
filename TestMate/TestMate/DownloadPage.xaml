@@ -8,8 +8,18 @@
         <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0" />
     </ContentPage.Padding>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+        <StackLayout Padding="10">
+            <Label x:Name="QuestionLabel" />
+            <ListView x:Name="ListView1" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button x:Name="PreviousButton" Text="Previous" StyleClass="button" Clicked="PreviousButton_Clicked" />
+                <Button x:Name="QuitButton" Text="Quit" StyleClass="button" Clicked="QuitButton_Clicked" Grid.Column="1" />
+                <Button x:Name="NextButton" Text="Next" StyleClass="button" Clicked="NextButton_Clicked" Grid.Column="2" />                
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

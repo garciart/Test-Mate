@@ -34,21 +34,27 @@ using Xamarin.Forms.Xaml;
 namespace TestMate {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DownloadPage : ContentPage {
+        private static List<TestQuestion> testQuestion;
+        private static int index = 0;
         public DownloadPage() {
             InitializeComponent();
-
+            Test test = new Test();
+            testQuestion = test.GetTest(Path.Combine(Constants.AppDataPath, "small-test.tmf"), Constants.QuestionOrder.Default, Constants.TermDisplay.Mixed);
+            QuestionLabel.Text = testQuestion[index].Question;
         }
 
         protected override void OnAppearing() {
             base.OnAppearing();
 
-            Test test = new Test();
-            List<TestQuestion> testQuestion = test.GetTest(Path.Combine(Constants.AppDataPath, "small-test.tmf"), Constants.QuestionOrder.Default, Constants.TermDisplay.Mixed);
+
+
+            /*
             string myTest = "";
             foreach (TestQuestion t in testQuestion) {
                 myTest += t.Question + "\n";
             }
             Application.Current.MainPage.DisplayAlert("Test Mate", myTest, "OK");
+            */
 
             /*
             var assembly = Assembly.GetExecutingAssembly();
@@ -62,6 +68,27 @@ namespace TestMate {
             // Application.Current.MainPage.DisplayAlert("Test Mate", smallTestContents.ToString(), "OK");
             File.WriteAllText(Path.Combine(Constants.AppDataPath, "small-test.tmf"), smallTestContents, Encoding.UTF8);
             */
+        }
+
+        private async void PreviousButton_Clicked(object sender, EventArgs e) {
+            await this.DisplayAlert("Test Mate", "Previous button clicked.", "OK");
+            if (index > 0) {
+                index--;
+                QuestionLabel.Text = testQuestion[index].Question;
+            }
+        }
+
+        private async void QuitButton_Clicked(object sender, EventArgs e) {
+            await this.DisplayAlert("Test Mate", "Quit button clicked.", "OK");
+            await Application.Current.MainPage.Navigation.PopAsync();
+        }
+
+        private async void NextButton_Clicked(object sender, EventArgs e) {
+            await this.DisplayAlert("Test Mate", "Next button clicked.", "OK");
+            if (index < (testQuestion.Count - 1)) {
+                index++;
+                QuestionLabel.Text = testQuestion[index].Question;
+            }
         }
     }
 }
