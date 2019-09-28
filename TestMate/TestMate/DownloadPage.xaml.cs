@@ -23,6 +23,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Reflection;
 using System.Text;
@@ -40,7 +41,7 @@ namespace TestMate {
             InitializeComponent();
             Test test = new Test();
             testQuestion = test.GetTest(Path.Combine(Constants.AppDataPath, "small-test.tmf"), Constants.QuestionOrder.Default, Constants.TermDisplay.Mixed);
-            QuestionLabel.Text = testQuestion[index].Question;
+            PopulateControls();
         }
 
         protected override void OnAppearing() {
@@ -74,7 +75,7 @@ namespace TestMate {
             await this.DisplayAlert("Test Mate", "Previous button clicked.", "OK");
             if (index > 0) {
                 index--;
-                QuestionLabel.Text = testQuestion[index].Question;
+                PopulateControls();
             }
         }
 
@@ -87,8 +88,17 @@ namespace TestMate {
             await this.DisplayAlert("Test Mate", "Next button clicked.", "OK");
             if (index < (testQuestion.Count - 1)) {
                 index++;
-                QuestionLabel.Text = testQuestion[index].Question;
+                PopulateControls();
             }
+        }
+
+        private void PopulateControls() {
+            QuestionLabel.Text = testQuestion[index].Question;
+            ObservableCollection<string> itemList = new ObservableCollection<string>();
+            foreach (string c in testQuestion[index].Choices) {
+                itemList.Add(c);
+            }
+            ListView1.ItemsSource = itemList;
         }
     }
 }
