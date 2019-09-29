@@ -25,8 +25,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Reflection;
-using System.Text;
 using TestMate.Common;
 using TestMate.Models;
 using Xamarin.Forms;
@@ -36,7 +34,7 @@ namespace TestMate {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DownloadPage : ContentPage {
         private static List<TestQuestion> testQuestion;
-        private static int index = 0;
+        private static int questionIndex = 0;
         public DownloadPage() {
             InitializeComponent();
             Test test = new Test();
@@ -44,11 +42,50 @@ namespace TestMate {
             PopulateControls();
         }
 
-        protected override void OnAppearing() {
-            base.OnAppearing();
+        private async void PreviousButton_Clicked(object sender, EventArgs e) {
+            await this.DisplayAlert("Test Mate", "Previous button clicked.", "OK");
+            if (questionIndex > 0) {
+                questionIndex--;
+                PopulateControls();
+            }
+            else {
+                await this.DisplayAlert("Test Mate", "This is the beginning of the test.", "OK");
+            }
+        }
 
+        private async void QuitButton_Clicked(object sender, EventArgs e) {
+            await this.DisplayAlert("Test Mate", "Quit button clicked.", "OK");
+            await Application.Current.MainPage.Navigation.PopAsync();
+        }
 
+        private async void NextButton_Clicked(object sender, EventArgs e) {
 
+            await this.DisplayAlert("Test Mate",
+                ((string)ListView1.SelectedItem == testQuestion[questionIndex].Choices[testQuestion[questionIndex].CorrectAnswerIndex]) ?
+                "Correct.\n" + testQuestion[questionIndex].Explanation :
+                "Incorrect.\n" + testQuestion[questionIndex].Explanation,
+                "OK");
+            if (questionIndex < (testQuestion.Count - 1)) {
+                questionIndex++;
+                PopulateControls();
+            }
+            else {
+                await this.DisplayAlert("Test Mate", "You've reached the end of the test.", "OK");
+            }
+        }
+
+        private void PopulateControls() {
+            QuestionLabel.Text = testQuestion[questionIndex].Question;
+            ObservableCollection<string> itemList = new ObservableCollection<string>();
+            foreach (string c in testQuestion[questionIndex].Choices) {
+                itemList.Add(c);
+            }
+            ListView1.ItemsSource = itemList;
+            PreviousButton.IsEnabled = (questionIndex > 0) ? true : false;
+            NextButton.IsEnabled = (questionIndex < (testQuestion.Count - 1)) ? true : false;
+        }
+
+        private void WriteTestToStorage() {
             /*
             string myTest = "";
             foreach (TestQuestion t in testQuestion) {
@@ -69,36 +106,6 @@ namespace TestMate {
             // Application.Current.MainPage.DisplayAlert("Test Mate", smallTestContents.ToString(), "OK");
             File.WriteAllText(Path.Combine(Constants.AppDataPath, "small-test.tmf"), smallTestContents, Encoding.UTF8);
             */
-        }
-
-        private async void PreviousButton_Clicked(object sender, EventArgs e) {
-            await this.DisplayAlert("Test Mate", "Previous button clicked.", "OK");
-            if (index > 0) {
-                index--;
-                PopulateControls();
-            }
-        }
-
-        private async void QuitButton_Clicked(object sender, EventArgs e) {
-            await this.DisplayAlert("Test Mate", "Quit button clicked.", "OK");
-            await Application.Current.MainPage.Navigation.PopAsync();
-        }
-
-        private async void NextButton_Clicked(object sender, EventArgs e) {
-            await this.DisplayAlert("Test Mate", "Next button clicked.", "OK");
-            if (index < (testQuestion.Count - 1)) {
-                index++;
-                PopulateControls();
-            }
-        }
-
-        private void PopulateControls() {
-            QuestionLabel.Text = testQuestion[index].Question;
-            ObservableCollection<string> itemList = new ObservableCollection<string>();
-            foreach (string c in testQuestion[index].Choices) {
-                itemList.Add(c);
-            }
-            ListView1.ItemsSource = itemList;
         }
     }
 }
