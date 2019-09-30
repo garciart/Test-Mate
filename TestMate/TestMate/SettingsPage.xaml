@@ -19,11 +19,11 @@
                         </Picker.Items>
                     </Picker>
                 <Label Text="{x:Static local:Resources.AppResources.SettingsKeyTermsDisplayLabel}" />
-                    <Picker x:Name="KeyTermDisplayPicker">
+                    <Picker x:Name="TermDisplayPicker">
                         <Picker.Items>
-                            <x:Static Member="local:Resources.AppResources.KeyTermDisplayOption1" />
-                            <x:Static Member="local:Resources.AppResources.KeyTermDisplayOption2" />
-                            <x:Static Member="local:Resources.AppResources.KeyTermDisplayOption3" />
+                            <x:Static Member="local:Resources.AppResources.TermDisplayOption1" />
+                            <x:Static Member="local:Resources.AppResources.TermDisplayOption2" />
+                            <x:Static Member="local:Resources.AppResources.TermDisplayOption3" />
                         </Picker.Items>
                     </Picker>
                 <Label Text="{x:Static local:Resources.AppResources.SettingsProvideFeedbackLabel}" />

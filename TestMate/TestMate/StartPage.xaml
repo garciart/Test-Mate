@@ -10,7 +10,7 @@
     <ContentPage.Content>
         <StackLayout Padding="10" x:Name="TestDirectory">
             <Label Text="{x:Static local:Resources.AppResources.StartSubtitle}" StyleClass="h1" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
-            <ListView x:Name="FileList">
+            <ListView x:Name="FileList" ItemSelected="FileList_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextCell Text="{Binding TestName}"

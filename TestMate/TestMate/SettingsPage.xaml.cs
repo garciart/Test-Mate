@@ -34,9 +34,10 @@ namespace TestMate {
         /// </summary>
         public SettingsPage() {
             InitializeComponent();
-            QuestionOrderPicker.SelectedIndex = int.Parse(AppFunctions.settings[0]);
-            KeyTermDisplayPicker.SelectedIndex = int.Parse(AppFunctions.settings[1]);
-            ProvideFeedbackPicker.SelectedIndex = int.Parse(AppFunctions.settings[2]);
+            // QuestionOrderPicker.SelectedIndex = int.Parse(AppFunctions.settings[0]);
+            QuestionOrderPicker.SelectedIndex = (int)App.questionOrder;
+            TermDisplayPicker.SelectedIndex = (int)App.termDisplay;
+            ProvideFeedbackPicker.SelectedIndex = (int)App.provideFeedback;
         }
 
         /// <summary>
@@ -45,11 +46,11 @@ namespace TestMate {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private async void SaveSettingsButton_Clicked(object sender, EventArgs e) {
-            AppFunctions.settings[0] = QuestionOrderPicker.SelectedIndex.ToString();
-            AppFunctions.settings[1] = KeyTermDisplayPicker.SelectedIndex.ToString();
-            AppFunctions.settings[2] = ProvideFeedbackPicker.SelectedIndex.ToString();
+            App.questionOrder = (Constants.QuestionOrder)QuestionOrderPicker.SelectedIndex;
+            App.termDisplay = (Constants.TermDisplay)TermDisplayPicker.SelectedIndex;
+            App.provideFeedback = (Constants.ProvideFeedback)ProvideFeedbackPicker.SelectedIndex;
             // Returns success or error message
-            await this.DisplayAlert("Test Mate", AppFunctions.SaveSettingsToFile(), "OK");
+            await this.DisplayAlert("Test Mate", AppFunctions.SaveSettingsToFile(App.questionOrder, App.termDisplay, App.provideFeedback), "OK");
             await Application.Current.MainPage.Navigation.PopAsync();
         }
 

@@ -138,13 +138,13 @@
   <data name="DownloadTitle" xml:space="preserve">
     <value>Download a Test...</value>
   </data>
-  <data name="KeyTermDisplayOption1" xml:space="preserve">
+  <data name="TermDisplayOption1" xml:space="preserve">
     <value>Use the key term for the question and a set of possible definitions for the choices.</value>
   </data>
-  <data name="KeyTermDisplayOption2" xml:space="preserve">
+  <data name="TermDisplayOption2" xml:space="preserve">
     <value>Use the definition for the question and a set of possible key terms for the choices.</value>
   </data>
-  <data name="KeyTermDisplayOption3" xml:space="preserve">
+  <data name="TermDisplayOption3" xml:space="preserve">
     <value>Randomly use key terms or definitions for the questions.</value>
   </data>
   <data name="AppSubtitle" xml:space="preserve">

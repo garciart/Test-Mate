@@ -39,12 +39,19 @@ namespace TestMate {
         public DownloadPage() {
             InitializeComponent();
             Test test = new Test();
-            testQuestion = test.GetTest(Path.Combine(Constants.AppDataPath, "small-test.tmf"), AppFunctions.questionOrder, AppFunctions.termDisplay);
+            testQuestion = test.GetTest(Path.Combine(Constants.AppDataPath, "small-test.tmf"), App.questionOrder, App.termDisplay);
             PopulateControls();
         }
 
-        private async void PreviousButton_Clicked(object sender, EventArgs e) {
-            await this.DisplayAlert("Test Mate", "Previous button clicked.", "OK");
+        public DownloadPage(TestFile testFile) {
+            InitializeComponent();
+            Test test = new Test();
+            testQuestion = test.GetTest(Path.Combine(Constants.AppDataPath, testFile.FileName), App.questionOrder, App.termDisplay);
+            PopulateControls();
+        }
+
+        private async void ReviewButton_Clicked(object sender, EventArgs e) {
+            await this.DisplayAlert("Test Mate", "Review button clicked.", "OK");
             if (questionIndex > 0) {
                 questionIndex--;
                 PopulateControls();
@@ -62,8 +69,8 @@ namespace TestMate {
             }
         }
 
-        private async void NextButton_Clicked(object sender, EventArgs e) {
-            if(AppFunctions.provideFeedback == Constants.ProvideFeedback.Yes) {
+        private async void SubmitButton_Clicked(object sender, EventArgs e) {
+            if(App.provideFeedback == Constants.ProvideFeedback.Yes) {
                 await this.DisplayAlert("Test Mate",
                     ((string)ListView1.SelectedItem == testQuestion[questionIndex].Choices[testQuestion[questionIndex].CorrectAnswerIndex]) ?
                     "Correct.\n" + testQuestion[questionIndex].Explanation :
@@ -76,6 +83,8 @@ namespace TestMate {
             }
             else {
                 await this.DisplayAlert("Test Mate", "You've reached the end of the test.", "OK");
+                questionIndex = 0;
+                await Application.Current.MainPage.Navigation.PopAsync();
             }
         }
 
@@ -86,8 +95,8 @@ namespace TestMate {
                 itemList.Add(c);
             }
             ListView1.ItemsSource = itemList;
-            PreviousButton.IsEnabled = (questionIndex > 0) ? true : false;
-            NextButton.IsEnabled = (questionIndex < (testQuestion.Count - 1)) ? true : false;
+            ReviewButton.IsEnabled = (questionIndex > 0) ? true : false;
+            SubmitButton.IsEnabled = (questionIndex <= (testQuestion.Count)) ? true : false;
         }
 
         private void WriteTestToStorage() {

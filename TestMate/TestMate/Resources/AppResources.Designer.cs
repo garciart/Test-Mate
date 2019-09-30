@@ -142,33 +142,6 @@ namespace TestMate.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use the key term for the question and a set of possible definitions for the choices..
-        /// </summary>
-        public static string KeyTermDisplayOption1 {
-            get {
-                return ResourceManager.GetString("KeyTermDisplayOption1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Use the definition for the question and a set of possible key terms for the choices..
-        /// </summary>
-        public static string KeyTermDisplayOption2 {
-            get {
-                return ResourceManager.GetString("KeyTermDisplayOption2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Randomly use key terms or definitions for the questions..
-        /// </summary>
-        public static string KeyTermDisplayOption3 {
-            get {
-                return ResourceManager.GetString("KeyTermDisplayOption3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Cannot open that file!.
         /// </summary>
         public static string OpenFileErrorMessage {
@@ -323,6 +296,33 @@ namespace TestMate.Resources {
         public static string StartTitle {
             get {
                 return ResourceManager.GetString("StartTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use the key term for the question and a set of possible definitions for the choices..
+        /// </summary>
+        public static string TermDisplayOption1 {
+            get {
+                return ResourceManager.GetString("TermDisplayOption1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use the definition for the question and a set of possible key terms for the choices..
+        /// </summary>
+        public static string TermDisplayOption2 {
+            get {
+                return ResourceManager.GetString("TermDisplayOption2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Randomly use key terms or definitions for the questions..
+        /// </summary>
+        public static string TermDisplayOption3 {
+            get {
+                return ResourceManager.GetString("TermDisplayOption3", resourceCulture);
             }
         }
     }

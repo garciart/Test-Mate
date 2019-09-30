@@ -51,5 +51,12 @@ namespace TestMate {
                 .OrderBy(n => n.TestName)
                 .ToList();
         }
+
+        private async void FileList_ItemSelected(object sender, SelectedItemChangedEventArgs e) {
+            TestFile fileName = e.SelectedItem as TestFile;
+            await this.DisplayAlert("Test Mate", fileName.FileName, "OK");
+            await Navigation.PushAsync(new DownloadPage(fileName));
+            Navigation.RemovePage(this);
+        }
     }
 }
