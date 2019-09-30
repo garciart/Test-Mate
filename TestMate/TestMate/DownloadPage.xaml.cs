@@ -35,6 +35,7 @@ namespace TestMate {
     public partial class DownloadPage : ContentPage {
         private static List<TestQuestion> testQuestion;
         private static int questionIndex = 0;
+        private static int correctAnswerCount = 0;
         public DownloadPage() {
             InitializeComponent();
             Test test = new Test();
@@ -54,18 +55,21 @@ namespace TestMate {
         }
 
         private async void QuitButton_Clicked(object sender, EventArgs e) {
-            await this.DisplayAlert("Test Mate", "Quit button clicked.", "OK");
-            questionIndex = 0;
-            await Application.Current.MainPage.Navigation.PopAsync();
+            bool answer = await DisplayAlert("Test Mate", "Are you sure you want to quit this test?", "Yes", "No");
+            if(answer) {
+                questionIndex = 0;
+                await Application.Current.MainPage.Navigation.PopAsync();
+            }
         }
 
         private async void NextButton_Clicked(object sender, EventArgs e) {
-
-            await this.DisplayAlert("Test Mate",
-                ((string)ListView1.SelectedItem == testQuestion[questionIndex].Choices[testQuestion[questionIndex].CorrectAnswerIndex]) ?
-                "Correct.\n" + testQuestion[questionIndex].Explanation :
-                "Incorrect.\n" + testQuestion[questionIndex].Explanation,
-                "OK");
+            if(AppFunctions.provideFeedback == Constants.ProvideFeedback.Yes) {
+                await this.DisplayAlert("Test Mate",
+                    ((string)ListView1.SelectedItem == testQuestion[questionIndex].Choices[testQuestion[questionIndex].CorrectAnswerIndex]) ?
+                    "Correct.\n" + testQuestion[questionIndex].Explanation :
+                    "Incorrect.\n" + testQuestion[questionIndex].Explanation,
+                    "OK");
+            }
             if (questionIndex < (testQuestion.Count - 1)) {
                 questionIndex++;
                 PopulateControls();
