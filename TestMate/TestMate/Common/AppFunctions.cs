@@ -38,6 +38,9 @@ namespace TestMate.Common {
         /// 0 (Provide feedback immediately).
         /// </summary>
         public static string[] settings = { "0", "0", "0" };
+        public static Constants.QuestionOrder questionOrder = new Constants.QuestionOrder();
+        public static Constants.TermDisplay termDisplay = new Constants.TermDisplay();
+        public static Constants.ProvideFeedback provideFeedback = new Constants.ProvideFeedback();
 
         /// <summary>
         /// All UI items (e.g., buttons, etc.) are enabled by default.
@@ -53,6 +56,9 @@ namespace TestMate.Common {
                 if (File.Exists(Constants.SettingsFile)) {
                     // File.Delete(Constants.SettingsFile);
                     settings = File.ReadAllLines(Constants.SettingsFile, Encoding.UTF8);
+                    questionOrder = (Constants.QuestionOrder)int.Parse(settings[0]);
+                    termDisplay = (Constants.TermDisplay)int.Parse(settings[1]);
+                    provideFeedback = (Constants.ProvideFeedback)int.Parse(settings[2]);
                     return null;
                 }
                 else {
@@ -72,6 +78,9 @@ namespace TestMate.Common {
         public static string SaveSettingsToFile() {
             try {
                 File.WriteAllLines(Constants.SettingsFile, settings, Encoding.UTF8);
+                questionOrder = (Constants.QuestionOrder)int.Parse(settings[0]);
+                termDisplay = (Constants.TermDisplay)int.Parse(settings[1]);
+                provideFeedback = (Constants.ProvideFeedback)int.Parse(settings[2]);
                 return string.Format(AppResources.SettingsSaveSuccessMessage);
             }
             catch (Exception e) {
