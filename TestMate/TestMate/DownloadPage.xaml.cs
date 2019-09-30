@@ -38,7 +38,7 @@ namespace TestMate {
         public DownloadPage() {
             InitializeComponent();
             Test test = new Test();
-            testQuestion = test.GetTest(Path.Combine(Constants.AppDataPath, "small-test.tmf"), Constants.QuestionOrder.Default, Constants.TermDisplay.Mixed);
+            testQuestion = test.GetTest(Path.Combine(Constants.AppDataPath, "small-test.tmf"), AppFunctions.questionOrder, AppFunctions.termDisplay);
             PopulateControls();
         }
 
@@ -55,6 +55,7 @@ namespace TestMate {
 
         private async void QuitButton_Clicked(object sender, EventArgs e) {
             await this.DisplayAlert("Test Mate", "Quit button clicked.", "OK");
+            questionIndex = 0;
             await Application.Current.MainPage.Navigation.PopAsync();
         }
 
