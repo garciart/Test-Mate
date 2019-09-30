@@ -37,15 +37,7 @@ namespace TestMate.Common {
         /// 0 (Use the key term for the question and a set of possible definitions for the choices),
         /// 0 (Provide feedback immediately).
         /// </summary>
-        public static string[] settings = { "0", "0", "0" };
-        public static Constants.QuestionOrder questionOrder = new Constants.QuestionOrder();
-        public static Constants.TermDisplay termDisplay = new Constants.TermDisplay();
-        public static Constants.ProvideFeedback provideFeedback = new Constants.ProvideFeedback();
-
-        /// <summary>
-        /// All UI items (e.g., buttons, etc.) are enabled by default.
-        /// </summary>
-        public static bool enableAppFlag = true;
+        private static string[] settings = { App.questionOrder.ToString(), App.termDisplay.ToString(), App.provideFeedback.ToString() };
 
         /// <summary>
         /// Attempt to read and set stored settings. If the settings file is not found, it creates one with default values.
@@ -56,9 +48,9 @@ namespace TestMate.Common {
                 if (File.Exists(Constants.SettingsFile)) {
                     // File.Delete(Constants.SettingsFile);
                     settings = File.ReadAllLines(Constants.SettingsFile, Encoding.UTF8);
-                    questionOrder = (Constants.QuestionOrder)int.Parse(settings[0]);
-                    termDisplay = (Constants.TermDisplay)int.Parse(settings[1]);
-                    provideFeedback = (Constants.ProvideFeedback)int.Parse(settings[2]);
+                    Enum.TryParse(settings[0], out App.questionOrder);
+                    Enum.TryParse(settings[1], out App.termDisplay);
+                    Enum.TryParse(settings[2], out App.provideFeedback);
                     return null;
                 }
                 else {
@@ -75,12 +67,12 @@ namespace TestMate.Common {
         /// Attempt to save settings to file.
         /// </summary>
         /// <returns>Appropriate error message.</returns>
-        public static string SaveSettingsToFile() {
+        public static string SaveSettingsToFile(Constants.QuestionOrder questionOrder, Constants.TermDisplay termDisplay, Constants.ProvideFeedback provideFeedback) {
             try {
+                settings[0] = questionOrder.ToString();
+                settings[1] = termDisplay.ToString();
+                settings[2] = provideFeedback.ToString();
                 File.WriteAllLines(Constants.SettingsFile, settings, Encoding.UTF8);
-                questionOrder = (Constants.QuestionOrder)int.Parse(settings[0]);
-                termDisplay = (Constants.TermDisplay)int.Parse(settings[1]);
-                provideFeedback = (Constants.ProvideFeedback)int.Parse(settings[2]);
                 return string.Format(AppResources.SettingsSaveSuccessMessage);
             }
             catch (Exception e) {

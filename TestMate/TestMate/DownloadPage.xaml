@@ -16,9 +16,9 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Button x:Name="PreviousButton" Text="Previous" StyleClass="button" Clicked="PreviousButton_Clicked" />
+                <Button x:Name="ReviewButton" Text="Review" StyleClass="button" Clicked="ReviewButton_Clicked" />
                 <Button x:Name="QuitButton" Text="Quit" StyleClass="button" Clicked="QuitButton_Clicked" Grid.Column="1" />
-                <Button x:Name="NextButton" Text="Next" StyleClass="button" Clicked="NextButton_Clicked" Grid.Column="2" />                
+                <Button x:Name="SubmitButton" Text="Submit" StyleClass="button" Clicked="SubmitButton_Clicked" Grid.Column="2" />                
             </Grid>
         </StackLayout>
     </ContentPage.Content>

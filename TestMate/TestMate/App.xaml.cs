@@ -23,6 +23,7 @@
  */
 using System;
 using TestMate.Common;
+using TestMate.Models;
 using TestMate.Resources;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -35,6 +36,14 @@ namespace TestMate {
      * @author Rob Garcia at rgarcia@rgprogramming.com
      */
     public partial class App : Application {
+        // Initialize global settings
+        public static Constants.QuestionOrder questionOrder = new Constants.QuestionOrder();
+        public static Constants.TermDisplay termDisplay = new Constants.TermDisplay();
+        public static Constants.ProvideFeedback provideFeedback = new Constants.ProvideFeedback();
+        // All UI items (e.g., buttons, etc.) are enabled by default.
+        public static bool enableAppFlag = true;
+        public static TestFile testFile = new TestFile();
+
         public App() {
             InitializeComponent();
             MainPage = new NavigationPage(new MainPage());
@@ -51,7 +60,7 @@ namespace TestMate {
                 // Display error
                 Application.Current.MainPage.DisplayAlert("Test Mate", errorMessage, "OK");
                 // Disable application only if the error is NOT a missing settings file (e.g., IOException, etc.)
-                AppFunctions.enableAppFlag = (errorMessage != AppResources.SettingsMissingErrorMessage) ? false : true;
+                App.enableAppFlag = (errorMessage != AppResources.SettingsMissingErrorMessage) ? false : true;
             }
         }
 

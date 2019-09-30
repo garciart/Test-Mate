@@ -145,15 +145,15 @@
     <value>Descargar un nuevo examen...</value>
     <comment>Download a Test...</comment>
   </data>
-  <data name="KeyTermDisplayOption1" xml:space="preserve">
+  <data name="TermDisplayOption1" xml:space="preserve">
     <value>Use el término clave para la pregunta y un conjunto de posibles definiciones para las opciones.</value>
     <comment>Use the key term for the question and a set of possible definitions for the choices.</comment>
   </data>
-  <data name="KeyTermDisplayOption2" xml:space="preserve">
+  <data name="TermDisplayOption2" xml:space="preserve">
     <value>Use la definición de la pregunta y un conjunto de posibles términos clave para las opciones.</value>
     <comment>Use the definition for the question and a set of possible key terms for the choices.</comment>
   </data>
-  <data name="KeyTermDisplayOption3" xml:space="preserve">
+  <data name="TermDisplayOption3" xml:space="preserve">
     <value>Use al azar términos o definiciones clave para las preguntas.</value>
     <comment>Randomly use key terms or definitions for the questions.</comment>
   </data>
