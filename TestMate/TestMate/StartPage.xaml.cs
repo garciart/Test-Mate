@@ -54,8 +54,8 @@ namespace TestMate {
 
         private async void FileList_ItemSelected(object sender, SelectedItemChangedEventArgs e) {
             TestFile fileName = e.SelectedItem as TestFile;
-            await this.DisplayAlert("Test Mate", fileName.FileName, "OK");
-            await Navigation.PushAsync(new DownloadPage(fileName));
+            // await this.DisplayAlert("Test Mate", fileName.FileName, "OK");
+            await Navigation.PushAsync(new TestPage(fileName));
             Navigation.RemovePage(this);
         }
     }

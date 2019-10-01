@@ -4,22 +4,11 @@
              x:Class="TestMate.DownloadPage"
              xmlns:local="clr-namespace:TestMate"
              Title="{x:Static local:Resources.AppResources.DownloadTitle}">
-    <ContentPage.Padding>
-        <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0" />
-    </ContentPage.Padding>
     <ContentPage.Content>
-        <StackLayout Padding="10">
-            <Label x:Name="QuestionLabel" />
-            <ListView x:Name="ListView1" />
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Button x:Name="ReviewButton" Text="Review" StyleClass="button" Clicked="ReviewButton_Clicked" />
-                <Button x:Name="QuitButton" Text="Quit" StyleClass="button" Clicked="QuitButton_Clicked" Grid.Column="1" />
-                <Button x:Name="SubmitButton" Text="Submit" StyleClass="button" Clicked="SubmitButton_Clicked" Grid.Column="2" />                
-            </Grid>
+        <StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

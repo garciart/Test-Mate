@@ -1,7 +1,7 @@
 ﻿/*
  * The MIT License
  *
- * Copyright 2018 Rob Garcia at rgarcia@rgprogramming.com.
+ * Copyright 2019 Rob Garcia at rgarcia@rgprogramming.com.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,20 +22,28 @@
  * THE SOFTWARE.
  */
 using System;
-using TestMate.Resources;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
-namespace TestMate {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AboutPage : ContentPage {
-        public AboutPage() {
-            InitializeComponent();
-            CopyrightLabel.Text = String.Format(AppResources.CopyrightLabel, DateTime.Now.Year.ToString());
+namespace TestMate.Models {
+    public class Result {
+        private string question = "";
+
+        public string SelectedItem { get; set; } = null;
+
+        public string Question {
+            get {
+                return question;
+            }
+            set {
+                question = value ?? throw new ArgumentNullException("Question cannot be null or empty.");
+            }
         }
 
-        private void UserManualButton_Clicked(object sender, EventArgs e) {
-            Device.OpenUri(new System.Uri("https://rgprogramming.com"));
+        public bool CorrectFlag { get; set; } = false;
+
+        public Result(string question, string selectedItem, bool correctFlag) {
+            Question = question;
+            SelectedItem = selectedItem;
+            CorrectFlag = correctFlag;
         }
     }
 }
