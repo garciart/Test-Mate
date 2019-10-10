@@ -25,6 +25,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Net;
 using TestMate.Common;
 using TestMate.Models;
 using Xamarin.Forms;
@@ -35,6 +36,14 @@ namespace TestMate {
     public partial class DownloadPage : ContentPage {
         public DownloadPage() {
             InitializeComponent();
+        }
+
+        private async void DownloadFileButton_Clicked(object sender, EventArgs e) {
+            string testURL = DownloadURL.Text;
+            await this.DisplayAlert("Test Mate", String.Format("Your test is located at {0}!", testURL), "OK");
+            using (WebClient webClient = new WebClient()) {
+                webClient.DownloadFile(testURL, Constants.AppDataPath + "test.tmf");
+            }
         }
     }
 }

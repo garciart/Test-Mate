@@ -75,6 +75,7 @@ namespace TestMate {
         }
 
         private async void SubmitButton_Clicked(object sender, EventArgs e) {
+            int i = testQuestion[questionIndex].Choices.IndexOf((string)ListView1.SelectedItem);
             string selectedItem = (string)ListView1.SelectedItem;
             if (selectedItem == null) {
                 await this.DisplayAlert("Test Mate", "Nothing selected!", "OK");
