@@ -23,7 +23,10 @@
  */
 using System;
 using System.IO;
+using System.Net;
+using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 using TestMate.Resources;
 
 namespace TestMate.Common {
@@ -77,6 +80,31 @@ namespace TestMate.Common {
             }
             catch (Exception e) {
                 return string.Format(AppResources.SettingsSaveErrorMessage, e.Message);
+            }
+        }
+
+        /// <summary>
+        /// Thanks to Daxton47 at https://forums.xamarin.com/discussion/138266/how-to-hit-an-url-to-download-a-file
+        /// </summary>
+        /// <param name="fileUrl"></param>
+        /// <returns></returns>
+        public static async Task<byte[]> DownloadFileAsync(string fileUrl) {
+            var _httpClient = new HttpClient { Timeout = TimeSpan.FromSeconds(15) };
+
+            try {
+                using (var httpResponse = await _httpClient.GetAsync(fileUrl)) {
+                    if (httpResponse.StatusCode == HttpStatusCode.OK) {
+                        return await httpResponse.Content.ReadAsByteArrayAsync();
+                    }
+                    else {
+                        // Url is Invalid
+                        return null;
+                    }
+                }
+            }
+            catch (Exception) {
+                //Handle Exception
+                return null;
             }
         }
     }

@@ -12,8 +12,7 @@
             <ListView x:Name="ResultsList">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding Question}"
-                          Detail="{Binding CorrectFlag}" />
+                        <TextCell Text="{Binding Question}" Detail="{Binding CorrectFlag}" />
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

@@ -26,6 +26,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Net;
+using System.Threading.Tasks;
 using TestMate.Common;
 using TestMate.Models;
 using Xamarin.Forms;
@@ -41,8 +42,19 @@ namespace TestMate {
         private async void DownloadFileButton_Clicked(object sender, EventArgs e) {
             string testURL = DownloadURL.Text;
             await this.DisplayAlert("Test Mate", String.Format("Your test is located at {0}!", testURL), "OK");
-            using (WebClient webClient = new WebClient()) {
-                webClient.DownloadFile(testURL, Constants.AppDataPath + "test.tmf");
+            await this.DisplayAlert("Test Mate", String.Format("It will be stored at {0}!", Constants.AppDataPath + "/test.tmf"), "OK");
+            try {
+                byte[] returnedBytes = await AppFunctions.DownloadFileAsync(testURL);
+                File.WriteAllBytes(Constants.AppDataPath + "/test.tmf", returnedBytes);
+                /*
+                using (WebClient webClient = new WebClient()) {
+                    webClient.DownloadFile(testURL, "test.tmf");
+                }
+                */
+
+            }
+            catch (Exception ex) {
+                await this.DisplayAlert("Test Mate", ex.Message, "OK");
             }
         }
     }
