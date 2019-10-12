@@ -45,16 +45,13 @@ namespace TestMate {
         protected async override void OnAppearing() {
             base.OnAppearing();
             List<TestFile> testfiles = new List<TestFile>();
-            IEnumerable<string> files = await AppFunctions.GetTestList();
-            foreach (string fileName in files) {
+            IEnumerable<string> tests = await AppFunctions.GetTestList();
+            foreach (string test in tests) {
                 testfiles.Add(new TestFile {
-                    FileName = Path.GetFileName(fileName),
-                    TestName = File.ReadLines(fileName).First(),
-                    DateCreated = File.GetCreationTime(fileName)
-                });
+                    FileName = test });
             }
             TestList.ItemsSource = testfiles
-                .OrderBy(n => n.TestName)
+                .OrderBy(n => n.FileName)
                 .ToList();
         }
 
