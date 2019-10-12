@@ -15,7 +15,7 @@
             <ListView x:Name="TestList" ItemSelected="TestList_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding TestName}" Detail="{Binding DateCreated}" TextColor="MidnightBlue" />
+                        <TextCell Text="{Binding FileName}" TextColor="MidnightBlue" />
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
