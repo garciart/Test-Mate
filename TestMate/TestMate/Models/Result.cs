@@ -40,6 +40,8 @@ namespace TestMate.Models {
 
         public bool CorrectFlag { get; set; } = false;
 
+        public string Correct { get; set; } = "Not Correct.";
+
         public Result(string question, string selectedItem, bool correctFlag) {
             Question = question;
             SelectedItem = selectedItem;

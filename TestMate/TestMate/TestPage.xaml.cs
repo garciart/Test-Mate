@@ -83,6 +83,7 @@ namespace TestMate {
             else {
                 resultList[questionIndex].SelectedItem = selectedItem;
                 resultList[questionIndex].CorrectFlag = (resultList[questionIndex].SelectedItem == testQuestion[questionIndex].Choices[testQuestion[questionIndex].CorrectAnswerIndex]) ? true : false;
+                resultList[questionIndex].Correct = (resultList[questionIndex].SelectedItem == testQuestion[questionIndex].Choices[testQuestion[questionIndex].CorrectAnswerIndex]) ? "Correct." : "Not Correct.";
                 if (App.provideFeedback == Constants.ProvideFeedback.Yes) {
                     await this.DisplayAlert("Test Mate", resultList[questionIndex].CorrectFlag ?
                         "Correct.\n" + testQuestion[questionIndex].Explanation :

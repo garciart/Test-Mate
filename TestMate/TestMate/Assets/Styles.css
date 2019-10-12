@@ -2,7 +2,7 @@
     Xamarin uses slightly different CSS.
     Refer to https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/styles/css/
 */
-^ContentPage {
+^contentpage {
     color: midnightblue;
 }
 .h1 {
