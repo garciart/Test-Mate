@@ -21,8 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
+using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
@@ -106,6 +110,29 @@ namespace TestMate.Common {
                 //Handle Exception
                 return null;
             }
+        }
+
+        /// <summary>
+        /// Thanks to Alex at https://stackoverflow.com/questions/46302570/how-to-get-list-of-files-from-a-specific-github-repolink-in-c-sharp
+        /// </summary>
+        /// <returns></returns>
+        public static async Task<IEnumerable<string>> GetTestList() {
+            var repoOwner = "garciart";
+            var repoName = "TestMate";
+            var path = "TestMate";
+            HttpClient client = new HttpClient {
+                BaseAddress = new Uri("https://api.github.com"),
+                DefaultRequestHeaders =
+                {
+                        // NOTE: You'll have to set up Authentication tokens in real use scenario
+                        // NOTE: as without it you're subject to harsh rate limits.
+                        {"User-Agent", "Github-API-Test"}
+                    }
+            };
+            var resp = await client.GetAsync($"repos/{repoOwner}/{repoName}/contents/{path}");
+            var bodyString = await resp.Content.ReadAsStringAsync();
+            var bodyJson = JToken.Parse(bodyString);
+            return bodyJson.SelectTokens("$.[*].name").Select(token => token.Value<string>());
         }
     }
 }

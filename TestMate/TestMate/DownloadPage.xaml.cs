@@ -26,6 +26,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Net;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using TestMate.Common;
 using TestMate.Models;
@@ -37,6 +38,7 @@ namespace TestMate {
     public partial class DownloadPage : ContentPage {
         public DownloadPage() {
             InitializeComponent();
+            MyTest();
         }
 
         private async void DownloadFileButton_Clicked(object sender, EventArgs e) {
@@ -55,6 +57,13 @@ namespace TestMate {
             }
             catch (Exception ex) {
                 await this.DisplayAlert("Test Mate", ex.Message, "OK");
+            }
+        }
+
+        private async void MyTest() {
+            IEnumerable<string> files = await AppFunctions.GetTestList();
+            foreach (string f in files) {
+                Console.WriteLine($" -{f}");
             }
         }
     }
