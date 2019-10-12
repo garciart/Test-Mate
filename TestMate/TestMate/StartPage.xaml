@@ -13,8 +13,7 @@
             <ListView x:Name="FileList" ItemSelected="FileList_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding TestName}"
-                          Detail="{Binding DateCreated}" TextColor="Black" />
+                        <TextCell Text="{Binding TestName}" Detail="{Binding DateCreated}" TextColor="MidnightBlue" />
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

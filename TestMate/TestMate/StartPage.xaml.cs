@@ -39,7 +39,7 @@ namespace TestMate {
         protected override void OnAppearing() {
             base.OnAppearing();
             List<TestFile> testfiles = new List<TestFile>();
-            IEnumerable<string> files = Directory.EnumerateFiles(Constants.AppDataPath, "*.*");
+            IEnumerable<string> files = Directory.EnumerateFiles(Constants.AppDataPath, "*.tmf");
             foreach (string fileName in files) {
                 testfiles.Add(new TestFile {
                     FileName = Path.GetFileName(fileName),
