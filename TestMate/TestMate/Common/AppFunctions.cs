@@ -119,7 +119,7 @@ namespace TestMate.Common {
         public static async Task<IEnumerable<string>> GetTestList() {
             var repoOwner = "garciart";
             var repoName = "TestMate";
-            var path = "TestMate";
+            var path = "Tests";
             HttpClient client = new HttpClient {
                 BaseAddress = new Uri("https://api.github.com"),
                 DefaultRequestHeaders =

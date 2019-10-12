@@ -25,6 +25,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -39,6 +40,30 @@ namespace TestMate {
         public DownloadPage() {
             InitializeComponent();
             MyTest();
+        }
+
+        protected async override void OnAppearing() {
+            base.OnAppearing();
+            List<TestFile> testfiles = new List<TestFile>();
+            IEnumerable<string> files = await AppFunctions.GetTestList();
+            foreach (string fileName in files) {
+                testfiles.Add(new TestFile {
+                    FileName = Path.GetFileName(fileName),
+                    TestName = File.ReadLines(fileName).First(),
+                    DateCreated = File.GetCreationTime(fileName)
+                });
+            }
+            TestList.ItemsSource = testfiles
+                .OrderBy(n => n.TestName)
+                .ToList();
+        }
+
+
+        private async void MyTest() {
+            IEnumerable<string> files = await AppFunctions.GetTestList();
+            foreach (string f in files) {
+                Console.WriteLine($" -{f}");
+            }
         }
 
         private async void DownloadFileButton_Clicked(object sender, EventArgs e) {
@@ -60,11 +85,8 @@ namespace TestMate {
             }
         }
 
-        private async void MyTest() {
-            IEnumerable<string> files = await AppFunctions.GetTestList();
-            foreach (string f in files) {
-                Console.WriteLine($" -{f}");
-            }
+        private void TestList_ItemSelected(object sender, SelectedItemChangedEventArgs e) {
+
         }
     }
 }
