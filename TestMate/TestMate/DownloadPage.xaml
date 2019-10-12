@@ -12,6 +12,13 @@
             <Label Text="Enter the URL with the filename of the test you want to download:" StyleClass="h1" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
             <Entry x:Name="DownloadURL" HorizontalOptions="FillAndExpand" BackgroundColor="AntiqueWhite" />
             <Button x:Name="DownloadFileButton" Text="Download File" StyleClass="button" Clicked="DownloadFileButton_Clicked" IsEnabled="True" />
+            <ListView x:Name="TestList" ItemSelected="TestList_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding TestName}" Detail="{Binding DateCreated}" TextColor="MidnightBlue" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
