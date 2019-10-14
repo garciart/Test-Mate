@@ -39,51 +39,31 @@ namespace TestMate {
     public partial class DownloadPage : ContentPage {
         public DownloadPage() {
             InitializeComponent();
-            MyTest();
         }
 
         protected async override void OnAppearing() {
             base.OnAppearing();
-            List<TestFile> testfiles = new List<TestFile>();
+            List<string> testfiles = new List<string>();
             IEnumerable<string> tests = await AppFunctions.GetTestList();
             foreach (string test in tests) {
-                testfiles.Add(new TestFile {
-                    FileName = test });
+                testfiles.Add(test);
             }
-            TestList.ItemsSource = testfiles
-                .OrderBy(n => n.FileName)
-                .ToList();
+            TestList.ItemsSource = testfiles;
         }
 
-
-        private async void MyTest() {
-            IEnumerable<string> files = await AppFunctions.GetTestList();
-            foreach (string f in files) {
-                Console.WriteLine($" -{f}");
-            }
-        }
-
-        private async void DownloadFileButton_Clicked(object sender, EventArgs e) {
-            string testURL = DownloadURL.Text;
-            await this.DisplayAlert("Test Mate", String.Format("Your test is located at {0}!", testURL), "OK");
-            await this.DisplayAlert("Test Mate", String.Format("It will be stored at {0}!", Constants.AppDataPath + "/test.tmf"), "OK");
+        private async void TestList_ItemSelected(object sender, SelectedItemChangedEventArgs e) {
+            string testFile = e.SelectedItem as string;
+            // await this.DisplayAlert("Test Mate", String.Format("You selected {0}!", testFile), "OK");
+            // await this.DisplayAlert("Test Mate", String.Format("It will be stored at {0}!", Constants.AppDataPath + "/" + testFile), "OK");
+            string testURL = "https://raw.githubusercontent.com/garciart/TestMate/master/Tests/" + testFile;
+            // await this.DisplayAlert("Test Mate", String.Format("We'll download from {0}!", testURL), "OK");
             try {
                 byte[] returnedBytes = await AppFunctions.DownloadFileAsync(testURL);
-                File.WriteAllBytes(Constants.AppDataPath + "/test.tmf", returnedBytes);
-                /*
-                using (WebClient webClient = new WebClient()) {
-                    webClient.DownloadFile(testURL, "test.tmf");
-                }
-                */
-
+                File.WriteAllBytes(String.Format("{0}/{1}", Constants.AppDataPath, testFile), returnedBytes);
             }
             catch (Exception ex) {
                 await this.DisplayAlert("Test Mate", ex.Message, "OK");
             }
-        }
-
-        private void TestList_ItemSelected(object sender, SelectedItemChangedEventArgs e) {
-
         }
     }
 }
