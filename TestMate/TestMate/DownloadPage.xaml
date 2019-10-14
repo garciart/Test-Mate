@@ -9,16 +9,8 @@
     </ContentPage.Padding>
     <ContentPage.Content>
         <StackLayout Padding="10" x:Name="TestDirectory">
-            <Label Text="Enter the URL with the filename of the test you want to download:" StyleClass="h1" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
-            <Entry x:Name="DownloadURL" HorizontalOptions="FillAndExpand" BackgroundColor="AntiqueWhite" />
-            <Button x:Name="DownloadFileButton" Text="Download File" StyleClass="button" Clicked="DownloadFileButton_Clicked" IsEnabled="True" />
-            <ListView x:Name="TestList" ItemSelected="TestList_ItemSelected">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextCell Text="{Binding FileName}" TextColor="MidnightBlue" />
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <Label Text="Select a test to download..." StyleClass="h1" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
+            <ListView x:Name="TestList" ItemSelected="TestList_ItemSelected" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
