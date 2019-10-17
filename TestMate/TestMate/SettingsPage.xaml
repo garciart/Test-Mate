@@ -12,27 +12,27 @@
             <StackLayout Padding="10" VerticalOptions="Center">
                 <Label Text="{x:Static local:Resources.AppResources.SettingsTitle}" StyleClass="h1" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
                 <Label Text="{x:Static local:Resources.AppResources.SettingsQuestionOrderLabel}" />
-                    <Picker x:Name="QuestionOrderPicker">
-                        <Picker.Items>
-                            <x:Static Member="local:Resources.AppResources.QuestionOrderOption1" />
-                            <x:Static Member="local:Resources.AppResources.QuestionOrderOption2" />
-                        </Picker.Items>
-                    </Picker>
+                <Picker x:Name="QuestionOrderPicker">
+                    <Picker.Items>
+                        <x:Static Member="local:Resources.AppResources.QuestionOrderOption1" />
+                        <x:Static Member="local:Resources.AppResources.QuestionOrderOption2" />
+                    </Picker.Items>
+                </Picker>
                 <Label Text="{x:Static local:Resources.AppResources.SettingsKeyTermsDisplayLabel}" />
-                    <Picker x:Name="TermDisplayPicker">
-                        <Picker.Items>
-                            <x:Static Member="local:Resources.AppResources.TermDisplayOption1" />
-                            <x:Static Member="local:Resources.AppResources.TermDisplayOption2" />
-                            <x:Static Member="local:Resources.AppResources.TermDisplayOption3" />
-                        </Picker.Items>
-                    </Picker>
+                <Picker x:Name="TermDisplayPicker">
+                    <Picker.Items>
+                        <x:Static Member="local:Resources.AppResources.TermDisplayOption1" />
+                        <x:Static Member="local:Resources.AppResources.TermDisplayOption2" />
+                        <x:Static Member="local:Resources.AppResources.TermDisplayOption3" />
+                    </Picker.Items>
+                </Picker>
                 <Label Text="{x:Static local:Resources.AppResources.SettingsProvideFeedbackLabel}" />
-                    <Picker x:Name="ProvideFeedbackPicker">
-                        <Picker.Items>
-                            <x:Static Member="local:Resources.AppResources.ProvideFeedbackOption1" />
-                            <x:Static Member="local:Resources.AppResources.ProvideFeedbackOption2" />
-                        </Picker.Items>
-                    </Picker>
+                <Picker x:Name="ProvideFeedbackPicker">
+                    <Picker.Items>
+                        <x:Static Member="local:Resources.AppResources.ProvideFeedbackOption1" />
+                        <x:Static Member="local:Resources.AppResources.ProvideFeedbackOption2" />
+                    </Picker.Items>
+                </Picker>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />

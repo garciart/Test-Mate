@@ -10,10 +10,30 @@
     <ContentPage.Content>
         <StackLayout Padding="10" x:Name="TestDirectory">
             <Label Text="{x:Static local:Resources.AppResources.StartSubtitle}" StyleClass="h1" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
-            <ListView x:Name="FileList" ItemSelected="FileList_ItemSelected">
+            <ListView x:Name="FileList" ItemSelected="FileList_ItemSelected" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding TestName}" Detail="{Binding DateCreated}" TextColor="MidnightBlue" />
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" LineBreakMode="WordWrap" VerticalTextAlignment="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding TestName}" TextColor="MidnightBlue" FontAttributes="Bold" />
+                                            <Span Text="{x:Static x:Environment.NewLine}" />
+                                            <Span Text="{Binding DateCreated}" TextColor="MidnightBlue" FontAttributes="Italic" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Button x:Name="DeleteButton" BindingContext="{Binding FileName}" Grid.Column="1" Text="X" TextColor="Red" Clicked="DeleteButton_Clicked" />
+                            </Grid>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

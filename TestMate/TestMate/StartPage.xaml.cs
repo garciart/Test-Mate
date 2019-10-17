@@ -21,6 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -57,6 +58,28 @@ namespace TestMate {
             // await this.DisplayAlert("Test Mate", fileName.FileName, "OK");
             await Navigation.PushAsync(new TestPage(fileName));
             Navigation.RemovePage(this);
+        }
+
+        private async void DeleteButton_Clicked(object sender, System.EventArgs e) {
+            Button button = sender as Button;
+            string fileName = button.BindingContext.ToString();
+            bool answer = await DisplayAlert("Test Mate", string.Format("Are you sure you want to delete {0}?", fileName), "Yes", "No");
+            if (answer) {
+                try {
+                    string f = String.Format("{0}/{1}", Constants.AppDataPath, fileName);
+                    if (File.Exists(f)) {
+                        File.Delete(f);
+                        await this.DisplayAlert("Test Mate", String.Format("File {0} deleted.", fileName), "OK");
+                    }
+                    else {
+                        await this.DisplayAlert("Test Mate", "Could not delete test: File not found.", "OK");
+                    }
+                }
+                catch (Exception ex) {
+                    await this.DisplayAlert("Test Mate", String.Format("Could not delete test: {0}", ex.Message), "OK");
+                }
+                await Application.Current.MainPage.Navigation.PopAsync();
+            }
         }
     }
 }
