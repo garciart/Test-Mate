@@ -172,16 +172,13 @@
     <value>Cancel</value>
   </data>
   <data name="SettingsKeyTermsDisplayLabel" xml:space="preserve">
-    <value>If the test file contans a list of key terms, Test Mate can display the term as your question and a set of possible definitions as your choices (default); display the definition as your question and a set of possible key terms as your choices; or randomly display terms or definitions as your questions.
-Your current setting is shown below; click on the setting to change its value.</value>
+    <value>If the test contains key terms, would you like to match definitions to terms, match terms to definitions, or to mix it up?</value>
   </data>
   <data name="SettingsProvideFeedbackLabel" xml:space="preserve">
-    <value>Test Mate can provide immediate feedback after you choose an answer (default) or provide you feedback after you have completed the test.
-Your current setting is shown below; click on the setting to change its value.</value>
+    <value>Would you like feedback after each a question or after the test is complete?</value>
   </data>
   <data name="SettingsQuestionOrderLabel" xml:space="preserve">
-    <value>Test Mate can present your test questions in the order that it read them from the test file (default) or in a random order.
-Your current setting is shown below; click on the setting to change its value.</value>
+    <value>Would you like to answer test questions in the default order or in a random order?</value>
   </data>
   <data name="SettingsReadErrorMessage" xml:space="preserve">
     <value>Error! Cannot access the settings file: {0}
@@ -208,5 +205,41 @@ Configuration reset and saved.</value>
   </data>
   <data name="StartSubtitle" xml:space="preserve">
     <value>Select a test...</value>
+  </data>
+  <data name="AboutOnlineManualButton" xml:space="preserve">
+    <value>Click here to access the online user's manual.</value>
+  </data>
+  <data name="ButtonCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ButtonNo" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="ButtonYes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="DownloadErrorMessage" xml:space="preserve">
+    <value>Could not download and save test: {0}</value>
+  </data>
+  <data name="DownloadLabel" xml:space="preserve">
+    <value>Select a test to download...</value>
+  </data>
+  <data name="DownloadSuccessMessage" xml:space="preserve">
+    <value>Test downloaded and saved!</value>
+  </data>
+  <data name="StartDelete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="StartDeleteConfirm" xml:space="preserve">
+    <value>Are you sure you want to delete {0}?</value>
+  </data>
+  <data name="StartDeleteErrorMessage" xml:space="preserve">
+    <value>Could not delete test: {0}</value>
+  </data>
+  <data name="StartDeleteNotFoundMessage" xml:space="preserve">
+    <value>Could not delete test: File not found.</value>
+  </data>
+  <data name="StartDeleteSuccessMessage" xml:space="preserve">
+    <value>File {0} deleted.</value>
   </data>
 </root>

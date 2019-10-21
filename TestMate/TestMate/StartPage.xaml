@@ -31,7 +31,7 @@
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
-                                <Button x:Name="DeleteButton" BindingContext="{Binding FileName}" Grid.Column="1" Text="X" TextColor="Red" Clicked="DeleteButton_Clicked" />
+                                <Button x:Name="DeleteButton" BindingContext="{Binding FileName}" Grid.Column="1" Text="{x:Static local:Resources.AppResources.StartDelete}" TextColor="Red" Clicked="DeleteButton_Clicked" />
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

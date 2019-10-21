@@ -23,14 +23,9 @@
  */
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
-using System.Linq;
-using System.Net;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using TestMate.Common;
-using TestMate.Models;
+using TestMate.Resources;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -53,16 +48,15 @@ namespace TestMate {
 
         private async void TestList_ItemSelected(object sender, SelectedItemChangedEventArgs e) {
             string testFile = e.SelectedItem as string;
-            // await this.DisplayAlert("Test Mate", String.Format("You selected {0}!", testFile), "OK");
-            // await this.DisplayAlert("Test Mate", String.Format("It will be stored at {0}!", Constants.AppDataPath + "/" + testFile), "OK");
             string testURL = "https://raw.githubusercontent.com/garciart/TestMate/master/Tests/" + testFile;
-            // await this.DisplayAlert("Test Mate", String.Format("We'll download from {0}!", testURL), "OK");
             try {
                 byte[] returnedBytes = await AppFunctions.DownloadFileAsync(testURL);
                 File.WriteAllBytes(String.Format("{0}/{1}", Constants.AppDataPath, testFile), returnedBytes);
+                await this.DisplayAlert("Test Mate", AppResources.DownloadSuccessMessage, "OK");
+                await Application.Current.MainPage.Navigation.PopAsync();
             }
             catch (Exception ex) {
-                await this.DisplayAlert("Test Mate", ex.Message, "OK");
+                await this.DisplayAlert("Test Mate", String.Format(AppResources.DownloadErrorMessage, ex.Message), "OK");
             }
         }
     }
