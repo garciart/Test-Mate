@@ -17,7 +17,7 @@
                 <BoxView StyleClass="hr" />
                 <Label Text="{x:Static local:Resources.AppResources.AboutLabel3}" />
                 <BoxView StyleClass="hr" />
-                <Button x:Name="UserManualButton" Text="Click here to access the online user's manual." StyleClass="button" Clicked="UserManualButton_Clicked" HorizontalOptions="FillAndExpand" />
+                <Button x:Name="UserManualButton" Text="{x:Static local:Resources.AppResources.AboutOnlineManualButton}" StyleClass="button" Clicked="UserManualButton_Clicked" HorizontalOptions="FillAndExpand" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

@@ -22,7 +22,6 @@
  * THE SOFTWARE.
  */
 using System;
-using TestMate.Common;
 using Xamarin.Forms;
 
 namespace TestMate {
@@ -60,7 +59,6 @@ namespace TestMate {
 
         private async void DownloadButton_Clicked(object sender, EventArgs e) {
             await Navigation.PushAsync(new DownloadPage());
-            // await this.DisplayAlert("Test Mate", "You clicked Download Test!", "OK");
         }
     }
 }

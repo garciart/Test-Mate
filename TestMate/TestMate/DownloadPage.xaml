@@ -9,7 +9,7 @@
     </ContentPage.Padding>
     <ContentPage.Content>
         <StackLayout Padding="10" x:Name="TestDirectory">
-            <Label Text="Select a test to download..." StyleClass="h1" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
+            <Label Text="{x:Static local:Resources.AppResources.DownloadLabel}" StyleClass="h1" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
             <ListView x:Name="TestList" ItemSelected="TestList_ItemSelected" />
         </StackLayout>
     </ContentPage.Content>

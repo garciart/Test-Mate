@@ -88,6 +88,15 @@ namespace TestMate.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Click here to access the online user&apos;s manual..
+        /// </summary>
+        public static string AboutOnlineManualButton {
+            get {
+                return ResourceManager.GetString("AboutOnlineManualButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to About Test Mate....
         /// </summary>
         public static string AboutTitle {
@@ -115,6 +124,33 @@ namespace TestMate.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string ButtonCancel {
+            get {
+                return ResourceManager.GetString("ButtonCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        public static string ButtonNo {
+            get {
+                return ResourceManager.GetString("ButtonNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        public static string ButtonYes {
+            get {
+                return ResourceManager.GetString("ButtonYes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You clicked {0}!.
         /// </summary>
         public static string ClickTestMessage {
@@ -129,6 +165,33 @@ namespace TestMate.Resources {
         public static string CopyrightLabel {
             get {
                 return ResourceManager.GetString("CopyrightLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not download and save test: {0}.
+        /// </summary>
+        public static string DownloadErrorMessage {
+            get {
+                return ResourceManager.GetString("DownloadErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select a test to download....
+        /// </summary>
+        public static string DownloadLabel {
+            get {
+                return ResourceManager.GetString("DownloadLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Test downloaded and saved!.
+        /// </summary>
+        public static string DownloadSuccessMessage {
+            get {
+                return ResourceManager.GetString("DownloadSuccessMessage", resourceCulture);
             }
         }
         
@@ -196,8 +259,7 @@ namespace TestMate.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to If the test file contans a list of key terms, Test Mate can display the term as your question and a set of possible definitions as your choices (default); display the definition as your question and a set of possible key terms as your choices; or randomly display terms or definitions as your questions.
-        ///Your current setting is shown below; click on the setting to change its value..
+        ///   Looks up a localized string similar to If the test contains key terms, would you like to match definitions to terms, match terms to definitions, or to mix it up?.
         /// </summary>
         public static string SettingsKeyTermsDisplayLabel {
             get {
@@ -216,8 +278,7 @@ namespace TestMate.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Test Mate can provide immediate feedback after you choose an answer (default) or provide you feedback after you have completed the test.
-        ///Your current setting is shown below; click on the setting to change its value..
+        ///   Looks up a localized string similar to Would you like feedback after each a question or after the test is complete?.
         /// </summary>
         public static string SettingsProvideFeedbackLabel {
             get {
@@ -226,8 +287,7 @@ namespace TestMate.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Test Mate can present your test questions in the order that it read them from the test file (default) or in a random order.
-        ///Your current setting is shown below; click on the setting to change its value..
+        ///   Looks up a localized string similar to Would you like to answer test questions in the default order or in a random order?.
         /// </summary>
         public static string SettingsQuestionOrderLabel {
             get {
@@ -278,6 +338,51 @@ namespace TestMate.Resources {
         public static string SettingsTitle {
             get {
                 return ResourceManager.GetString("SettingsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string StartDelete {
+            get {
+                return ResourceManager.GetString("StartDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete {0}?.
+        /// </summary>
+        public static string StartDeleteConfirm {
+            get {
+                return ResourceManager.GetString("StartDeleteConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not delete test: {0}.
+        /// </summary>
+        public static string StartDeleteErrorMessage {
+            get {
+                return ResourceManager.GetString("StartDeleteErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not delete test: File not found..
+        /// </summary>
+        public static string StartDeleteNotFoundMessage {
+            get {
+                return ResourceManager.GetString("StartDeleteNotFoundMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File {0} deleted..
+        /// </summary>
+        public static string StartDeleteSuccessMessage {
+            get {
+                return ResourceManager.GetString("StartDeleteSuccessMessage", resourceCulture);
             }
         }
         

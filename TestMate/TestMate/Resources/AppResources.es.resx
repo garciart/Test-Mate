@@ -190,16 +190,16 @@
     <comment>Cancel</comment>
   </data>
   <data name="SettingsKeyTermsDisplayLabel" xml:space="preserve">
-    <value>Si el archivo de prueba contiene una lista de términos clave, Test Mate puede mostrar el término como su pregunta y un conjunto de posibles definiciones como sus opciones (predeterminado); muestre la definición como su pregunta y un conjunto de posibles términos clave como sus elecciones; o muestre al azar términos o definiciones como sus preguntas.\nSu configuración actual se muestra a continuación; presione la configuración para cambiar su valor.</value>
-    <comment>If the test file contans a list of key terms, Test Mate can display the term as your question and a set of possible definitions as your choices (default); display the definition as your question and a set of possible key terms as your choices; or randomly display terms or definitions as your questions.\nYour current setting is shown below; click on the setting to change its value.</comment>
+    <value>Si la prueba contiene términos clave, ¿le gustaría hacer coincidir las definiciones con los términos, hacer coincidir los términos con las definiciones o mezclarlos?</value>
+    <comment>If the test contains key terms, would you like to match definitions to terms, match terms to definitions, or to mix it up?</comment>
   </data>
   <data name="SettingsProvideFeedbackLabel" xml:space="preserve">
-    <value>Test Mate puede proporcionar comentarios inmediatos después de elegir una respuesta (predeterminado) o proporcionar comentarios después de haber completado la prueba.\nSu configuración actual se muestra a continuación; presione la configuración para cambiar su valor.</value>
-    <comment>Test Mate can provide immediate feedback after you choose an answer (default) or provide you feedback after you have completed the test.\nYour current setting is shown below; click on the setting to change its value.</comment>
+    <value>¿Desea recibir comentarios después de cada pregunta o después de completar la prueba?</value>
+    <comment>Would you like feedback after each a question or after the test is complete?</comment>
   </data>
   <data name="SettingsQuestionOrderLabel" xml:space="preserve">
-    <value>Test Mate puede presentar sus preguntas de prueba en el orden en que las lee del archivo de prueba (predeterminado) o en un orden aleatorio.\nSu configuración actual se muestra a continuación; presione la configuración para cambiar su valor.</value>
-    <comment>Test Mate can present your test questions in the order that it read them from the test file (default) or in a random order.\nYour current setting is shown below; click on the setting to change its value.</comment>
+    <value>¿Desea responder las preguntas de la prueba en el orden predeterminado o en un orden aleatorio?</value>
+    <comment>Would you like to answer test questions in the default order or in a random order?</comment>
   </data>
   <data name="SettingsReadErrorMessage" xml:space="preserve">
     <value>¡Error! No se puede acceder al archivo de configuración: {0}
@@ -207,8 +207,8 @@ Póngase en contacto con Test Mate para obtener ayuda.</value>
     <comment>Error! Cannot access the settings file: {0} Please contact Test Mate for assistance.</comment>
   </data>
   <data name="SettingsSaveButton" xml:space="preserve">
-    <value>Guardar ajustes.</value>
-    <comment>Save Settings.</comment>
+    <value>Guardar ajustes</value>
+    <comment>Save Settings</comment>
   </data>
   <data name="SettingsSaveErrorMessage" xml:space="preserve">
     <value>¡Error! La configuración no se guardó: {0} Póngase en contacto con Test Mate para obtener ayuda.</value>
@@ -235,5 +235,53 @@ Configuration reset and saved.</comment>
   <data name="StartSubtitle" xml:space="preserve">
     <value>Seleccione una prueba ...</value>
     <comment>Select a test...</comment>
+  </data>
+  <data name="AboutOnlineManualButton" xml:space="preserve">
+    <value>Haga clic aquí para acceder al manual del usuario en línea.</value>
+    <comment>Click here to access the online user's manual.</comment>
+  </data>
+  <data name="ButtonCancel" xml:space="preserve">
+    <value>Cancelar</value>
+    <comment>Cancel</comment>
+  </data>
+  <data name="ButtonNo" xml:space="preserve">
+    <value>No</value>
+    <comment>No</comment>
+  </data>
+  <data name="ButtonYes" xml:space="preserve">
+    <value>Si</value>
+    <comment>Yes</comment>
+  </data>
+  <data name="DownloadErrorMessage" xml:space="preserve">
+    <value>No se pudo descargar y guardar la prueba: {0}</value>
+    <comment>Could not download and save test: {0}</comment>
+  </data>
+  <data name="DownloadLabel" xml:space="preserve">
+    <value>Seleccione una prueba para descargar ...</value>
+    <comment>Select a test to download...</comment>
+  </data>
+  <data name="DownloadSuccessMessage" xml:space="preserve">
+    <value>Prueba descargada y guardada!</value>
+    <comment>Test downloaded and saved!</comment>
+  </data>
+  <data name="StartDelete" xml:space="preserve">
+    <value>Eliminar</value>
+    <comment>Delete</comment>
+  </data>
+  <data name="StartDeleteConfirm" xml:space="preserve">
+    <value>¿Seguro que quieres eliminar {0}?</value>
+    <comment>Are you sure you want to delete {0}?</comment>
+  </data>
+  <data name="StartDeleteErrorMessage" xml:space="preserve">
+    <value>No se pudo eliminar la prueba: {0}</value>
+    <comment>Could not delete test: {0}</comment>
+  </data>
+  <data name="StartDeleteNotFoundMessage" xml:space="preserve">
+    <value>No se pudo eliminar la prueba: archivo no encontrado.</value>
+    <comment>Could not delete test: File not found.</comment>
+  </data>
+  <data name="StartDeleteSuccessMessage" xml:space="preserve">
+    <value>Archivo {0} eliminado.</value>
+    <comment>File {0} deleted.</comment>
   </data>
 </root>
