@@ -133,11 +133,56 @@ namespace TestMate.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Correct..
+        /// </summary>
+        public static string ButtonCorrect {
+            get {
+                return ResourceManager.GetString("ButtonCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No.
         /// </summary>
         public static string ButtonNo {
             get {
                 return ResourceManager.GetString("ButtonNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quit.
+        /// </summary>
+        public static string ButtonQuit {
+            get {
+                return ResourceManager.GetString("ButtonQuit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Review.
+        /// </summary>
+        public static string ButtonReview {
+            get {
+                return ResourceManager.GetString("ButtonReview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submit.
+        /// </summary>
+        public static string ButtonSubmit {
+            get {
+                return ResourceManager.GetString("ButtonSubmit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Incorrect..
+        /// </summary>
+        public static string ButtonWrong {
+            get {
+                return ResourceManager.GetString("ButtonWrong", resourceCulture);
             }
         }
         
@@ -428,6 +473,52 @@ namespace TestMate.Resources {
         public static string TermDisplayOption3 {
             get {
                 return ResourceManager.GetString("TermDisplayOption3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is the beginning of the test..
+        /// </summary>
+        public static string TestBeginningMessage {
+            get {
+                return ResourceManager.GetString("TestBeginningMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You&apos;ve reached the end of the test..
+        /// </summary>
+        public static string TestEndMessage {
+            get {
+                return ResourceManager.GetString("TestEndMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nothing selected!.
+        /// </summary>
+        public static string TestNoSelectionMessage {
+            get {
+                return ResourceManager.GetString("TestNoSelectionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to quit this test?.
+        /// </summary>
+        public static string TestQuitMessage {
+            get {
+                return ResourceManager.GetString("TestQuitMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your score was {0:0.00}% ({1} out of {2}).
+        ///Would you like to see your results in more detail?.
+        /// </summary>
+        public static string TestScoreMessage {
+            get {
+                return ResourceManager.GetString("TestScoreMessage", resourceCulture);
             }
         }
     }

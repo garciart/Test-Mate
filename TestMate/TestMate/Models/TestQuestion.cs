@@ -54,8 +54,8 @@ namespace TestMate.Models {
                 return numberOfChoices;
             }
             set {
-                if (value <= 0) {
-                    throw new ArgumentException("The number of answers cannot be null or zero.");
+                if (value < 0) {
+                    throw new ArgumentException("The number of answers cannot be null or less than zero.");
                 }
                 else if (value > 6) {
                     throw new ArgumentException("The number of answers cannot be greater than six.");

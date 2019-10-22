@@ -27,6 +27,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using TestMate.Common;
 using TestMate.Models;
+using TestMate.Resources;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -57,18 +58,17 @@ namespace TestMate {
         }
 
         private async void ReviewButton_Clicked(object sender, EventArgs e) {
-            // await this.DisplayAlert("Test Mate", "Review button clicked.", "OK");
             if (questionIndex > 0) {
                 questionIndex--;
                 PopulateControls();
             }
             else {
-                await this.DisplayAlert("Test Mate", "This is the beginning of the test.", "OK");
+                await this.DisplayAlert("Test Mate", AppResources.TestBeginningMessage, "OK");
             }
         }
 
         private async void QuitButton_Clicked(object sender, EventArgs e) {
-            bool answer = await DisplayAlert("Test Mate", "Are you sure you want to quit this test?", "Yes", "No");
+            bool answer = await DisplayAlert("Test Mate", AppResources.TestQuitMessage, AppResources.ButtonYes, AppResources.ButtonNo);
             if (answer) {
                 EndTest();
             }
@@ -78,16 +78,16 @@ namespace TestMate {
             int i = testQuestion[questionIndex].Choices.IndexOf((string)ListView1.SelectedItem);
             string selectedItem = (string)ListView1.SelectedItem;
             if (selectedItem == null) {
-                await this.DisplayAlert("Test Mate", "Nothing selected!", "OK");
+                await this.DisplayAlert("Test Mate", AppResources.TestNoSelectionMessage, "OK");
             }
             else {
                 resultList[questionIndex].SelectedItem = selectedItem;
                 resultList[questionIndex].CorrectFlag = (resultList[questionIndex].SelectedItem == testQuestion[questionIndex].Choices[testQuestion[questionIndex].CorrectAnswerIndex]) ? true : false;
-                resultList[questionIndex].Correct = (resultList[questionIndex].SelectedItem == testQuestion[questionIndex].Choices[testQuestion[questionIndex].CorrectAnswerIndex]) ? "Correct." : "Not Correct.";
+                resultList[questionIndex].Correct = (resultList[questionIndex].SelectedItem == testQuestion[questionIndex].Choices[testQuestion[questionIndex].CorrectAnswerIndex]) ? AppResources.ButtonCorrect : AppResources.ButtonWrong;
                 if (App.provideFeedback == Constants.ProvideFeedback.Yes) {
                     await this.DisplayAlert("Test Mate", resultList[questionIndex].CorrectFlag ?
-                        "Correct.\n" + testQuestion[questionIndex].Explanation :
-                        "Incorrect.\n" + testQuestion[questionIndex].Explanation,
+                        AppResources.ButtonCorrect + "\n" + testQuestion[questionIndex].Explanation :
+                        AppResources.ButtonWrong + "\n" + testQuestion[questionIndex].Explanation,
                         "OK");
                 }
                 if (questionIndex < (testQuestion.Count - 1)) {
@@ -95,7 +95,7 @@ namespace TestMate {
                     PopulateControls();
                 }
                 else {
-                    await this.DisplayAlert("Test Mate", "You've reached the end of the test.", "OK");
+                    await this.DisplayAlert("Test Mate", AppResources.TestEndMessage, "OK");
                     EndTest();
                 }
             }
@@ -126,7 +126,7 @@ namespace TestMate {
             }
             // Display current score and ask the user if they want to see a detailed results list
             bool answer = await DisplayAlert("Test Mate",
-                String.Format("Your score was {0:0.00}% ({1} out of {2}).\nWould you like to see your results in more detail?", ((float)correctCount / (float)resultList.Count) * 100, correctCount, resultList.Count),
+                String.Format(AppResources.TestScoreMessage, ((float)correctCount / (float)resultList.Count) * 100, correctCount, resultList.Count),
                 "Yes", "No");
             if (answer) {
                 await Navigation.PushAsync(new ResultsPage(resultList));
