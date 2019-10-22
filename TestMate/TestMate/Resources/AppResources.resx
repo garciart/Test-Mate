@@ -242,4 +242,35 @@ Configuration reset and saved.</value>
   <data name="StartDeleteSuccessMessage" xml:space="preserve">
     <value>File {0} deleted.</value>
   </data>
+  <data name="ButtonCorrect" xml:space="preserve">
+    <value>Correct.</value>
+  </data>
+  <data name="ButtonQuit" xml:space="preserve">
+    <value>Quit</value>
+  </data>
+  <data name="ButtonReview" xml:space="preserve">
+    <value>Review</value>
+  </data>
+  <data name="ButtonSubmit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="ButtonWrong" xml:space="preserve">
+    <value>Incorrect.</value>
+  </data>
+  <data name="TestBeginningMessage" xml:space="preserve">
+    <value>This is the beginning of the test.</value>
+  </data>
+  <data name="TestEndMessage" xml:space="preserve">
+    <value>You've reached the end of the test.</value>
+  </data>
+  <data name="TestNoSelectionMessage" xml:space="preserve">
+    <value>Nothing selected!</value>
+  </data>
+  <data name="TestQuitMessage" xml:space="preserve">
+    <value>Are you sure you want to quit this test?</value>
+  </data>
+  <data name="TestScoreMessage" xml:space="preserve">
+    <value>Your score was {0:0.00}% ({1} out of {2}).
+Would you like to see your results in more detail?</value>
+  </data>
 </root>

@@ -1,10 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="TestMate.TestPage">
+             x:Class="TestMate.TestPage"
+            xmlns:local="clr-namespace:TestMate">
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0" />
     </ContentPage.Padding>
@@ -16,10 +14,11 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Button x:Name="ReviewButton" Text="Review" StyleClass="button" Clicked="ReviewButton_Clicked" />
-                <Button x:Name="QuitButton" Text="Quit" StyleClass="button" Clicked="QuitButton_Clicked" Grid.Column="1" />
-                <Button x:Name="SubmitButton" Text="Submit" StyleClass="button" Clicked="SubmitButton_Clicked" Grid.Column="2" />                
+                <Button x:Name="ReviewButton" Text="{x:Static local:Resources.AppResources.ButtonReview}" StyleClass="button" Clicked="ReviewButton_Clicked" Grid.Column="0" />
+                <Button x:Name="QuitButton" Text="{x:Static local:Resources.AppResources.ButtonQuit}" StyleClass="button" Clicked="QuitButton_Clicked" Grid.Column="1" />
+                <Button x:Name="SubmitButton" Text="{x:Static local:Resources.AppResources.ButtonSubmit}" StyleClass="button" Clicked="SubmitButton_Clicked" Grid.Column="2" />                
             </Grid>
         </StackLayout>
     </ContentPage.Content>
