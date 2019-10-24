@@ -11,14 +11,14 @@
         <ScrollView>
             <StackLayout Padding="10" VerticalOptions="Center">
                 <Label Text="{x:Static local:Resources.AppResources.SettingsTitle}" StyleClass="h1" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
-                <Label Text="{x:Static local:Resources.AppResources.SettingsQuestionOrderLabel}" />
+                <Label Text="{x:Static local:Resources.AppResources.SettingsQuestionOrderLabel}" StyleClass="h2" />
                 <Picker x:Name="QuestionOrderPicker">
                     <Picker.Items>
                         <x:Static Member="local:Resources.AppResources.QuestionOrderOption1" />
                         <x:Static Member="local:Resources.AppResources.QuestionOrderOption2" />
                     </Picker.Items>
                 </Picker>
-                <Label Text="{x:Static local:Resources.AppResources.SettingsKeyTermsDisplayLabel}" />
+                <Label Text="{x:Static local:Resources.AppResources.SettingsKeyTermsDisplayLabel}" StyleClass="h2" />
                 <Picker x:Name="TermDisplayPicker">
                     <Picker.Items>
                         <x:Static Member="local:Resources.AppResources.TermDisplayOption1" />
@@ -26,7 +26,7 @@
                         <x:Static Member="local:Resources.AppResources.TermDisplayOption3" />
                     </Picker.Items>
                 </Picker>
-                <Label Text="{x:Static local:Resources.AppResources.SettingsProvideFeedbackLabel}" />
+                <Label Text="{x:Static local:Resources.AppResources.SettingsProvideFeedbackLabel}" StyleClass="h2" />
                 <Picker x:Name="ProvideFeedbackPicker">
                     <Picker.Items>
                         <x:Static Member="local:Resources.AppResources.ProvideFeedbackOption1" />
