@@ -31,7 +31,7 @@ For many reasons, I never marketed Test Mate, but I continued to port it to diff
 <li>As a user, I want to be able to customize or create my own standardized tests, so that I can tailor test subjects to my needs.</li>
 <li>As a user, I want the option to use key term matching; multiple-choice; or true/false question formats when I create a test, so that I can become accustomed to the format I will most likely see on the actual test.</li>
 <li>As an administrator, I want to be able to have a single repository for tests, so that I can maintain the integrity of test content.</li>
-<li>As an administrator, I want to the test repository accessible to all users, so that I can maintain test availability.</li>
+<li>As an administrator, I want the test repository accessible to all users, so that I can maintain test availability.</li>
 <li>As an administrator, I want to be able to review user tests before including them in the repository, so that I can check the quality of test content.</li>
 </ul>
 <h2 id="p2">Part 2: System and Database Design:</h2>
