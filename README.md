@@ -19,6 +19,21 @@ Eventually, while I was in the middle of the desert at Twentynine Palms, I began
 For many reasons, I never marketed Test Mate, but I continued to port it to different mobile operating systems, such as Apple's iOS (C++), the BlackBerry OS (Java), Palm's webOS (HTML/JavaScript), and my Android devices (which I still use to this day). Therefore, as one of my shared projects, I intend to write my version of Quizlet-before-Quizlet in JavaFX and Xamarin, and I hope you can get something out of it!
 </p>
 <h2 id="p1">Part 1: Requirement Analysis:</h2>
+<ul>
+<li>As a user, I want to be able to take tests on tablets and mobile devices, so that I can study anywhere.</li>
+<li>As a user, I want to be able to take tests without an internet connection, so that I can study anywhere.</li>
+<li>As a user, I want to access multiple tests on a single device, so that I can switch from test to test as needed.</li>
+<li>As a user, I want to be able to delete tests I no longer need, so that I can save space on my device.</li>
+<li>As a user, I want the option to randomize both the order of the test questions and their answers, so that each testing experience is unique.</li>
+<li>As a user, I want the option to receive feedback after answering a question, so that I can learn as I take the test.</li>
+<li>As a user, I want the option to receive feedback only after I complete the test, so that I can simulate the conditions of a real test.</li>
+<li>As a user, I want to store multiple tests on a single device, so that I do not need to download a test each time I want to take the test.</li>
+<li>As a user, I want to be able to customize or create my own standardized tests, so that I can tailor test subjects to my needs.</li>
+<li>As a user, I want the option to use key term matching; multiple-choice; or true/false question formats when I create a test, so that I can become accustomed to the format I will most likely see on the actual test.</li>
+<li>As an administrator, I want to be able to have a single repository for tests, so that I can maintain the integrity of test content.</li>
+<li>As an administrator, I want to the test repository accessible to all users, so that I can maintain test availability.</li>
+<li>As an administrator, I want to be able to review user tests before including them in the repository, so that I can check the quality of test content.</li>
+</ul>
 <h2 id="p2">Part 2: System and Database Design:</h2>
 <h2 id="p3">Part 3. Project Plan:</h2>
 <h2 id="pR">References:</h2>
