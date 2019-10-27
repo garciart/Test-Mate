@@ -1,5 +1,5 @@
 # Project Test Mate
-<p style="text-align: center; width: 100%;"><img src="https://raw.githubusercontent.com/garciart/TestMate/master/Images/tm_image_01.png" alt="Welcome to Test Mate!" style="width: 50%;" /></p>
+<p style="text-align: center; width: 50%;"><img src="https://raw.githubusercontent.com/garciart/TestMate/master/Images/tm_image_01.png" alt="Welcome to Test Mate!" /></p>
 Test Mate is a customizable, self-study system, designed to help you in achieve your educational and professional goals. Why study alone?
 <h2>Table of Contents:</h2>
 <ul>
