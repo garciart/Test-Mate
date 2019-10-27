@@ -1,7 +1,7 @@
 # Creating Test Mate Test Files
 <p>FILENAMES CANNOT HAVE SPACES OR ANY OF THE FOLLOWING CHARACTERS: /\?%*:|\"<>.</p>
-<p>FILENAMES MUST END IN TMF</p>
-<p>Good example: my-test.tmf</p>
+<p>FILENAMES MUST END IN TMF (Good example: my-test.tmf)</p>
+<p>Save files in UTF-8 format with CR/LF in Notepad or Notepad++.</p>
 <hr>
 <h2>File Format:</h2>
 <p>Test Title</p>
