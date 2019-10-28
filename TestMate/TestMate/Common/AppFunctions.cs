@@ -122,17 +122,16 @@ namespace TestMate.Common {
             var path = "Tests";
             HttpClient client = new HttpClient {
                 BaseAddress = new Uri("https://api.github.com"),
-                DefaultRequestHeaders =
-                {
-                        // NOTE: You'll have to set up Authentication tokens in real use scenario
-                        // NOTE: as without it you're subject to harsh rate limits.
-                        {"User-Agent", "Github-API-Test"}
-                    }
+                DefaultRequestHeaders = {
+                    {"User-Agent", "Github-API-Test"}
+                }
             };
-            var resp = await client.GetAsync($"repos/{repoOwner}/{repoName}/contents/{path}");
-            var bodyString = await resp.Content.ReadAsStringAsync();
-            var bodyJson = JToken.Parse(bodyString);
-            return bodyJson.SelectTokens("$.[*].name").Select(token => token.Value<string>());
+            HttpResponseMessage json = await client.GetAsync($"repos/{repoOwner}/{repoName}/contents/{path}");
+            string bodyString = await json.Content.ReadAsStringAsync();
+            JToken bodyJson = JToken.Parse(bodyString);
+            return bodyJson.SelectTokens("$.[*].name")
+                .Where(token => token.Value<string>().EndsWith("tmf"))
+                .Select(token => token.Value<string>());
         }
     }
 }
