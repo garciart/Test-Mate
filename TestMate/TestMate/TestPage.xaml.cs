@@ -75,8 +75,7 @@ namespace TestMate {
         }
 
         private async void SubmitButton_Clicked(object sender, EventArgs e) {
-            int i = testQuestion[questionIndex].Choices.IndexOf((string)ListView1.SelectedItem);
-            string selectedItem = (string)ListView1.SelectedItem;
+            string selectedItem = ((Choice)ListView1.SelectedItem).ChoiceText;
             if (selectedItem == null) {
                 await this.DisplayAlert("Test Mate", AppResources.TestNoSelectionMessage, "OK");
             }
@@ -104,9 +103,9 @@ namespace TestMate {
         private void PopulateControls() {
             Title = String.Format("{0} ({1}/{2})", testTitle, questionIndex + 1, resultList.Count);
             QuestionLabel.Text = testQuestion[questionIndex].Question;
-            ObservableCollection<string> itemList = new ObservableCollection<string>();
+            ObservableCollection<Choice> itemList = new ObservableCollection<Choice>();
             foreach (string c in testQuestion[questionIndex].Choices) {
-                itemList.Add(c);
+                itemList.Add(new Choice { ChoiceText = c });
             }
             ListView1.ItemsSource = itemList;
             // Reset selected item. For some reason, if two similar answers are submitted in a row (e.g., true and true), the answer is not highlighted
@@ -159,5 +158,9 @@ namespace TestMate {
             File.WriteAllText(Path.Combine(Constants.AppDataPath, "small-test.tmf"), smallTestContents, Encoding.UTF8);
             */
         }
+    }
+
+    public class Choice {
+        public string ChoiceText { get; set; }
     }
 }
