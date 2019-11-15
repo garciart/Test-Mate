@@ -9,13 +9,14 @@
     <ContentPage.Content>
         <StackLayout Padding="10">
             <Label x:Name="QuestionLabel" />
+            <BoxView HeightRequest="0" HorizontalOptions="FillAndExpand" Color="White" Margin="3" />
             <ListView x:Name="ListView1">
                 <ListView.ItemTemplate HasUnevenRows="True">
                     <DataTemplate>
                         <ViewCell>
                             <ViewCell.View>
                                 <StackLayout>
-                                    <Label Text="{Binding ChoiceText}" LineBreakMode="WordWrap" />
+                                    <Label x:Name="Label1" Text="{Binding ChoiceText}" LineBreakMode="WordWrap" VerticalOptions="CenterAndExpand" />
                                 </StackLayout>
                             </ViewCell.View>
                         </ViewCell>

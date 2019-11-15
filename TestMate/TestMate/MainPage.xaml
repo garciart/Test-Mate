@@ -13,6 +13,7 @@
                 <Label Text="{x:Static local:Resources.AppResources.AppTitle}" StyleClass="h1" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
                 <Image x:Name="HeaderImage" Aspect="AspectFit" HeightRequest="100" />
                 <Label Text="{x:Static local:Resources.AppResources.AppSubtitle}" StyleClass="h1" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
+                <BoxView HeightRequest="0" HorizontalOptions="FillAndExpand" Color="White" Margin="6" />
                 <Button x:Name="StartButton" Text="{x:Static local:Resources.AppResources.StartTitle}" StyleClass="button" Clicked="StartButton_Clicked" IsEnabled="True" />
                 <Button x:Name="SettingsButton" Text="{x:Static local:Resources.AppResources.SettingsTitle}" StyleClass="button" Clicked="SettingsButton_Clicked" IsEnabled="True" />
                 <Button x:Name="AboutButton" Text="{x:Static local:Resources.AppResources.AboutTitle}" StyleClass="button" Clicked="AboutButton_Clicked" />

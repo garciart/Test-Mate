@@ -101,8 +101,8 @@ namespace TestMate {
         }
 
         private void PopulateControls() {
-            Title = String.Format("{0} ({1}/{2})", testTitle, questionIndex + 1, resultList.Count);
-            QuestionLabel.Text = testQuestion[questionIndex].Question;
+            Title = testTitle;
+            QuestionLabel.Text = String.Format("{0} ({1}/{2})", testQuestion[questionIndex].Question, questionIndex + 1, resultList.Count);
             ObservableCollection<Choice> itemList = new ObservableCollection<Choice>();
             foreach (string c in testQuestion[questionIndex].Choices) {
                 itemList.Add(new Choice { ChoiceText = c });
