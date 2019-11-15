@@ -9,30 +9,34 @@
     </ContentPage.Padding>
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Padding="10" VerticalOptions="Center">
+            <StackLayout Padding="10" VerticalOptions="Start">
                 <Label Text="{x:Static local:Resources.AppResources.SettingsTitle}" StyleClass="h1" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
+                <BoxView HeightRequest="0" HorizontalOptions="FillAndExpand" Color="White" Margin="3" />
                 <Label Text="{x:Static local:Resources.AppResources.SettingsQuestionOrderLabel}" StyleClass="h2" />
-                <Picker x:Name="QuestionOrderPicker">
+                <Picker x:Name="QuestionOrderPicker" BackgroundColor="MidnightBlue" TextColor="White">
                     <Picker.Items>
                         <x:Static Member="local:Resources.AppResources.QuestionOrderOption1" />
                         <x:Static Member="local:Resources.AppResources.QuestionOrderOption2" />
                     </Picker.Items>
                 </Picker>
+                <BoxView HeightRequest="0" HorizontalOptions="FillAndExpand" Color="White" Margin="3" />
                 <Label Text="{x:Static local:Resources.AppResources.SettingsKeyTermsDisplayLabel}" StyleClass="h2" />
-                <Picker x:Name="TermDisplayPicker">
+                <Picker x:Name="TermDisplayPicker" BackgroundColor="MidnightBlue" TextColor="White">
                     <Picker.Items>
                         <x:Static Member="local:Resources.AppResources.TermDisplayOption1" />
                         <x:Static Member="local:Resources.AppResources.TermDisplayOption2" />
                         <x:Static Member="local:Resources.AppResources.TermDisplayOption3" />
                     </Picker.Items>
                 </Picker>
+                <BoxView HeightRequest="0" HorizontalOptions="FillAndExpand" Color="White" Margin="3" />
                 <Label Text="{x:Static local:Resources.AppResources.SettingsProvideFeedbackLabel}" StyleClass="h2" />
-                <Picker x:Name="ProvideFeedbackPicker">
+                <Picker x:Name="ProvideFeedbackPicker" BackgroundColor="MidnightBlue" TextColor="White">
                     <Picker.Items>
                         <x:Static Member="local:Resources.AppResources.ProvideFeedbackOption1" />
                         <x:Static Member="local:Resources.AppResources.ProvideFeedbackOption2" />
                     </Picker.Items>
                 </Picker>
+                <BoxView HeightRequest="0" HorizontalOptions="FillAndExpand" Color="White" Margin="6" />
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
