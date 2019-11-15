@@ -15,6 +15,12 @@
 .hr {
     height: 1;
     color: midnightblue;
+    margin: 6;
+}
+.spacer {
+    height: 0;
+    color: white;
+    margin: 6;
 }
 .button {
     color: white;
@@ -24,4 +30,22 @@
 }
 #Label1 {
     color: midnightblue;
+}
+.greenButton {
+    color: white;
+    background-color: green;
+    font-style: bold;
+    padding: 3;
+}
+.yellowButton {
+    color: black;
+    background-color: yellow;
+    font-style: bold;
+    padding: 3;
+}
+.redButton {
+    color: white;
+    background-color: red;
+    font-style: bold;
+    padding: 3;
 }
