@@ -263,8 +263,8 @@ Configuration reset and saved.</value>
   <data name="TestEndMessage" xml:space="preserve">
     <value>You've reached the end of the test.</value>
   </data>
-  <data name="TestNoSelectionMessage" xml:space="preserve">
-    <value>Nothing selected!</value>
+  <data name="TestBadSelectionMessage" xml:space="preserve">
+    <value>Invalid selection!</value>
   </data>
   <data name="TestQuitMessage" xml:space="preserve">
     <value>Are you sure you want to quit this test?</value>

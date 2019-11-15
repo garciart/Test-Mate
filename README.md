@@ -35,5 +35,6 @@ For many reasons, I never marketed Test Mate, but I continued to port it to diff
 <li>As an administrator, I want to be able to review user tests before including them in the repository, so that I can check the quality of test content.</li>
 </ul>
 <h2 id="p2">Part 2: System and Database Design:</h2>
+<p align="center"><img src="/Images/TMClassDiagram.png" alt="Test Mate Class Diagram" width="1024" /></p>
 <h2 id="p3">Part 3. Project Plan:</h2>
 <h2 id="pR">References:</h2>

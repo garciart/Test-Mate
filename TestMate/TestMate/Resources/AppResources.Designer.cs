@@ -477,6 +477,15 @@ namespace TestMate.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invalid selection!.
+        /// </summary>
+        public static string TestBadSelectionMessage {
+            get {
+                return ResourceManager.GetString("TestBadSelectionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This is the beginning of the test..
         /// </summary>
         public static string TestBeginningMessage {
@@ -491,15 +500,6 @@ namespace TestMate.Resources {
         public static string TestEndMessage {
             get {
                 return ResourceManager.GetString("TestEndMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Nothing selected!.
-        /// </summary>
-        public static string TestNoSelectionMessage {
-            get {
-                return ResourceManager.GetString("TestNoSelectionMessage", resourceCulture);
             }
         }
         
