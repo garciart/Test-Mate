@@ -7,32 +7,33 @@
         <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0" />
     </ContentPage.Padding>
     <ContentPage.Content>
-        <StackLayout Padding="10">
-            <Label x:Name="QuestionLabel" />
-            <BoxView HeightRequest="0" HorizontalOptions="FillAndExpand" Color="White" Margin="3" />
-            <ListView x:Name="ListView1">
-                <ListView.ItemTemplate HasUnevenRows="True">
-                    <DataTemplate>
-                        <ViewCell>
-                            <ViewCell.View>
-                                <StackLayout>
-                                    <Label x:Name="Label1" Text="{Binding ChoiceText}" LineBreakMode="WordWrap" VerticalOptions="CenterAndExpand" />
-                                </StackLayout>
-                            </ViewCell.View>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Button x:Name="ReviewButton" Text="{x:Static local:Resources.AppResources.ButtonReview}" StyleClass="button" Clicked="ReviewButton_Clicked" Grid.Column="0" />
-                <Button x:Name="QuitButton" Text="{x:Static local:Resources.AppResources.ButtonQuit}" StyleClass="button" Clicked="QuitButton_Clicked" Grid.Column="1" />
-                <Button x:Name="SubmitButton" Text="{x:Static local:Resources.AppResources.ButtonSubmit}" StyleClass="button" Clicked="SubmitButton_Clicked" Grid.Column="2" />
-            </Grid>
-        </StackLayout>
+        <ScrollView>
+            <StackLayout Padding="10">
+                <Label x:Name="QuestionLabel" />
+                <StackLayout VerticalOptions="FillAndExpand">
+                    <ListView x:Name="ListView1" HasUnevenRows="True">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.View>
+                                        <Label x:Name="Label1" Text="{Binding ChoiceText}" LineBreakMode="WordWrap" VerticalOptions="CenterAndExpand" Margin="6" />
+                                    </ViewCell.View>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="ReviewButton" Text="{x:Static local:Resources.AppResources.ButtonReview}" StyleClass="button" Clicked="ReviewButton_Clicked" Grid.Column="0" />
+                    <Button x:Name="QuitButton" Text="{x:Static local:Resources.AppResources.ButtonQuit}" StyleClass="button" Clicked="QuitButton_Clicked" Grid.Column="1" />
+                    <Button x:Name="SubmitButton" Text="{x:Static local:Resources.AppResources.ButtonSubmit}" StyleClass="button" Clicked="SubmitButton_Clicked" Grid.Column="2" />
+                </Grid>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
