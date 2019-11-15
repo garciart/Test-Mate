@@ -312,9 +312,9 @@ Configuration reset and saved.</comment>
     <value>Has llegado al final de la prueba.</value>
     <comment>You've reached the end of the test.</comment>
   </data>
-  <data name="TestNoSelectionMessage" xml:space="preserve">
-    <value>¡Nada seleccionado!</value>
-    <comment>Nothing selected!</comment>
+  <data name="TestBadSelectionMessage" xml:space="preserve">
+    <value>¡Selección invalida!</value>
+    <comment>Invalid selection!</comment>
   </data>
   <data name="TestQuitMessage" xml:space="preserve">
     <value>¿Seguro que quieres salir de esta prueba?</value>

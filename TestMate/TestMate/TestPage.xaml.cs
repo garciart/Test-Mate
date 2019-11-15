@@ -46,14 +46,15 @@ namespace TestMate {
         public TestPage(TestFile testFile) {
             InitializeComponent();
             // Create the actual test and store the questions in a list
-            Test test = new Test();
-            testQuestion = test.GetTest(Path.Combine(Constants.AppDataPath, testFile.FileName), App.questionOrder, App.termDisplay);
+            // Test test = new Test();
+            // testQuestion = test.GetTest(Path.Combine(Constants.AppDataPath, testFile.FileName), App.questionOrder, App.termDisplay);
+            testQuestion = AppFunctions.GetTest(Path.Combine(Constants.AppDataPath, testFile.FileName), App.questionOrder, App.termDisplay);
             // Initialize the results list instead of using Add. This makes changng the answers to questions easier
             foreach (TestQuestion tq in testQuestion) {
                 resultList.Add(new Result(tq.Question, null, false));
             }
             // Display the test title and the first question
-            testTitle = test.TestTitle;
+            testTitle = AppFunctions.TestTitle;
             PopulateControls();
         }
 
@@ -75,11 +76,8 @@ namespace TestMate {
         }
 
         private async void SubmitButton_Clicked(object sender, EventArgs e) {
-            string selectedItem = ((Choice)ListView1.SelectedItem).ChoiceText;
-            if (selectedItem == null) {
-                await this.DisplayAlert("Test Mate", AppResources.TestNoSelectionMessage, "OK");
-            }
-            else {
+            try {
+                string selectedItem = ((Choice)ListView1.SelectedItem).ChoiceText;
                 resultList[questionIndex].SelectedItem = selectedItem;
                 resultList[questionIndex].CorrectFlag = (resultList[questionIndex].SelectedItem == testQuestion[questionIndex].Choices[testQuestion[questionIndex].CorrectAnswerIndex]) ? true : false;
                 resultList[questionIndex].Correct = (resultList[questionIndex].SelectedItem == testQuestion[questionIndex].Choices[testQuestion[questionIndex].CorrectAnswerIndex]) ? AppResources.ButtonCorrect : AppResources.ButtonWrong;
@@ -97,6 +95,9 @@ namespace TestMate {
                     await this.DisplayAlert("Test Mate", AppResources.TestEndMessage, "OK");
                     EndTest();
                 }
+            }
+            catch (Exception ex) {
+                await this.DisplayAlert("Test Mate", AppResources.TestBadSelectionMessage, "OK");
             }
         }
 
