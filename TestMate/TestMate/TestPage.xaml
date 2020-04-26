@@ -16,7 +16,7 @@
                             <DataTemplate>
                                 <ViewCell>
                                     <ViewCell.View>
-                                        <Label x:Name="Label1" Text="{Binding ChoiceText}" LineBreakMode="WordWrap" VerticalOptions="CenterAndExpand" Margin="6" />
+                                        <Label x:Name="Label1" Text="{Binding ChoiceText}" LineBreakMode="WordWrap" Margin="6" />
                                     </ViewCell.View>
                                 </ViewCell>
                             </DataTemplate>
