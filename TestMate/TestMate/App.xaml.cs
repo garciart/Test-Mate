@@ -30,11 +30,7 @@ using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace TestMate {
-    /**
-     * Application controller page
-     *
-     * @author Rob Garcia at rgarcia@rgprogramming.com
-     */
+
     public partial class App : Application {
         // Initialize global settings
         public static Constants.QuestionOrder questionOrder = new Constants.QuestionOrder();
@@ -44,6 +40,9 @@ namespace TestMate {
         public static bool enableAppFlag = true;
         public static TestFile testFile = new TestFile();
 
+        /// <summary>
+        /// 
+        /// </summary>
         public App() {
             InitializeComponent();
             MainPage = new NavigationPage(new MainPage());
@@ -64,12 +63,18 @@ namespace TestMate {
             }
         }
 
+        /// <summary>
+        /// Handle when your app sleeps
+        /// </summary>
         protected override void OnSleep() {
-            // Handle when your app sleeps
+
         }
 
+        /// <summary>
+        /// Handle when your app resumes
+        /// </summary>
         protected override void OnResume() {
-            // Handle when your app resumes
+
         }
     }
 }
