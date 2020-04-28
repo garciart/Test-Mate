@@ -53,7 +53,8 @@ namespace TestMate {
                 byte[] returnedBytes = await AppFunctions.DownloadFileAsync(testURL);
                 File.WriteAllBytes(String.Format("{0}/{1}", Constants.AppDataPath, testFile), returnedBytes);
                 await this.DisplayAlert("Test Mate", AppResources.DownloadSuccessMessage, "OK");
-                await Application.Current.MainPage.Navigation.PopAsync();
+                OnAppearing();
+                // await Application.Current.MainPage.Navigation.PopAsync();
             }
             catch (Exception ex) {
                 await this.DisplayAlert("Test Mate", String.Format(AppResources.DownloadErrorMessage, ex.Message), "OK");
