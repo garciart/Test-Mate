@@ -22,15 +22,18 @@
  * THE SOFTWARE.
  */
 using System;
+using TestMate.Common;
 using Xamarin.Forms;
 
-namespace TestMate {
+namespace TestMate
+{
     public partial class MainPage : ContentPage {
         /// <summary>
         /// Initialize component and display logo, but disable buttons if unable to read or initialize settings file.
         /// </summary>
         public MainPage() {
             InitializeComponent();
+            AppFunctions.testGetFiles();
             // For uniformity, make sure image is 160 pixels per inch
             HeaderImage.Source = ImageSource.FromResource("TestMate.Assets.headerImage2.png");
             // Disable all buttons except the About button if App.xaml.cs was not able to read or initialize the settings file.
@@ -59,6 +62,11 @@ namespace TestMate {
 
         private async void DownloadButton_Clicked(object sender, EventArgs e) {
             await Navigation.PushAsync(new DownloadPage());
+        }
+
+        private async void DevTestButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new DevTestPage());
         }
     }
 }

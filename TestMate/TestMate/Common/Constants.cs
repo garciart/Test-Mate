@@ -34,6 +34,8 @@ namespace TestMate.Common {
         /// </summary>
         public static string AppDataPath { get; private set; } = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
 
+        // public static string AppDataPath { get; private set; } = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
         /// <summary>
         /// The settings file is in the local application data folder.
         /// </summary>

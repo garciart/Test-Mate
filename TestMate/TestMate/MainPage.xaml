@@ -18,6 +18,7 @@
                 <Button x:Name="SettingsButton" Text="{x:Static local:Resources.AppResources.SettingsTitle}" StyleClass="button" Clicked="SettingsButton_Clicked" IsEnabled="True" />
                 <Button x:Name="AboutButton" Text="{x:Static local:Resources.AppResources.AboutTitle}" StyleClass="button" Clicked="AboutButton_Clicked" />
                 <Button x:Name="DownloadButton" Text="{x:Static local:Resources.AppResources.DownloadTitle}" StyleClass="button" Clicked="DownloadButton_Clicked" IsEnabled="True" />
+                <Button x:Name="DevTestButton" Text="Dev Test Page" StyleClass="button" Clicked="DevTestButton_Clicked" IsEnabled="True" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

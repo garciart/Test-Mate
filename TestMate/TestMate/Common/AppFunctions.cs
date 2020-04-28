@@ -295,5 +295,34 @@ namespace TestMate.Common {
             }
             return testQuestion;
         }
+
+        public static async Task<string> testGetFiles()
+        {
+            /*
+            string baseURL = "http://testmate.rgprogramming.com";
+            WebClient client = new WebClient();
+            string content = client.DownloadString(baseURL);
+            */
+            string responseBody = "";
+            // Call asynchronous network methods in a try/catch block to handle exceptions.
+            try
+            {
+                HttpClient client = new HttpClient();
+                HttpResponseMessage response = await client.GetAsync("http://testmate.rgprogramming.com");
+                response.EnsureSuccessStatusCode();
+                responseBody = await response.Content.ReadAsStringAsync();
+                // Above three lines can be replaced with new helper method below
+                // string responseBody = await client.GetStringAsync(uri);
+
+                Console.WriteLine(responseBody);
+            }
+            catch (HttpRequestException e)
+            {
+                Console.WriteLine("\nException Caught!");
+                Console.WriteLine("Message :{0} ", e.Message);
+            }
+
+            return responseBody;
+        }
     }
 }
