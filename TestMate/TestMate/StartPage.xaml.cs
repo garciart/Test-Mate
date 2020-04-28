@@ -70,6 +70,7 @@ namespace TestMate {
                     if (File.Exists(f)) {
                         File.Delete(f);
                         await this.DisplayAlert("Test Mate", String.Format(AppResources.StartDeleteSuccessMessage, fileName), "OK");
+                        OnAppearing();
                     }
                     else {
                         await this.DisplayAlert("Test Mate", AppResources.StartDeleteNotFoundMessage, "OK");
@@ -78,7 +79,7 @@ namespace TestMate {
                 catch (Exception ex) {
                     await this.DisplayAlert("Test Mate", String.Format(AppResources.StartDeleteErrorMessage, ex.Message), "OK");
                 }
-                await Application.Current.MainPage.Navigation.PopAsync();
+                // await Application.Current.MainPage.Navigation.PopAsync();
             }
         }
     }
