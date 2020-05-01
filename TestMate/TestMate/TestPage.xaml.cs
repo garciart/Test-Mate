@@ -2,7 +2,7 @@
  * Question and answer page.
  *
  * .NET Standard version used: 2.0
- * C# version used: 8.0
+ * C# version used: 7.3
  *
  * Styling guide: .NET Core Engineering guidelines
  *     (https://github.com/dotnet/aspnetcore/wiki/Engineering-guidelines#coding-guidelines) and
@@ -27,9 +27,11 @@ using TestMate.Resources;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace TestMate {
+namespace TestMate
+{
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TestPage : ContentPage {
+    public partial class TestPage : ContentPage
+    {
         // Empty list of test questions; populated based on settings
         private readonly List<TestQuestion> testQuestion;
         // Initialize and set a question index to 0 each time a test is started
@@ -39,14 +41,16 @@ namespace TestMate {
         // Use this string (instead of creating a new instance of Test just to get the test title) for PoplateControls
         private readonly string testTitle = "";
 
-        public TestPage(TestFile testFile) {
+        public TestPage(TestFile testFile)
+        {
             InitializeComponent();
             // Create the actual test and store the questions in a list
             // Test test = new Test();
             // testQuestion = test.GetTest(Path.Combine(Constants.AppDataPath, testFile.FileName), App.questionOrder, App.termDisplay);
             testQuestion = AppFunctions.GetTest(Path.Combine(Constants.AppDataPath, testFile.FileName), App.questionOrder, App.termDisplay);
             // Initialize the results list instead of using Add. This makes changng the answers to questions easier
-            foreach (TestQuestion tq in testQuestion) {
+            foreach (TestQuestion tq in testQuestion)
+            {
                 resultList.Add(new Result(tq.Question, null, false));
             }
             // Display the test title and the first question
@@ -54,54 +58,67 @@ namespace TestMate {
             PopulateControls();
         }
 
-        private async void ReviewButton_Clicked(object sender, EventArgs e) {
-            if (questionIndex > 0) {
+        private async void ReviewButton_Clicked(object sender, EventArgs e)
+        {
+            if (questionIndex > 0)
+            {
                 questionIndex--;
                 PopulateControls();
             }
-            else {
+            else
+            {
                 await this.DisplayAlert("Test Mate", AppResources.TestBeginningMessage, "OK");
             }
         }
 
-        private async void QuitButton_Clicked(object sender, EventArgs e) {
+        private async void QuitButton_Clicked(object sender, EventArgs e)
+        {
             bool answer = await DisplayAlert("Test Mate", AppResources.TestQuitMessage, AppResources.ButtonYes, AppResources.ButtonNo);
-            if (answer) {
+            if (answer)
+            {
                 EndTest();
             }
         }
 
-        private async void SubmitButton_Clicked(object sender, EventArgs e) {
-            try {
+        private async void SubmitButton_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
                 string selectedItem = ((Choice)ListView1.SelectedItem).ChoiceText;
                 resultList[questionIndex].SelectedItem = selectedItem;
                 resultList[questionIndex].CorrectFlag = (resultList[questionIndex].SelectedItem == testQuestion[questionIndex].Choices[testQuestion[questionIndex].CorrectAnswerIndex]) ? true : false;
                 resultList[questionIndex].Correct = (resultList[questionIndex].SelectedItem == testQuestion[questionIndex].Choices[testQuestion[questionIndex].CorrectAnswerIndex]) ? AppResources.ButtonCorrect : AppResources.ButtonWrong;
-                if (App.provideFeedback == Constants.ProvideFeedback.Yes) {
+                if (App.provideFeedback == Constants.ProvideFeedback.Yes)
+                {
                     await this.DisplayAlert("Test Mate", resultList[questionIndex].CorrectFlag ?
                         AppResources.ButtonCorrect + "\n" + testQuestion[questionIndex].Explanation :
                         AppResources.ButtonWrong + "\n" + testQuestion[questionIndex].Explanation,
                         "OK");
                 }
-                if (questionIndex < (testQuestion.Count - 1)) {
+                if (questionIndex < (testQuestion.Count - 1))
+                {
                     questionIndex++;
                     PopulateControls();
                 }
-                else {
+                else
+                {
                     await this.DisplayAlert("Test Mate", AppResources.TestEndMessage, "OK");
                     EndTest();
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 await this.DisplayAlert("Test Mate", AppResources.TestBadSelectionMessage, "OK");
             }
         }
 
-        private void PopulateControls() {
+        private void PopulateControls()
+        {
             Title = testTitle;
             QuestionLabel.Text = String.Format("{0} ({1}/{2})", testQuestion[questionIndex].Question, questionIndex + 1, resultList.Count);
             ObservableCollection<Choice> itemList = new ObservableCollection<Choice>();
-            foreach (string c in testQuestion[questionIndex].Choices) {
+            foreach (string c in testQuestion[questionIndex].Choices)
+            {
                 itemList.Add(new Choice { ChoiceText = c });
             }
             ListView1.ItemsSource = itemList;
@@ -112,28 +129,33 @@ namespace TestMate {
             SubmitButton.IsEnabled = (questionIndex <= (testQuestion.Count)) ? true : false;
         }
 
-        private async void EndTest() {
+        private async void EndTest()
+        {
             // Reset the question index
             questionIndex = 0;
             // Get a count of correct answers
             int correctCount = 0;
-            foreach (Result r in resultList) {
+            foreach (Result r in resultList)
+            {
                 correctCount += r.CorrectFlag == true ? 1 : 0;
             }
             // Display current score and ask the user if they want to see a detailed results list
             bool answer = await DisplayAlert("Test Mate",
                 String.Format(AppResources.TestScoreMessage, ((float)correctCount / (float)resultList.Count) * 100, correctCount, resultList.Count),
                 "Yes", "No");
-            if (answer) {
+            if (answer)
+            {
                 await Navigation.PushAsync(new ResultsPage(resultList));
                 Navigation.RemovePage(this);
             }
-            else {
+            else
+            {
                 await Application.Current.MainPage.Navigation.PopAsync();
             }
         }
 
-        private void WriteTestToStorage() {
+        private void WriteTestToStorage()
+        {
             /*
             string myTest = "";
             foreach (TestQuestion t in testQuestion) {
@@ -157,7 +179,8 @@ namespace TestMate {
         }
     }
 
-    public class Choice {
+    public class Choice
+    {
         public string ChoiceText { get; set; }
     }
 }
