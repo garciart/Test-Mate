@@ -1,35 +1,33 @@
 ﻿/*
- * The MIT License
+ * TestMate model class for test question objects.
  *
- * Copyright 2019 Rob Garcia at rgarcia@rgprogramming.com.
+ * .NET Standard version used: 2.0
+ * C# version used: 7.3
  *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
+ * Styling guide: .NET Core Engineering guidelines
+ *     (https://github.com/dotnet/aspnetcore/wiki/Engineering-guidelines#coding-guidelines) and
+ *     C# Programming Guide
+ *     (https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/inside-a-program/coding-conventions)
  *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
+ * @category  Testmate
+ * @package   TestMate
+ * @author    Rob Garcia <rgarcia@rgprogramming.com>
+ * @license   https://opensource.org/licenses/MIT The MIT License
+ * @link      https://github.com/garciart/TestMate
+ * @copyright 1993-2020 Rob Garcia
  */
+
 using System;
 using System.Collections.Generic;
 using TestMate.Common;
 
-namespace TestMate.Models {
+namespace TestMate.Models
+{
     /// <summary>
     /// TestMate model class for test question objects.
     /// </summary>
-    public class TestQuestion : Question {
+    public class TestQuestion : Question
+    {
         private string question = "";
         private int numberOfChoices = 0;
         private List<string> choices = new List<string>();
@@ -54,13 +52,16 @@ namespace TestMate.Models {
                 return numberOfChoices;
             }
             set {
-                if (value < 0) {
+                if (value < 0)
+                {
                     throw new ArgumentException("The number of answers cannot be null or less than zero.");
                 }
-                else if (value > 6) {
+                else if (value > 6)
+                {
                     throw new ArgumentException("The number of answers cannot be greater than six.");
                 }
-                else {
+                else
+                {
                     numberOfChoices = value;
                 }
             }
@@ -94,7 +95,8 @@ namespace TestMate.Models {
         /// <param name="choices">An array of possible answers to the test question.</param>
         /// <param name="correctAnswerIndex">The location of the correct answer in the choices array.</param>
         /// <param name="explanation">The explanation for the correct answer of the test question.</param>
-        public TestQuestion(Constants.QuestionType questionType, string question, Constants.MediaType mediaType, string mediaFileName, int numberOfChoices, List<string> choices, int correctAnswerIndex, string explanation) {
+        public TestQuestion(Constants.QuestionType questionType, string question, Constants.MediaType mediaType, string mediaFileName, int numberOfChoices, List<string> choices, int correctAnswerIndex, string explanation)
+        {
             QuestionType = questionType;
             Question = question;
             MediaType = mediaType;

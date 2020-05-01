@@ -3,7 +3,7 @@
 Test Mate is a customizable, self-study system, designed to help you in achieve your educational and professional goals. Why study alone?
 
 
-![Welcome to Test Mate!](Images/tm_image_01.png "Welcome to Test Mate!"){width="200px" align="center"}
+![Welcome to Test Mate!](Images/tm_image_01.png "Welcome to Test Mate!"){width="200px"}
 
 ## Table of Contents
 
