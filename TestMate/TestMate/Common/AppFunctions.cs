@@ -1,25 +1,20 @@
 ﻿/*
- * The MIT License
+ * Code, functions, and methods common to all classes.
  *
- * Copyright 2019 Rob Garcia at rgarcia@rgprogramming.com.
+ * .NET Standard version used: 2.0
+ * C# version used: 7.3
  *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
+ * Styling guide: .NET Core Engineering guidelines
+ *     (https://github.com/dotnet/aspnetcore/wiki/Engineering-guidelines#coding-guidelines) and
+ *     C# Programming Guide
+ *     (https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/inside-a-program/coding-conventions)
  *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
+ * @category  Testmate
+ * @package   TestMate
+ * @author    Rob Garcia <rgarcia@rgprogramming.com>
+ * @license   https://opensource.org/licenses/MIT The MIT License
+ * @link      https://github.com/garciart/TestMate
+ * @copyright 1993-2020 Rob Garcia
  */
 
 using Newtonsoft.Json.Linq;
@@ -31,14 +26,16 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using TestMate.Resources;
 using TestMate.Models;
+using TestMate.Resources;
 
-namespace TestMate.Common {
+namespace TestMate.Common
+{
     /// <summary>
     /// Non-data access functions used throughout the application.
     /// </summary>
-    public static class AppFunctions {
+    public static class AppFunctions
+    {
         /// <summary>
         /// Initiate Random at the beginning, and then only once, or it will regenerate the same set of numbers
         /// </summary>
@@ -61,9 +58,12 @@ namespace TestMate.Common {
         /// Attempt to read and set stored settings. If the settings file is not found, it creates one with default values.
         /// </summary>
         /// <returns>Appropriate error message.</returns>
-        public static string ReadSettingsFromFile() {
-            try {
-                if (File.Exists(Constants.SettingsFile)) {
+        public static string ReadSettingsFromFile()
+        {
+            try
+            {
+                if (File.Exists(Constants.SettingsFile))
+                {
                     // File.Delete(Constants.SettingsFile);
                     settings = File.ReadAllLines(Constants.SettingsFile, Encoding.UTF8);
                     Enum.TryParse(settings[0], out App.questionOrder);
@@ -71,12 +71,14 @@ namespace TestMate.Common {
                     Enum.TryParse(settings[2], out App.provideFeedback);
                     return null;
                 }
-                else {
+                else
+                {
                     File.WriteAllLines(Constants.SettingsFile, settings, Encoding.UTF8);
                     return AppResources.SettingsMissingErrorMessage;
                 }
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 return string.Format(AppResources.SettingsReadErrorMessage, e.Message);
             }
         }
@@ -85,15 +87,18 @@ namespace TestMate.Common {
         /// Attempt to save settings to file.
         /// </summary>
         /// <returns>Appropriate error message.</returns>
-        public static string SaveSettingsToFile(Constants.QuestionOrder questionOrder, Constants.TermDisplay termDisplay, Constants.ProvideFeedback provideFeedback) {
-            try {
+        public static string SaveSettingsToFile(Constants.QuestionOrder questionOrder, Constants.TermDisplay termDisplay, Constants.ProvideFeedback provideFeedback)
+        {
+            try
+            {
                 settings[0] = questionOrder.ToString();
                 settings[1] = termDisplay.ToString();
                 settings[2] = provideFeedback.ToString();
                 File.WriteAllLines(Constants.SettingsFile, settings, Encoding.UTF8);
                 return string.Format(AppResources.SettingsSaveSuccessMessage);
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 return string.Format(AppResources.SettingsSaveErrorMessage, e.Message);
             }
         }
@@ -103,21 +108,27 @@ namespace TestMate.Common {
         /// </summary>
         /// <param name="fileUrl"></param>
         /// <returns></returns>
-        public static async Task<byte[]> DownloadFileAsync(string fileUrl) {
+        public static async Task<byte[]> DownloadFileAsync(string fileUrl)
+        {
             var _httpClient = new HttpClient { Timeout = TimeSpan.FromSeconds(15) };
 
-            try {
-                using (var httpResponse = await _httpClient.GetAsync(fileUrl)) {
-                    if (httpResponse.StatusCode == HttpStatusCode.OK) {
+            try
+            {
+                using (var httpResponse = await _httpClient.GetAsync(fileUrl))
+                {
+                    if (httpResponse.StatusCode == HttpStatusCode.OK)
+                    {
                         return await httpResponse.Content.ReadAsByteArrayAsync();
                     }
-                    else {
+                    else
+                    {
                         // Url is Invalid
                         return null;
                     }
                 }
             }
-            catch (Exception) {
+            catch (Exception)
+            {
                 //Handle Exception
                 return null;
             }
@@ -127,11 +138,13 @@ namespace TestMate.Common {
         /// Thanks to Alex at https://stackoverflow.com/questions/46302570/how-to-get-list-of-files-from-a-specific-github-repolink-in-c-sharp
         /// </summary>
         /// <returns></returns>
-        public static async Task<IEnumerable<string>> GetTestList() {
+        public static async Task<IEnumerable<string>> GetTestList()
+        {
             var repoOwner = "garciart";
             var repoName = "TestMate";
             var path = "Tests";
-            HttpClient client = new HttpClient {
+            HttpClient client = new HttpClient
+            {
                 BaseAddress = new Uri("https://api.github.com"),
                 DefaultRequestHeaders = {
                     {"User-Agent", "Github-API-Test"}
@@ -152,27 +165,33 @@ namespace TestMate.Common {
         /// <param name="questionOrder">Question order setting: Default to display questions as read from the file, Random to randomize the order.</param>
         /// <param name="termDisplay">Term display settings: TermAsQuestion to display terms as question (Default); DefinitionAsQuestion to display definitions as question; Mixed to mix it up.</param>
         /// <returns>A formatted list of test questions created from test data objects.</returns>
-        public static List<TestQuestion> GetTest(string testFileName, Constants.QuestionOrder questionOrder, Constants.TermDisplay termDisplay) {
+        public static List<TestQuestion> GetTest(string testFileName, Constants.QuestionOrder questionOrder, Constants.TermDisplay termDisplay)
+        {
             List<TestQuestion> testQuestions = new List<TestQuestion>();
             List<Question> testData = ReadFile(testFileName);
             List<int> ktIndex = new List<int>();
-            for (int x = 0; x < testData.Count; x++) {
-                if (testData[x].QuestionType == Constants.QuestionType.K) {
+            for (int x = 0; x < testData.Count; x++)
+            {
+                if (testData[x].QuestionType == Constants.QuestionType.K)
+                {
                     ktIndex.Add(x);
                 }
             }
             int ktCount = 0;
-            for (int x = 0; x < testData.Count; x++) {
+            for (int x = 0; x < testData.Count; x++)
+            {
                 Constants.QuestionType qt = testData[x].QuestionType;
                 RandomNumbers rn;
-                switch (qt) {
+                switch (qt)
+                {
                     case Constants.QuestionType.K:
                         KeyTermQuestion kt = (KeyTermQuestion)testData[x];
                         int ktNumberOfChoices = ((ktIndex.Count - 1) < 3 ? (ktIndex.Count - 1) : 3);
                         List<string> ktTempChoices = new List<string>();
                         rn = new RandomNumbers((ktIndex.Count - 1), ktCount, ktNumberOfChoices);
                         bool displayTermAsQuestion = true;
-                        switch (termDisplay) {
+                        switch (termDisplay)
+                        {
                             case Constants.TermDisplay.DefinitionAsQuestion:
                                 displayTermAsQuestion = false;
                                 break;
@@ -183,14 +202,18 @@ namespace TestMate.Common {
                             default:
                                 break;
                         }
-                        if (displayTermAsQuestion) {
-                            for (int y = 0; y <= ktNumberOfChoices; y++) {
+                        if (displayTermAsQuestion)
+                        {
+                            for (int y = 0; y <= ktNumberOfChoices; y++)
+                            {
                                 ktTempChoices.Add(((KeyTermQuestion)testData[ktIndex[rn.UniqueArray[y]]]).Definition);
                             }
                             testQuestions.Add(new TestQuestion(qt, kt.KeyTerm, kt.MediaType, kt.MediaFileName, ktNumberOfChoices, ktTempChoices, rn.IndexLocation, kt.Explanation));
                         }
-                        else {
-                            for (int y = 0; y <= ktNumberOfChoices; y++) {
+                        else
+                        {
+                            for (int y = 0; y <= ktNumberOfChoices; y++)
+                            {
                                 ktTempChoices.Add(((KeyTermQuestion)testData[ktIndex[rn.UniqueArray[y]]]).KeyTerm);
                             }
                             testQuestions.Add(new TestQuestion(qt, kt.Definition, kt.MediaType, kt.MediaFileName, ktNumberOfChoices, ktTempChoices, rn.IndexLocation, kt.Explanation));
@@ -201,7 +224,8 @@ namespace TestMate.Common {
                         MultipleChoiceQuestion mc = (MultipleChoiceQuestion)testData[x];
                         List<string> mcTempChoices = new List<string>();
                         rn = new RandomNumbers(mc.NumberOfChoices, 0, mc.NumberOfChoices);
-                        for (int i = 0; i <= mc.NumberOfChoices; i++) {
+                        for (int i = 0; i <= mc.NumberOfChoices; i++)
+                        {
                             mcTempChoices.Add(mc.Choices[rn.UniqueArray[i]]);
                         }
                         testQuestions.Add(new TestQuestion(qt, mc.Question, mc.MediaType, mc.MediaFileName, mc.NumberOfChoices, mcTempChoices, rn.IndexLocation, mc.Explanation));
@@ -218,9 +242,11 @@ namespace TestMate.Common {
                         throw new ArgumentException("Corrupt data. Check structure and values.");
                 }
             }
-            if (questionOrder == Constants.QuestionOrder.Random) {
+            if (questionOrder == Constants.QuestionOrder.Random)
+            {
                 RandomNumbers qoArray = new RandomNumbers(testQuestions.Count);
-                for (int x = 0; x < testQuestions.Count; x++) {
+                for (int x = 0; x < testQuestions.Count; x++)
+                {
                     TestQuestion temp = testQuestions[x];
                     testQuestions[x] = testQuestions[qoArray.UniqueArray[x]];
                     testQuestions[qoArray.UniqueArray[x]] = temp;
@@ -234,15 +260,20 @@ namespace TestMate.Common {
         /// </summary>
         /// <param name="testFileName"></param>
         /// <returns></returns>
-        private static List<Question> ReadFile(string testFileName) {
+        private static List<Question> ReadFile(string testFileName)
+        {
             List<Question> testQuestion = new List<Question>();
-            try {
-                using (StreamReader sr = new StreamReader(testFileName, Encoding.UTF8)) {
+            try
+            {
+                using (StreamReader sr = new StreamReader(testFileName, Encoding.UTF8))
+                {
                     TestTitle = sr.ReadLine();
                     string questionTypeFromFile;
-                    while ((questionTypeFromFile = sr.ReadLine()) != null) {
+                    while ((questionTypeFromFile = sr.ReadLine()) != null)
+                    {
                         questionTypeFromFile = questionTypeFromFile.ToUpperInvariant();
-                        if (questionTypeFromFile.Equals(Constants.QuestionType.K.ToString())) {
+                        if (questionTypeFromFile.Equals(Constants.QuestionType.K.ToString()))
+                        {
                             KeyTermQuestion k = new KeyTermQuestion();
                             k.KeyTerm = sr.ReadLine();
                             k.ValidateAndSetMedia((Constants.MediaType)Enum.Parse(typeof(Constants.MediaType), sr.ReadLine()), sr.ReadLine());
@@ -250,47 +281,57 @@ namespace TestMate.Common {
                             k.Explanation = k.KeyTerm + ": " + k.Definition;
                             testQuestion.Add(k);
                         }
-                        else if (questionTypeFromFile.Equals(Constants.QuestionType.M.ToString())) {
+                        else if (questionTypeFromFile.Equals(Constants.QuestionType.M.ToString()))
+                        {
                             MultipleChoiceQuestion m = new MultipleChoiceQuestion();
                             m.Question = sr.ReadLine();
                             m.ValidateAndSetMedia((Constants.MediaType)Enum.Parse(typeof(Constants.MediaType), sr.ReadLine()), sr.ReadLine());
                             m.NumberOfChoices = Int32.Parse(sr.ReadLine());
-                            for (int x = 0; x <= m.NumberOfChoices; x++) {
+                            for (int x = 0; x <= m.NumberOfChoices; x++)
+                            {
                                 m.Choices.Add(sr.ReadLine());
                             }
                             string tempExplanation = sr.ReadLine();
-                            if (tempExplanation.ToLowerInvariant().Equals("null") || String.IsNullOrEmpty(tempExplanation)) {
+                            if (tempExplanation.ToLowerInvariant().Equals("null") || String.IsNullOrEmpty(tempExplanation))
+                            {
                                 m.Explanation = "The answer is: " + m.Choices[0];
                             }
-                            else {
+                            else
+                            {
                                 m.Explanation = tempExplanation;
                             }
                             testQuestion.Add(m);
                         }
-                        else if (questionTypeFromFile.Equals(Constants.QuestionType.T.ToString())) {
+                        else if (questionTypeFromFile.Equals(Constants.QuestionType.T.ToString()))
+                        {
                             TrueFalseQuestion t = new TrueFalseQuestion();
                             t.Question = sr.ReadLine();
                             t.ValidateAndSetMedia((Constants.MediaType)Enum.Parse(typeof(Constants.MediaType), sr.ReadLine()), sr.ReadLine());
                             t.Answer = Boolean.Parse(sr.ReadLine());
                             string tempExplanation = sr.ReadLine();
-                            if (tempExplanation.ToLowerInvariant().Equals("null") || String.IsNullOrEmpty(tempExplanation)) {
+                            if (tempExplanation.ToLowerInvariant().Equals("null") || String.IsNullOrEmpty(tempExplanation))
+                            {
                                 t.Explanation = "The answer is: " + t.Answer;
                             }
-                            else {
+                            else
+                            {
                                 t.Explanation = tempExplanation;
                             }
                             testQuestion.Add(t);
                         }
-                        else {
+                        else
+                        {
                             throw new ArgumentException("Corrupt data file. Check structure and values.");
                         }
                     }
                 }
             }
-            catch (FileNotFoundException ex) {
+            catch (FileNotFoundException ex)
+            {
                 throw new FileNotFoundException("Cannot find test file: " + ex.ToString());
             }
-            catch (IOException ex) {
+            catch (IOException ex)
+            {
                 throw new IOException("Cannot open test file: " + ex.ToString());
             }
             return testQuestion;
