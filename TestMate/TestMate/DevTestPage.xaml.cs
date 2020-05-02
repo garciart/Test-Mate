@@ -39,7 +39,7 @@ namespace TestMate
 
         protected async override void OnAppearing()
         {
-            URLContent.Text = await AppFunctions.devGetPage();
+            // URLContent.Text = await AppFunctions.devGetPage();
             List<string> testfiles = new List<string>();
             testfiles = await AppFunctions.devGetFiles();
             TestList.ItemsSource = testfiles;

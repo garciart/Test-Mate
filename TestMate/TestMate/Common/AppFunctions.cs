@@ -340,22 +340,14 @@ namespace TestMate.Common
 
         public static async Task<List<string>> devGetFiles()
         {
-            /*
-            string baseURL = "http://testmate.rgprogramming.com";
-            WebClient client = new WebClient();
-            string content = client.DownloadString(baseURL);
-            */
             List<string> fileList = new List<string>();
-            // Call asynchronous network methods in a try/catch block to handle exceptions.
             try
             {
                 HttpClient client = new HttpClient();
-                /// HttpResponseMessage response = await client.GetAsync("http://testmate.rgprogramming.com");
-                /// response.EnsureSuccessStatusCode();
-                /// responseBody = await response.Content.ReadAsStringAsync();
-                // Above three lines can be replaced with new helper method below
+                // Get page contents. Should be a simple directory listing
                 string responseBody = await client.GetStringAsync("http://testmate.rgprogramming.com");
-                Regex regex = new Regex("<A HREF=\".*\">(?<name>.*)</A>");
+                // Collect only files that end in .tmf and return null if none found
+                Regex regex = new Regex("<A HREF=\".*?tmf\">(?<name>.*?tmf)</A>");
                 MatchCollection matches = regex.Matches(responseBody);
                 if (matches.Count == 0)
                 {
@@ -367,14 +359,12 @@ namespace TestMate.Common
                     {
                         if (!match.Success) { continue; }
                         fileList.Add(match.Groups["name"].ToString());
-                        Console.WriteLine(match.Groups["name"]);
                     }
                 }
             }
-            catch (HttpRequestException e)
+            catch (HttpRequestException ex)
             {
-                Console.WriteLine("\nException Caught!");
-                Console.WriteLine("Message :{0} ", e.Message);
+                throw new HttpRequestException("Cannot get directory listing: " + ex.ToString());
             }
             return fileList;
         }
