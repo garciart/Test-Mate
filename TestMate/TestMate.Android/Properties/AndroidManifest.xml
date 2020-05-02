@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!--
 Describes essential information about the app to the Android build tools, the Android operating system, and Google Play.
+
 .NET Standard version used: 2.0
 C# version used: 7.3
 

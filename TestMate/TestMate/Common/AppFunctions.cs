@@ -25,6 +25,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using TestMate.Models;
 using TestMate.Resources;
@@ -337,32 +338,50 @@ namespace TestMate.Common
             return testQuestion;
         }
 
-        public static async Task<string> testGetFiles()
+        public static async Task<List<string>> devGetFiles()
         {
-            /*
-            string baseURL = "http://testmate.rgprogramming.com";
-            WebClient client = new WebClient();
-            string content = client.DownloadString(baseURL);
-            */
-            string responseBody = "";
-            // Call asynchronous network methods in a try/catch block to handle exceptions.
+            List<string> fileList = new List<string>();
             try
             {
                 HttpClient client = new HttpClient();
-                HttpResponseMessage response = await client.GetAsync("http://testmate.rgprogramming.com");
-                response.EnsureSuccessStatusCode();
-                responseBody = await response.Content.ReadAsStringAsync();
-                // Above three lines can be replaced with new helper method below
-                // string responseBody = await client.GetStringAsync(uri);
+                // Get page contents. Should be a simple directory listing
+                string responseBody = await client.GetStringAsync("http://testmate.rgprogramming.com");
+                // Collect only files that end in .tmf and return null if none found
+                Regex regex = new Regex("<A HREF=\".*?tmf\">(?<name>.*?tmf)</A>");
+                MatchCollection matches = regex.Matches(responseBody);
+                if (matches.Count == 0)
+                {
+                    return null;
+                }
+                else
+                {
+                    foreach (Match match in matches)
+                    {
+                        if (!match.Success) { continue; }
+                        fileList.Add(match.Groups["name"].ToString());
+                    }
+                }
+            }
+            catch (HttpRequestException ex)
+            {
+                throw new HttpRequestException("Cannot get directory listing: " + ex.ToString());
+            }
+            return fileList;
+        }
 
-                Console.WriteLine(responseBody);
+        public static async Task<string> devGetPage()
+        {
+            string responseBody = null;
+            try
+            {
+                HttpClient client = new HttpClient();
+                responseBody = await client.GetStringAsync("http://testmate.rgprogramming.com");
             }
             catch (HttpRequestException e)
             {
                 Console.WriteLine("\nException Caught!");
                 Console.WriteLine("Message :{0} ", e.Message);
             }
-
             return responseBody;
         }
     }

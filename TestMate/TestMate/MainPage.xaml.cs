@@ -31,7 +31,6 @@ namespace TestMate
         public MainPage()
         {
             InitializeComponent();
-            AppFunctions.testGetFiles();
             // For uniformity, make sure image is 160 pixels per inch
             HeaderImage.Source = ImageSource.FromResource("TestMate.Assets.headerImage2.png");
             // Disable all buttons except the About button if App.xaml.cs was not able to read or initialize the settings file.

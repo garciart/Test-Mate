@@ -35,7 +35,14 @@ namespace TestMate
         public DevTestPage()
         {
             InitializeComponent();
-            URLContent.Text = AppFunctions.testGetFiles().ToString();
+        }
+
+        protected async override void OnAppearing()
+        {
+            // URLContent.Text = await AppFunctions.devGetPage();
+            List<string> testfiles = new List<string>();
+            testfiles = await AppFunctions.devGetFiles();
+            TestList.ItemsSource = testfiles;
         }
     }
 }
