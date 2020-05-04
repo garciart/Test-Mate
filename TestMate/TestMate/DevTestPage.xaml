@@ -11,7 +11,7 @@
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
             <Label x:Name="URLContent" />
-            <ListView x:Name="TestList" />
+            <ListView x:Name="TestList" ItemSelected="TestList_ItemSelected" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
