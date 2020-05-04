@@ -112,24 +112,27 @@ namespace TestMate.Common
         public static async Task<byte[]> DownloadFileAsync(string fileUrl)
         {
             var _httpClient = new HttpClient { Timeout = TimeSpan.FromSeconds(15) };
-
+            Console.WriteLine(">>> HERE!");
             try
             {
                 using (var httpResponse = await _httpClient.GetAsync(fileUrl))
                 {
+                    Console.WriteLine(">>> RESPONSE: " + httpResponse);
                     if (httpResponse.StatusCode == HttpStatusCode.OK)
                     {
                         return await httpResponse.Content.ReadAsByteArrayAsync();
                     }
                     else
                     {
+                        Console.WriteLine(">>> CHECK THE URL: " + fileUrl);
                         // Url is Invalid
                         return null;
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.WriteLine(">>> HAD AN EXCEPTION: " + ex.ToString());
                 //Handle Exception
                 return null;
             }
