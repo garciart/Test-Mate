@@ -111,7 +111,7 @@ namespace TestMate.Common
         /// <returns></returns>
         public static async Task<byte[]> DownloadFileAsync(string fileUrl)
         {
-            var _httpClient = new HttpClient { Timeout = TimeSpan.FromSeconds(15) };
+            var _httpClient = new HttpClient { Timeout = TimeSpan.FromSeconds(30) };
             Console.WriteLine(">>> HERE!");
             try
             {
@@ -386,6 +386,33 @@ namespace TestMate.Common
                 Console.WriteLine("Message :{0} ", e.Message);
             }
             return responseBody;
+        }
+
+        public static async void devDownloadFileAsync(string testFile)
+        {
+            try
+            {
+                Console.WriteLine(">>> TEST FILE: " + testFile);
+                // string testFileURL = "https://raw.githubusercontent.com/garciart/TestMate/master/Tests/" + testFile;
+                string testFileURL = "http://testmate.rgprogramming.com/" + testFile;
+                Console.WriteLine(">>> TEST FILE URL: " + testFileURL);
+                var client = new HttpClient { Timeout = TimeSpan.FromSeconds(15) };
+                var response = await client.GetAsync(testFileURL);
+                Console.WriteLine(">>> RESPONSE: " + response.ToString());
+                using (var stream = await response.Content.ReadAsStreamAsync())
+                {
+                    var fileInfo = new FileInfo(String.Format("{0}/{1}", Constants.AppDataPath, testFile));
+                    using (var fileStream = fileInfo.OpenWrite())
+                    {
+                        Console.WriteLine(">>> " + fileStream);
+                        await stream.CopyToAsync(fileStream);
+                    }
+                }
+             }
+            catch (Exception ex)
+            {
+                Console.WriteLine(">>> HAD AN EXCEPTION: " + ex.ToString());
+            }
         }
     }
 }
