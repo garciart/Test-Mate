@@ -43,20 +43,23 @@ namespace TestMate
         {
             base.OnAppearing();
             // URLContent.Text = await AppFunctions.devGetPage();
+            
             List<string> testfiles = new List<string>();
             testfiles = await AppFunctions.devGetFiles();
             TestList.ItemsSource = testfiles;
+            
         }
 
         private async void TestList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             // CHECK https://stackoverflow.com/questions/45711428/download-file-with-webclient-or-httpclient
             string testFile = e.SelectedItem as string;
-            string testURL = "http://testmate.rgprogramming.com/" + testFile;
+            Console.WriteLine(">>> SELECTED FILE: " + testFile);
+            string testFileURL = "http://testmate.rgprogramming.com/" + testFile;
+
             try
             {
-                byte[] returnedBytes = await AppFunctions.DownloadFileAsync(testURL);
-                File.WriteAllBytes(String.Format("{0}/{1}", Constants.AppDataPath, testFile), returnedBytes);
+                AppFunctions.devDownloadFileAsync(testFile);
                 await this.DisplayAlert("Test Mate", AppResources.DownloadSuccessMessage, "OK");
                 OnAppearing();
                 // await Application.Current.MainPage.Navigation.PopAsync();
