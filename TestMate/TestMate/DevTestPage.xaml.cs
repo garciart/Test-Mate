@@ -45,8 +45,23 @@ namespace TestMate
             // URLContent.Text = await AppFunctions.devGetPage();
             
             List<string> testfiles = new List<string>();
-            testfiles = await AppFunctions.devGetFiles();
-            TestList.ItemsSource = testfiles;
+            try
+            {
+                testfiles = await AppFunctions.devGetFiles();
+                if (testfiles != null)
+                {
+                    TestList.ItemsSource = testfiles;
+                }
+                else
+                {
+                    await this.DisplayAlert("Test Mate", "No files found!", "OK");
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                await this.DisplayAlert("Test Mate", "Something went wrong, but we've logged it in: " + ex.ToString(), "OK");
+            }
             
         }
 
@@ -55,11 +70,11 @@ namespace TestMate
             // CHECK https://stackoverflow.com/questions/45711428/download-file-with-webclient-or-httpclient
             string testFile = e.SelectedItem as string;
             Console.WriteLine(">>> SELECTED FILE: " + testFile);
-            string testFileURL = "http://testmate.rgprogramming.com/" + testFile;
+            // string testFileURL = "http://testmate.rgprogramming.com/" + testFile;
 
             try
             {
-                AppFunctions.devDownloadFileAsync(testFile);
+                AppFunctions.devDownloadFileAsync2(testFile);
                 await this.DisplayAlert("Test Mate", AppResources.DownloadSuccessMessage, "OK");
                 OnAppearing();
                 // await Application.Current.MainPage.Navigation.PopAsync();

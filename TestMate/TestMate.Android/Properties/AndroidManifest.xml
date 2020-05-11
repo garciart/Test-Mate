@@ -17,8 +17,7 @@ Styling guide: .NET Core Engineering guidelines
 @link      https://github.com/garciart/TestMate
 @copyright 1993-2020 Rob Garcia
 -->
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.TestMate" android:installLocation="auto">
-	<uses-sdk android:minSdkVersion="20" android:targetSdkVersion="27" />
+	<uses-sdk android:minSdkVersion="20" android:targetSdkVersion="28" />
 	<application android:label="TestMate.Android"></application>
 </manifest>
