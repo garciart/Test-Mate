@@ -29,6 +29,9 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using TestMate.Models;
 using TestMate.Resources;
+using Amazon.S3;
+using Amazon.S3.Model;
+using Amazon;
 
 namespace TestMate.Common
 {
@@ -37,6 +40,11 @@ namespace TestMate.Common
     /// </summary>
     public static class AppFunctions
     {
+        private const string bucketName = "rgprogramming-dev";
+        private const string keyName = "AKIA5CACE2VYJVADYU4O";
+        // Specify your bucket region (an example region is shown).
+        private static readonly RegionEndpoint bucketRegion = RegionEndpoint.USEast1;
+
         /// <summary>
         /// Initiate Random at the beginning, and then only once, or it will regenerate the same set of numbers
         /// </summary>
@@ -78,9 +86,9 @@ namespace TestMate.Common
                     return AppResources.SettingsMissingErrorMessage;
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                return string.Format(AppResources.SettingsReadErrorMessage, e.Message);
+                return string.Format(AppResources.SettingsReadErrorMessage, ex.Message);
             }
         }
 
@@ -98,9 +106,9 @@ namespace TestMate.Common
                 File.WriteAllLines(Constants.SettingsFile, settings, Encoding.UTF8);
                 return string.Format(AppResources.SettingsSaveSuccessMessage);
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                return string.Format(AppResources.SettingsSaveErrorMessage, e.Message);
+                return string.Format(AppResources.SettingsSaveErrorMessage, ex.Message);
             }
         }
 
@@ -348,6 +356,7 @@ namespace TestMate.Common
             {
                 HttpClient client = new HttpClient();
                 // Get page contents. Should be a simple directory listing
+                // Cause error: string responseBody = await client.GetStringAsync("http://www.shoreps.com/mytests");
                 string responseBody = await client.GetStringAsync("http://testmate.rgprogramming.com");
                 // Collect only files that end in .tmf and return null if none found
                 Regex regex = new Regex("<A HREF=\".*?tmf\">(?<name>.*?tmf)</A>");
@@ -378,12 +387,14 @@ namespace TestMate.Common
             try
             {
                 HttpClient client = new HttpClient();
+                // Cause error: responseBody = await client.GetStringAsync("http://www.shoreps.com/mytests");
                 responseBody = await client.GetStringAsync("http://testmate.rgprogramming.com");
             }
-            catch (HttpRequestException e)
+            catch (HttpRequestException ex)
             {
                 Console.WriteLine("\nException Caught!");
-                Console.WriteLine("Message :{0} ", e.Message);
+                Console.WriteLine("Message :{0} ", ex.Message);
+                throw new HttpRequestException("Cannot page markup: " + ex.ToString());
             }
             return responseBody;
         }
@@ -408,7 +419,38 @@ namespace TestMate.Common
                         await stream.CopyToAsync(fileStream);
                     }
                 }
-             }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(">>> HAD AN EXCEPTION: " + ex.ToString());
+            }
+        }
+
+        public static async void devDownloadFileAsync2(string testFile)
+        {
+            IAmazonS3 client = new AmazonS3Client(bucketRegion);
+            string responseBody = "";
+            try
+            {
+                GetObjectRequest request = new GetObjectRequest
+                {
+                    BucketName = bucketName,
+                    Key = keyName
+                };
+                using (GetObjectResponse response = await client.GetObjectAsync(request))
+                using (Stream responseStream = response.ResponseStream)
+                using (StreamReader reader = new StreamReader(responseStream))
+                {
+                    responseBody = reader.ReadToEnd();
+                    Console.WriteLine(">>> RESPONSE BODY: " + response);
+                    FileInfo fileInfo = new FileInfo(String.Format("{0}/{1}", Constants.AppDataPath, testFile));
+                    System.IO.File.WriteAllText(fileInfo.FullName, responseBody);
+                }
+            }
+            catch (AmazonS3Exception ex)
+            {
+                Console.WriteLine(">>> Error encountered ***. Message:'{0}' when writing an object", ex.Message);
+            }
             catch (Exception ex)
             {
                 Console.WriteLine(">>> HAD AN EXCEPTION: " + ex.ToString());
