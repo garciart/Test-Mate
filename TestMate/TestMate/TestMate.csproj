@@ -17,6 +17,14 @@
     <None Remove="Assets\TMBanner.png" />
     <None Remove="Assets\tmbanner360.png" />
     <None Remove="Assets\tmicon48.png" />
+    <None Remove="dev\check.tmf" />
+    <None Remove="dev\EMS-01-Airway.tmf" />
+    <None Remove="dev\multiline.tmf" />
+    <None Remove="dev\one-question.tmf" />
+    <None Remove="dev\small-test.tmf" />
+    <None Remove="dev\smaller-test.tmf" />
+    <None Remove="dev\smallest-test.tmf" />
+    <None Remove="dev\wtf.tmf" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +34,14 @@
     <EmbeddedResource Include="Assets\TMBanner.png" />
     <EmbeddedResource Include="Assets\tmbanner360.png" />
     <EmbeddedResource Include="Assets\tmicon48.png" />
+    <EmbeddedResource Include="dev\check.tmf" />
+    <EmbeddedResource Include="dev\EMS-01-Airway.tmf" />
+    <EmbeddedResource Include="dev\multiline.tmf" />
+    <EmbeddedResource Include="dev\one-question.tmf" />
+    <EmbeddedResource Include="dev\small-test.tmf" />
+    <EmbeddedResource Include="dev\smaller-test.tmf" />
+    <EmbeddedResource Include="dev\smallest-test.tmf" />
+    <EmbeddedResource Include="dev\wtf.tmf" />
   </ItemGroup>
 
   <ItemGroup>
@@ -71,9 +87,5 @@
     <EmbeddedResource Update="TestPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="dev\" />
   </ItemGroup>
 </Project>
