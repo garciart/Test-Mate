@@ -32,6 +32,7 @@ using TestMate.Resources;
 using Amazon.S3;
 using Amazon.S3.Model;
 using Amazon;
+using System.Reflection;
 
 namespace TestMate.Common
 {
@@ -354,102 +355,30 @@ namespace TestMate.Common
             List<string> fileList = new List<string>();
             try
             {
-                HttpClient client = new HttpClient();
-                // Get page contents. Should be a simple directory listing
-                // Cause error: string responseBody = await client.GetStringAsync("http://www.shoreps.com/mytests");
-                string responseBody = await client.GetStringAsync("http://testmate.rgprogramming.com");
-                // Collect only files that end in .tmf and return null if none found
-                Regex regex = new Regex("<A HREF=\".*?tmf\">(?<name>.*?tmf)</A>");
-                MatchCollection matches = regex.Matches(responseBody);
-                if (matches.Count == 0)
-                {
-                    return null;
-                }
-                else
-                {
-                    foreach (Match match in matches)
-                    {
-                        if (!match.Success) { continue; }
-                        fileList.Add(match.Groups["name"].ToString());
-                    }
-                }
+                Assembly assembly = Assembly.GetExecutingAssembly();
+                string[] fileArray = assembly.GetManifestResourceNames();
+                fileList = fileArray.ToList();
+                fileList.RemoveAll(fl => !fl.EndsWith(".tmf"));
             }
-            catch (HttpRequestException ex)
+            catch (Exception ex)
             {
-                throw new HttpRequestException("Cannot get directory listing: " + ex.ToString());
+                Console.WriteLine(">>> HAD AN EXCEPTION: " + ex.ToString());
             }
             return fileList;
-        }
-
-        public static async Task<string> devGetPage()
-        {
-            string responseBody = null;
-            try
-            {
-                HttpClient client = new HttpClient();
-                // Cause error: responseBody = await client.GetStringAsync("http://www.shoreps.com/mytests");
-                responseBody = await client.GetStringAsync("http://testmate.rgprogramming.com");
-            }
-            catch (HttpRequestException ex)
-            {
-                Console.WriteLine("\nException Caught!");
-                Console.WriteLine("Message :{0} ", ex.Message);
-                throw new HttpRequestException("Cannot page markup: " + ex.ToString());
-            }
-            return responseBody;
         }
 
         public static async void devDownloadFileAsync(string testFile)
         {
             try
             {
-                Console.WriteLine(">>> TEST FILE: " + testFile);
-                // string testFileURL = "https://raw.githubusercontent.com/garciart/TestMate/master/Tests/" + testFile;
-                string testFileURL = "http://testmate.rgprogramming.com/" + testFile;
-                Console.WriteLine(">>> TEST FILE URL: " + testFileURL);
-                var client = new HttpClient { Timeout = TimeSpan.FromSeconds(15) };
-                var response = await client.GetAsync(testFileURL);
-                Console.WriteLine(">>> RESPONSE: " + response.ToString());
-                using (var stream = await response.Content.ReadAsStreamAsync())
+                using (var resourceStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(testFile))
                 {
                     var fileInfo = new FileInfo(String.Format("{0}/{1}", Constants.AppDataPath, testFile));
                     using (var fileStream = fileInfo.OpenWrite())
                     {
-                        Console.WriteLine(">>> " + fileStream);
-                        await stream.CopyToAsync(fileStream);
+                        await resourceStream.CopyToAsync(fileStream);
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(">>> HAD AN EXCEPTION: " + ex.ToString());
-            }
-        }
-
-        public static async void devDownloadFileAsync2(string testFile)
-        {
-            IAmazonS3 client = new AmazonS3Client(bucketRegion);
-            string responseBody = "";
-            try
-            {
-                GetObjectRequest request = new GetObjectRequest
-                {
-                    BucketName = bucketName,
-                    Key = keyName
-                };
-                using (GetObjectResponse response = await client.GetObjectAsync(request))
-                using (Stream responseStream = response.ResponseStream)
-                using (StreamReader reader = new StreamReader(responseStream))
-                {
-                    responseBody = reader.ReadToEnd();
-                    Console.WriteLine(">>> RESPONSE BODY: " + response);
-                    FileInfo fileInfo = new FileInfo(String.Format("{0}/{1}", Constants.AppDataPath, testFile));
-                    System.IO.File.WriteAllText(fileInfo.FullName, responseBody);
-                }
-            }
-            catch (AmazonS3Exception ex)
-            {
-                Console.WriteLine(">>> Error encountered ***. Message:'{0}' when writing an object", ex.Message);
             }
             catch (Exception ex)
             {

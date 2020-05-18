@@ -74,7 +74,7 @@ namespace TestMate
 
             try
             {
-                AppFunctions.devDownloadFileAsync2(testFile);
+                AppFunctions.devDownloadFileAsync(testFile);
                 await this.DisplayAlert("Test Mate", AppResources.DownloadSuccessMessage, "OK");
                 OnAppearing();
                 // await Application.Current.MainPage.Navigation.PopAsync();
